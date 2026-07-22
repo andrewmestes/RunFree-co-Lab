@@ -81,15 +81,36 @@
   .bigquote{border-left:5px solid;border-image:var(--grad) 1;background:var(--muted);padding:1.8rem 2rem;border-radius:0 var(--radius) var(--radius) 0;font-size:1.12rem;font-style:italic;color:var(--dark);margin:2rem 0}
   .bigquote cite{display:block;margin-top:.8rem;font-style:normal;font-size:.85rem;color:var(--fg)}
 
-  /* roadmap */
-  .stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.4rem;margin-top:2.5rem}
-  .stage{background:#fff;border:1px solid var(--border);border-radius:1rem;padding:1.9rem;display:flex;gap:1.3rem;align-items:flex-start;box-shadow:0 4px 14px rgb(17 24 39 / .05);transition:transform .2s ease, box-shadow .2s ease}
-  .stage:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgb(17 24 39 / .1)}
-  .stage img{width:72px;height:72px;object-fit:contain;flex-shrink:0}
-  .stage .num{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .stage h3{margin-top:.15rem}
-  .stage .mantra{display:inline-block;font-size:.8rem;font-weight:600;color:var(--navy);background:rgb(31 55 140 / .08);border-radius:999px;padding:.2rem .8rem;margin:.3rem 0 .6rem}
-  .stage p{font-size:.92rem;margin:0}
+  /* roadmap — one-line icon journey */
+  .journey{max-width:880px;margin:3rem auto 0}
+  .journey-track{position:relative;display:flex;justify-content:space-between;align-items:flex-start}
+  .journey-track::before{content:"";position:absolute;top:44px;left:44px;right:44px;height:4px;background:var(--border);border-radius:999px}
+  .journey-track::after{content:"";position:absolute;top:44px;left:44px;height:4px;background:var(--grad);border-radius:999px;width:var(--progress,0%);max-width:calc(100% - 88px);transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .jstop{position:relative;z-index:1;background:none;border:0;cursor:pointer;font-family:var(--font);display:flex;flex-direction:column;align-items:center;gap:.55rem;width:88px}
+  .jstop .disc{width:88px;height:88px;border-radius:50%;background:#fff;border:3px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+  .jstop img{width:52px;height:52px;object-fit:contain;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+  .jstop .jlabel{font-size:.72rem;font-weight:600;color:var(--fg);letter-spacing:.04em;transition:color .3s}
+  .jstop:hover .disc{border-color:#f3b6d4;transform:translateY(-4px)}
+  .jstop[aria-selected="true"] .disc{border-color:transparent;background-image:linear-gradient(#fff,#fff),var(--grad);background-origin:border-box;background-clip:padding-box,border-box;transform:translateY(-6px) scale(1.08);box-shadow:0 16px 34px rgb(228 61 150 / .25);animation:pop .45s cubic-bezier(.34,1.56,.64,1)}
+  .jstop[aria-selected="true"] img{transform:scale(1.12)}
+  .jstop[aria-selected="true"] .jlabel{color:var(--dark);font-weight:700}
+  @keyframes pop{0%{transform:translateY(-6px) scale(.92)}60%{transform:translateY(-6px) scale(1.14)}100%{transform:translateY(-6px) scale(1.08)}}
+  .stage-panel{margin-top:2.2rem;background:#fff;border:1px solid var(--border);border-radius:1.2rem;padding:2.4rem 2.6rem;box-shadow:0 14px 40px rgb(17 24 39 / .08);text-align:left;min-height:13rem}
+  .stage-panel.switching .panel-inner{opacity:0;transform:translateY(10px)}
+  .panel-inner{transition:opacity .28s ease,transform .28s ease}
+  .stage-panel .num{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stage-panel h3{font-size:1.5rem;margin:.2rem 0 .5rem}
+  .stage-panel .mantra{display:inline-block;font-size:.85rem;font-weight:600;color:var(--navy);background:rgb(31 55 140 / .08);border-radius:999px;padding:.25rem 1rem;margin-bottom:.9rem}
+  .stage-panel p{font-size:1rem;margin:0;max-width:52em}
+  @media (max-width:640px){
+    .jstop{width:52px}
+    .jstop .disc{width:52px;height:52px;border-width:2px}
+    .jstop img{width:30px;height:30px}
+    .jstop .jlabel{display:none}
+    .journey-track::before{top:26px;left:26px;right:26px}
+    .journey-track::after{top:26px;left:26px;max-width:calc(100% - 52px)}
+    .stage-panel{padding:1.6rem}
+  }
 
   /* personas / not for */
   .personas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:2.5rem}
@@ -106,19 +127,30 @@
   .authority{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:start}
   .authority-quote{font-size:1.15rem;font-style:italic;color:var(--dark);border-left:5px solid;border-image:var(--grad) 1;padding-left:1.4rem;margin:1.8rem 0 .6rem}
   .authority-quote+cite{font-style:normal;font-size:.9rem}
-  .books{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-  .book{background:var(--muted);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;text-align:center}
-  .book b{display:block;color:var(--dark);font-size:.95rem}
-  .book span{font-size:.8rem}
+  .bookshelf{display:flex;justify-content:center;gap:1.2rem;align-items:flex-end;flex-wrap:wrap}
+  .book{text-align:center;width:150px;transition:transform .3s ease}
+  .book img{width:100%;border-radius:6px;box-shadow:0 14px 30px rgb(17 24 39 / .22);display:block;transition:transform .3s ease,box-shadow .3s ease}
+  .book:nth-child(1) img{transform:rotate(-3deg)}
+  .book:nth-child(3) img{transform:rotate(3deg)}
+  .book:hover img{transform:rotate(0) translateY(-8px) scale(1.04);box-shadow:0 24px 44px rgb(17 24 39 / .3)}
+  .book b{display:block;color:var(--dark);font-size:.88rem;margin-top:.9rem}
+  .book span{font-size:.78rem;color:var(--fg)}
+  .shelf-note{text-align:center;font-size:.85rem;color:var(--fg);margin-top:1.4rem}
+  .will-cite{display:flex;align-items:center;gap:.9rem;margin-top:1rem}
+  .will-cite img{width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 4px 12px rgb(17 24 39 / .18)}
+  .will-cite cite{font-style:normal;font-size:.9rem}
+  .will-cite b{display:block;color:var(--dark)}
   .frame-img{width:100%;max-width:420px;margin:1.6rem auto 0;display:block}
 
   /* testimonials */
   .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;margin-top:2.5rem}
-  .quote{background:#fff;border:1px solid var(--border);border-radius:1rem;padding:1.9rem;display:flex;flex-direction:column;gap:1rem;box-shadow:0 4px 14px rgb(17 24 39 / .05)}
-  .quote p{font-size:1rem;color:var(--dark);font-style:italic;margin:0}
-  .quote p::before{content:"“";color:var(--primary);font-size:1.4em;font-weight:700}
-  .quote footer b{display:block;color:var(--dark);font-size:.92rem}
-  .quote footer span{font-size:.82rem}
+  .quote{background:#fff;border:1px solid var(--border);border-radius:1rem;padding:2rem;display:flex;flex-direction:column;box-shadow:0 4px 14px rgb(17 24 39 / .05)}
+  .quote .qmark{font-size:2.6rem;line-height:1;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-family:Georgia,serif;height:1.6rem}
+  .quote p{font-size:1rem;color:var(--dark);margin:0 0 1.4rem;flex:1}
+  .quote footer{display:flex;align-items:center;gap:.85rem;border-top:1px solid var(--border);padding-top:1.2rem}
+  .quote footer img{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0}
+  .quote footer b{display:block;color:var(--dark);font-size:.92rem;line-height:1.3}
+  .quote footer span{font-size:.8rem;line-height:1.4;display:block}
 
   /* included */
   .included{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:2.5rem}
@@ -257,30 +289,22 @@
       <h2>Six stages. Six master tools. One journey your whole team takes together.</h2>
       <p class="sub" style="margin:0 auto">The Pivvot process moves your team through six stages — each with a proven master tool and a mantra your leaders will still be repeating years from now.</p>
     </div>
-    <div class="stages">
-      <div class="stage">
-        <img src="assets/tool-1-funnel-fusion.png" alt="Funnel Fusion tool icon">
-        <div><span class="num">Stage 1 · Problem</span><h3>Funnel Fusion</h3><span class="mantra">Move the Finish Line!</span><p>Name the real problem. Redefine success beyond attendance and programs, and fuse Jesus' multiplication model into your ministry model.</p></div>
+    <div class="journey">
+      <div class="journey-track" id="jtrack" role="tablist" aria-label="The six stages of the Pivvot process">
+        <button class="jstop" role="tab" aria-selected="true" data-i="0"><span class="disc"><img src="assets/tool-1-funnel-fusion.png" alt=""></span><span class="jlabel">Funnel Fusion</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="1"><span class="disc"><img src="assets/tool-2-crowd-cloud.png" alt=""></span><span class="jlabel">Crowd Cloud</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="2"><span class="disc"><img src="assets/tool-3-disciples-journey.png" alt=""></span><span class="jlabel">Disciple's Journey</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="3"><span class="disc"><img src="assets/tool-4-kingdom-platform.png" alt=""></span><span class="jlabel">Kingdom Platform</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="4"><span class="disc"><img src="assets/tool-5-vision-frame.png" alt=""></span><span class="jlabel">Vision Frame</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="5"><span class="disc"><img src="assets/tool-6-horizon-storyline.png" alt=""></span><span class="jlabel">Horizon Storyline</span></button>
       </div>
-      <div class="stage">
-        <img src="assets/tool-2-crowd-cloud.png" alt="Crowd Cloud tool icon">
-        <div><span class="num">Stage 2 · Potential</span><h3>Crowd Cloud</h3><span class="mantra">Become a Hero-Maker!</span><p>See the disciple-making potential already in your pews — every believer's relational world where they live, work, learn, and play.</p></div>
-      </div>
-      <div class="stage">
-        <img src="assets/tool-3-disciples-journey.png" alt="Disciple's Journey tool icon">
-        <div><span class="num">Stage 3 · Pathway</span><h3>Disciple's Journey</h3><span class="mantra">Build a Training Center!</span><p>Pivot from content-focused teaching to practice-based training — a clear pathway that forms the disciples Jesus modeled.</p></div>
-      </div>
-      <div class="stage">
-        <img src="assets/tool-4-kingdom-platform.png" alt="Kingdom Platform tool icon">
-        <div><span class="num">Stage 4 · People</span><h3>Kingdom Platform</h3><span class="mantra">Empower Each One!</span><p>Help every member recognize and step into their unique Ephesians 2:10 calling — everyday missionaries, released.</p></div>
-      </div>
-      <div class="stage">
-        <img src="assets/tool-5-vision-frame.png" alt="Vision Frame tool icon">
-        <div><span class="num">Stage 5 · Portal</span><h3>Vision Frame</h3><span class="mantra">Design the Culture!</span><p>Codify your church's unique DNA by answering the five irreducible questions of leadership — mission, values, strategy, measures, vision.</p></div>
-      </div>
-      <div class="stage">
-        <img src="assets/tool-6-horizon-storyline.png" alt="Horizon Storyline tool icon">
-        <div><span class="num">Stage 6 · Picture</span><h3>Horizon Storyline</h3><span class="mantra">Create the Future!</span><p>Clarify a God-sized dream for 2030 and beyond — with a simple, executable plan every leader can rally around.</p></div>
+      <div class="stage-panel" id="jpanel" role="tabpanel">
+        <div class="panel-inner">
+          <span class="num" id="jnum">Stage 1 · Problem</span>
+          <h3 id="jtitle">Funnel Fusion</h3>
+          <span class="mantra" id="jmantra">Move the Finish Line!</span>
+          <p id="jdesc">Name the real problem. Redefine success beyond attendance and programs, and fuse Jesus' multiplication model into your ministry model.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -318,15 +342,18 @@
         <p>The Vision Frame is 21 years old — and it is no theory. More than 3,000 churches have been guided through the full process, and over 40,000 church teams have used the Vision Frame. The co::Lab draws directly from <i>Church Unique</i>, <i>God Dreams</i>, <i>Younique</i>, and <i>Future Church</i> — and your team gets digital access to the full library for the entire year.</p>
         <p>Your guide is <b style="color:var(--dark)">Andrew Estes</b>, RunFree Vision Coach — who co-facilitates alongside Will Mancini and has walked church teams through this exact process for years.</p>
         <blockquote class="authority-quote">"Every church needs a strategic outsider — a trusted confidant, a well-equipped guide who helps them get out of the echo chamber, out of their own way, into clarity."</blockquote>
-        <cite>— Will Mancini, founder of the Vision Frame</cite>
+        <div class="will-cite">
+          <img src="assets/will-mancini.png" alt="Will Mancini">
+          <cite><b>Will Mancini</b>Founder of the Vision Frame · Author of Church Unique, God Dreams, Younique &amp; Future Church</cite>
+        </div>
       </div>
       <div>
-        <div class="books">
-          <div class="book"><b>Church Unique</b><span>The Vision Frame</span></div>
-          <div class="book"><b>God Dreams</b><span>The Horizon Storyline</span></div>
-          <div class="book"><b>Future Church</b><span>Funnel Fusion &amp; the 7 Laws</span></div>
-          <div class="book"><b>Younique</b><span>Personal calling</span></div>
+        <div class="bookshelf">
+          <div class="book"><img src="assets/book-church-unique.jpg" alt="Church Unique by Will Mancini"><b>Church Unique</b><span>The Vision Frame</span></div>
+          <div class="book"><img src="assets/book-god-dreams.png" alt="God Dreams by Will Mancini"><b>God Dreams</b><span>The Horizon Storyline</span></div>
+          <div class="book"><img src="assets/book-future-church.jpg" alt="Future Church by Will Mancini"><b>Future Church</b><span>Funnel Fusion &amp; the 7 Laws</span></div>
         </div>
+        <p class="shelf-note">Plus <b>Younique</b> — the personal calling journey. Digital access to the full library is included for your whole team, all year.</p>
         <img class="frame-img" src="assets/vision-frame-with-symbols.png" alt="The Vision Frame — mission, values, strategy, measures, and vision">
       </div>
     </div>
@@ -338,19 +365,23 @@
     <div class="center">
       <span class="kicker">Raving fans</span>
       <h2>Churches the Vision Frame has transformed</h2>
+      <p class="sub" style="margin:0 auto">The same tools that clarify vision for some of the largest churches in the country were built for churches of every size — and this cohort is reserved for churches like yours.</p>
     </div>
     <div class="quotes">
       <div class="quote">
-        <p>RunFree helped us align 30,000 members around a clear, compelling vision for the first time in decades.</p>
-        <footer><b>Dr. Steve Gaines</b><span>Senior Pastor, Bellevue Baptist Church, Memphis, TN</span></footer>
-      </div>
-      <div class="quote">
-        <p>The Vision Frame gave us language our entire leadership team could rally behind. Game changer.</p>
-        <footer><b>Ken Werlein</b><span>Executive Pastor, Faithbridge Church, Spring, TX</span></footer>
-      </div>
-      <div class="quote">
+        <span class="qmark">“</span>
         <p>We went from 15 competing priorities to 3 clear ones. Our staff has never been more focused.</p>
-        <footer><b>Steve Andrews</b><span>Senior Pastor, Kensington Church, Troy, MI</span></footer>
+        <footer><img src="assets/pastor-andrews.webp" alt="Steve Andrews"><div><b>Steve Andrews</b><span>Senior Pastor, Kensington Church, Troy, MI</span></div></footer>
+      </div>
+      <div class="quote">
+        <span class="qmark">“</span>
+        <p>The Vision Frame gave us language our entire leadership team could rally behind. Game changer.</p>
+        <footer><img src="assets/pastor-werlein.webp" alt="Ken Werlein"><div><b>Ken Werlein</b><span>Executive Pastor, Faithbridge Church, Spring, TX</span></div></footer>
+      </div>
+      <div class="quote">
+        <span class="qmark">“</span>
+        <p>RunFree helped us align 30,000 members around a clear, compelling vision for the first time in decades.</p>
+        <footer><img src="assets/pastor-gaines.jpg" alt="Dr. Steve Gaines"><div><b>Dr. Steve Gaines</b><span>Senior Pastor, Bellevue Baptist Church, Memphis, TN</span></div></footer>
       </div>
     </div>
   </div>
@@ -522,6 +553,54 @@
 </footer>
 
 <script>
+  // Interactive stage journey
+  const STAGES = [
+    {num:"Stage 1 · Problem",   title:"Funnel Fusion",      mantra:"Move the Finish Line!",    desc:"Name the real problem. Redefine success beyond attendance and programs, and fuse Jesus' multiplication model into your ministry model."},
+    {num:"Stage 2 · Potential", title:"Crowd Cloud",        mantra:"Become a Hero-Maker!",     desc:"See the disciple-making potential already in your pews — every believer's relational world where they live, work, learn, and play."},
+    {num:"Stage 3 · Pathway",   title:"Disciple's Journey", mantra:"Build a Training Center!", desc:"Pivot from content-focused teaching to practice-based training — a clear pathway that forms the disciples Jesus modeled."},
+    {num:"Stage 4 · People",    title:"Kingdom Platform",   mantra:"Empower Each One!",        desc:"Help every member recognize and step into their unique Ephesians 2:10 calling — everyday missionaries, released."},
+    {num:"Stage 5 · Portal",    title:"Vision Frame",       mantra:"Design the Culture!",      desc:"Codify your church's unique DNA by answering the five irreducible questions of leadership — mission, values, strategy, measures, vision."},
+    {num:"Stage 6 · Picture",   title:"Horizon Storyline",  mantra:"Create the Future!",       desc:"Clarify a God-sized dream for 2030 and beyond — with a simple, executable plan every leader can rally around."}
+  ];
+  const track = document.getElementById('jtrack');
+  const panel = document.getElementById('jpanel');
+  const stops = Array.from(track.querySelectorAll('.jstop'));
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0, timer = null, interacted = false;
+  function render(i){
+    const s = STAGES[i];
+    document.getElementById('jnum').textContent = s.num;
+    document.getElementById('jtitle').textContent = s.title;
+    document.getElementById('jmantra').textContent = s.mantra;
+    document.getElementById('jdesc').textContent = s.desc;
+  }
+  function select(i, animate=true){
+    if (i === current && animate) return;
+    current = i;
+    stops.forEach((b,j)=>b.setAttribute('aria-selected', j===i ? 'true':'false'));
+    track.style.setProperty('--progress', (i/(STAGES.length-1))*100 + '%');
+    if (animate && !reduced){
+      panel.classList.add('switching');
+      setTimeout(()=>{ render(i); panel.classList.remove('switching'); }, 280);
+    } else {
+      render(i);
+    }
+  }
+  function stopAuto(){ interacted = true; if (timer){ clearInterval(timer); timer = null; } }
+  stops.forEach(b=>{
+    b.addEventListener('click', ()=>{ stopAuto(); select(+b.dataset.i); });
+    b.addEventListener('mouseenter', ()=>{ stopAuto(); select(+b.dataset.i); });
+  });
+  select(0, false);
+  if (!reduced){
+    const jio = new IntersectionObserver(es=>es.forEach(e=>{
+      if (e.isIntersecting && !timer && !interacted){
+        timer = setInterval(()=>select((current+1)%STAGES.length), 4200);
+      } else if (!e.isIntersecting && timer){ clearInterval(timer); timer = null; }
+    }), {threshold:.4});
+    jio.observe(track);
+  }
+
   // Animated counters, matching the certification page's stats band
   const ease = t => 1 - Math.pow(1 - t, 3);
   const fmt = n => n.toLocaleString('en-US');
