@@ -127,18 +127,20 @@
   .authority{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:start}
   .authority-quote{font-size:1.15rem;font-style:italic;color:var(--dark);border-left:5px solid;border-image:var(--grad) 1;padding-left:1.4rem;margin:1.8rem 0 .6rem}
   .authority-quote+cite{font-style:normal;font-size:.9rem}
-  .bookshelf{display:flex;justify-content:center;gap:1rem;align-items:flex-start;flex-wrap:wrap}
-  .book{text-align:center;width:96px}
-  .book img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:5px;box-shadow:0 10px 24px rgb(17 24 39 / .22);display:block;transition:transform .3s ease,box-shadow .3s ease}
+  .bookshelf{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 1.2rem;max-width:340px;margin:0 auto}
+  .book{text-align:center;text-decoration:none;display:block}
+  .book img{width:100%;max-width:120px;aspect-ratio:2/3;object-fit:cover;border-radius:5px;box-shadow:0 10px 24px rgb(17 24 39 / .22);display:block;margin:0 auto;transition:transform .3s ease,box-shadow .3s ease}
   .book:hover img{transform:translateY(-6px) scale(1.05);box-shadow:0 20px 38px rgb(17 24 39 / .3)}
-  .book b{display:block;color:var(--dark);font-size:.8rem;margin-top:.7rem;line-height:1.3}
-  .book span{font-size:.72rem;color:var(--fg);line-height:1.3;display:block}
-  .shelf-note{text-align:center;font-size:.85rem;color:var(--fg);margin-top:1.4rem}
+  .book b{display:block;color:var(--dark);font-size:.82rem;margin-top:.7rem;line-height:1.3}
+  .book span{font-size:.73rem;color:var(--fg);line-height:1.3;display:block}
+  .book .buy{display:inline-block;margin-top:.35rem;font-size:.72rem;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .book:hover .buy{text-decoration:underline;text-decoration-color:var(--primary)}
+  .shelf-note{text-align:center;font-size:.85rem;color:var(--fg);margin-top:1.8rem}
   .will-cite{display:flex;align-items:center;gap:.9rem;margin-top:1rem}
   .will-cite img{width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 4px 12px rgb(17 24 39 / .18)}
   .will-cite cite{font-style:normal;font-size:.9rem}
   .will-cite b{display:block;color:var(--dark)}
-  .frame-img{width:100%;max-width:420px;margin:1.6rem auto 0;display:block}
+  .frame-img{width:100%;max-width:240px;margin:2.2rem auto 0;display:block}
 
   /* testimonials */
   .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;margin-top:2.5rem}
@@ -347,10 +349,10 @@
       </div>
       <div>
         <div class="bookshelf">
-          <div class="book"><img src="assets/book-church-unique.jpg" alt="Church Unique by Will Mancini"><b>Church Unique</b><span>The Vision Frame</span></div>
-          <div class="book"><img src="assets/book-god-dreams.jpg" alt="God Dreams by Will Mancini"><b>God Dreams</b><span>Horizon Storyline</span></div>
-          <div class="book"><img src="assets/book-future-church.jpg" alt="Future Church by Will Mancini"><b>Future Church</b><span>Funnel Fusion</span></div>
-          <div class="book"><img src="assets/book-younique.jpg" alt="Younique by Will Mancini"><b>Younique</b><span>Personal calling</span></div>
+          <a class="book" href="https://www.amazon.com/dp/0787996831" target="_blank" rel="noopener"><img src="assets/book-church-unique.jpg" alt="Church Unique by Will Mancini"><b>Church Unique</b><span>The Vision Frame</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/B0DHPHJ1QZ" target="_blank" rel="noopener"><img src="assets/book-god-dreams.jpg" alt="God Dreams by Will Mancini"><b>God Dreams</b><span>Horizon Storyline</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/1540900614" target="_blank" rel="noopener"><img src="assets/book-future-church.jpg" alt="Future Church by Will Mancini"><b>Future Church</b><span>Funnel Fusion</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/B0DHQMY5DQ" target="_blank" rel="noopener"><img src="assets/book-younique.jpg" alt="Younique by Will Mancini"><b>Younique</b><span>Personal calling</span><span class="buy">Buy on Amazon ↗</span></a>
         </div>
         <p class="shelf-note">Digital access to the full library is included for your whole team, all year.</p>
         <img class="frame-img" src="assets/vision-frame-with-symbols.png" alt="The Vision Frame — mission, values, strategy, measures, and vision">
