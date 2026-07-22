@@ -3,114 +3,184 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A 10-month guided Vision Framing journey for churches — clarify your unique disciple-making vision with RunFree.Co and CCL Network. Grant-funded: $2,500 per church.">
+<meta name="description" content="The Pivvot Vision Framing co::Lab — a 10-month guided journey for your church's lead team, built on the Vision Frame used by 40,000+ church teams. Grant-funded through CCL Network: $250/month.">
 <title>Pivvot Vision Framing co::Lab — RunFree.Co × CCL Network</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* RunFree brand: PANTONE 2746 #1F378C · 172 #F15A25 · 186 #E11837 · 225 #E43D96
-     Guidelines: Montserrat/Open Sans (matches runfree.co) · angular — avoid curves, use boxes */
+  /* Matches runfree.co/certification design system:
+     Poppins · white ground · gray-600 body · near-black heads · gradient #E43D96→#F15A25 · radius .5rem/pill */
   :root{
+    --primary:#E43D96;
+    --secondary:#F15A25;
     --navy:#1F378C;
-    --orange:#F15A25;
-    --red:#E11837;
-    --magenta:#E43D96;
-    --ink:#1e2430;
-    --paper:#FFFFFF;
-    --card:#FFFFFF;
-    --soft:#F2F4FA;
-    --slate:#5b6472;
-    --line:#d9dde6;
-    --head:'Montserrat',Helvetica,Arial,sans-serif;
-    --body:'Open Sans',Helvetica,Arial,sans-serif;
+    --fg:#4b5563;
+    --dark:#111827;
+    --muted:#f9fafb;
+    --border:#e5e7eb;
+    --radius:.5rem;
+    --grad:linear-gradient(90deg,#E43D96,#F15A25);
+    --font:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.65;font-size:17px}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-  .narrow{max-width:720px;margin-left:auto;margin-right:auto}
-  section{padding:72px 0}
-  h1,h2,h3{font-family:var(--head);font-weight:800;text-wrap:balance;line-height:1.12;color:var(--navy)}
-  h1{font-size:clamp(2rem,5.2vw,3.3rem);text-transform:uppercase;letter-spacing:.01em}
-  h2{font-size:clamp(1.5rem,3.4vw,2.1rem);margin-bottom:20px;text-transform:uppercase}
-  h3{font-size:1.05rem;margin-bottom:6px;text-transform:uppercase;letter-spacing:.03em}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--fg);background:#fff;line-height:1.7;font-size:16.5px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+  .narrow{max-width:760px;margin-left:auto;margin-right:auto}
+  section{padding:5.5rem 0}
+  h1,h2,h3{color:var(--dark);font-weight:700;line-height:1.15;text-wrap:balance}
+  h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+  h2{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800;letter-spacing:-.01em;margin-bottom:1rem}
+  h3{font-size:1.15rem;margin-bottom:.4rem}
   p{margin-bottom:1em}
-  .eyebrow{font-family:var(--head);font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--magenta);margin-bottom:14px}
-  .eyebrow.orange{color:var(--orange)}
-  .muted{color:var(--slate)}
-  a.btn{display:inline-block;padding:15px 30px;font-family:var(--head);font-weight:700;text-decoration:none;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em;border:2px solid transparent}
-  a.btn-primary{background:var(--magenta);color:#fff}
-  a.btn-primary:hover{background:var(--red)}
-  a.btn-ghost{border-color:var(--navy);color:var(--navy);background:transparent}
-  a.btn-ghost:hover{background:var(--navy);color:#fff}
-  .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .center{text-align:center}
+  .kicker{display:inline-flex;align-items:center;gap:.5rem;background:var(--grad);color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.55rem 1.3rem;border-radius:999px;margin-bottom:1.6rem}
+  .kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:#fff;opacity:.85}
+  .sub{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--fg);max-width:44em}
+  .muted-sec{background:var(--muted);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  a.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:999px;font-weight:600;text-decoration:none;padding:1rem 2.1rem;font-size:1.02rem;transition:all .2s ease;border:2px solid transparent}
+  a.btn-grad{background:var(--grad);color:#fff;box-shadow:0 8px 24px rgb(228 61 150 / .25)}
+  a.btn-grad:hover{opacity:.92;transform:translateY(-1px)}
+  a.btn-outline{border-color:var(--dark);color:var(--dark)}
+  a.btn-outline:hover{background:var(--dark);color:#fff}
+  .btn-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.4rem 1rem;color:var(--fg);font-size:.95rem;margin-top:1.4rem}
+  .meta-row span{display:inline-flex;align-items:center;gap:.6rem}
+  .meta-row span+span::before{content:"·";color:#c9ced6;margin-right:.6rem}
 
-  header{border-bottom:4px solid var(--navy);padding:16px 0;background:#fff}
-  header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-  header img{height:52px;width:auto;display:block}
-  .partner{font-family:var(--head);font-size:.72rem;font-weight:700;color:var(--slate);letter-spacing:.1em;text-transform:uppercase;text-align:right}
+  /* header */
+  header{position:sticky;top:0;z-index:999;background:rgb(255 255 255 / .85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:5.5rem}
+  header img{height:3rem;width:auto;display:block}
+  .head-cta{display:flex;align-items:center;gap:1.2rem}
+  .head-partner{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fg);text-align:right;line-height:1.5}
+  a.head-btn{background:var(--grad);color:#fff;border-radius:var(--radius);padding:.55rem 1.1rem;font-weight:500;text-decoration:none;font-size:.95rem;white-space:nowrap}
+  a.head-btn:hover{opacity:.9}
 
-  .hero{padding:92px 0 72px;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--soft) 0%,#fff 60%)}
-  .hero .lede{font-size:1.2rem;color:var(--slate);max-width:40em;margin-top:22px}
-  .vmark{position:absolute;right:-30px;top:10px;width:360px;height:360px;opacity:.08;pointer-events:none}
-  .hero-facts{display:flex;gap:0;flex-wrap:wrap;margin-top:40px;border:2px solid var(--navy);background:#fff}
-  .fact{flex:1 1 140px;padding:16px 20px;border-right:2px solid var(--navy)}
-  .fact:last-child{border-right:none}
-  .fact b{display:block;font-family:var(--head);font-weight:800;font-size:1.7rem;color:var(--navy);font-variant-numeric:tabular-nums}
-  .fact span{font-size:.75rem;color:var(--slate);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+  /* hero */
+  .hero{padding:6rem 0 4.5rem;text-align:center;background:
+    radial-gradient(60rem 30rem at 15% -5%, rgb(228 61 150 / .07), transparent 60%),
+    radial-gradient(60rem 30rem at 85% -5%, rgb(241 90 37 / .07), transparent 60%)}
+  .hero .sub{margin:1.5rem auto 0}
+  .hero .meta-row{justify-content:center}
+  .hero .btn-row{justify-content:center}
+  .hero-note{font-size:.85rem;color:#9ca3af;margin-top:1rem}
 
-  .strip{background:var(--navy);color:#fff;padding:60px 0}
-  .strip blockquote{font-family:var(--head);font-weight:600;font-size:clamp(1.2rem,2.8vw,1.6rem);line-height:1.45;max-width:34em}
-  .strip blockquote::before{content:"";display:block;width:64px;height:6px;background:var(--orange);margin-bottom:24px}
-  .strip cite{display:block;margin-top:18px;font-family:var(--body);font-style:normal;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;text-align:center}
+  .stat b{display:block;font-size:clamp(2rem,4.5vw,2.9rem);font-weight:800;color:var(--dark);font-variant-numeric:tabular-nums}
+  .stat span{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fg)}
 
-  .shift{display:grid;grid-template-columns:72px 1fr;gap:20px;padding:24px 0;border-bottom:2px solid var(--line)}
-  .shift:last-of-type{border-bottom:none}
-  .shift .num{font-family:var(--head);font-weight:800;font-size:2.1rem;color:var(--magenta);font-variant-numeric:tabular-nums;line-height:1}
-  .shift .tag{font-family:var(--head);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+  /* video */
+  .video-box{position:relative;padding-top:56.25%;border-radius:1rem;overflow:hidden;box-shadow:0 25px 60px rgb(17 24 39 / .18);background:var(--dark)}
+  .video-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-  .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:12px}
-  .tool{background:var(--card);border:2px solid var(--navy);padding:24px;position:relative}
-  .tool::before{content:"";position:absolute;top:0;left:0;right:0;height:6px}
-  .tool.c-navy::before{background:var(--navy)}
-  .tool.c-orange::before{background:var(--orange)}
-  .tool.c-red::before{background:var(--red)}
-  .tool.c-magenta::before{background:var(--magenta)}
-  .tool h3{font-size:1rem;margin-top:10px}
-  .tool p{font-size:.92rem;color:var(--slate);margin:0}
-  .tool svg{width:44px;height:44px;display:block}
+  /* problem */
+  .bigquote{border-left:5px solid;border-image:var(--grad) 1;background:var(--muted);padding:1.8rem 2rem;border-radius:0 var(--radius) var(--radius) 0;font-size:1.12rem;font-style:italic;color:var(--dark);margin:2rem 0}
+  .bigquote cite{display:block;margin-top:.8rem;font-style:normal;font-size:.85rem;color:var(--fg)}
 
-  .format{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-  .format div{border-left:6px solid var(--orange);padding-left:18px}
-  .format b{font-family:var(--head);font-weight:700;font-size:1rem;text-transform:uppercase;color:var(--navy)}
-  .format p{font-size:.92rem;color:var(--slate);margin:6px 0 0}
+  /* roadmap */
+  .stages{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.4rem;margin-top:2.5rem}
+  .stage{background:#fff;border:1px solid var(--border);border-radius:1rem;padding:1.9rem;display:flex;gap:1.3rem;align-items:flex-start;box-shadow:0 4px 14px rgb(17 24 39 / .05);transition:transform .2s ease, box-shadow .2s ease}
+  .stage:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgb(17 24 39 / .1)}
+  .stage img{width:72px;height:72px;object-fit:contain;flex-shrink:0}
+  .stage .num{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stage h3{margin-top:.15rem}
+  .stage .mantra{display:inline-block;font-size:.8rem;font-weight:600;color:var(--navy);background:rgb(31 55 140 / .08);border-radius:999px;padding:.2rem .8rem;margin:.3rem 0 .6rem}
+  .stage p{font-size:.92rem;margin:0}
 
-  .price-card{background:#fff;border:3px solid var(--navy);padding:48px 40px;text-align:center;max-width:600px;margin:0 auto}
-  .was{font-family:var(--head);font-weight:700;font-size:1.5rem;color:var(--slate);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:3px}
-  .now{font-family:var(--head);font-weight:800;font-size:clamp(2.6rem,6vw,3.8rem);color:var(--navy);margin:8px 0;font-variant-numeric:tabular-nums}
-  .now small{font-size:1.05rem;font-weight:600;color:var(--slate)}
-  .grant{display:inline-block;background:var(--navy);color:#fff;font-family:var(--head);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;margin-bottom:20px}
-  .includes{text-align:left;margin:28px auto 0;max-width:28em;font-size:.95rem;list-style:none}
-  .includes li{padding:9px 0 9px 30px;position:relative;border-bottom:1px solid var(--line)}
-  .includes li:last-child{border-bottom:none}
-  .includes li::before{content:"";position:absolute;left:2px;top:16px;width:12px;height:12px;background:var(--orange)}
-  .includes li:nth-child(even)::before{background:var(--magenta)}
+  /* personas / not for */
+  .personas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:2.5rem}
+  .persona{background:#fff;border:1px solid var(--border);border-radius:1rem;padding:1.9rem}
+  .persona h3{font-size:1.05rem}
+  .persona p{font-size:.93rem;margin:0}
+  .notfor{max-width:640px;margin:3rem auto 0;background:#fff;border:1px solid var(--border);border-radius:1rem;padding:1.9rem}
+  .notfor h3{font-size:1.05rem}
+  .notfor ul{list-style:none;margin-top:.8rem}
+  .notfor li{padding:.45rem 0 .45rem 1.9rem;position:relative;font-size:.95rem}
+  .notfor li::before{content:"✕";position:absolute;left:.2rem;color:var(--primary);font-weight:700}
 
-  .who{list-style:none}
-  .who li{margin:0 0 12px;padding-left:30px;position:relative}
-  .who li::before{content:"";position:absolute;left:0;top:8px;width:14px;height:14px;background:var(--magenta)}
+  /* instructor */
+  .authority{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:start}
+  .authority-quote{font-size:1.15rem;font-style:italic;color:var(--dark);border-left:5px solid;border-image:var(--grad) 1;padding-left:1.4rem;margin:1.8rem 0 .6rem}
+  .authority-quote+cite{font-style:normal;font-size:.9rem}
+  .books{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+  .book{background:var(--muted);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;text-align:center}
+  .book b{display:block;color:var(--dark);font-size:.95rem}
+  .book span{font-size:.8rem}
+  .frame-img{width:100%;max-width:420px;margin:1.6rem auto 0;display:block}
 
-  .host{display:grid;grid-template-columns:110px 1fr;gap:26px;align-items:start;background:var(--soft);border:2px solid var(--navy);padding:32px}
-  .host .avatar{width:110px;height:110px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-weight:800;font-size:2.2rem;color:#fff}
-  .host p{font-size:.95rem;margin-bottom:.6em}
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.4rem;margin-top:2.5rem}
+  .quote{background:#fff;border:1px solid var(--border);border-radius:1rem;padding:1.9rem;display:flex;flex-direction:column;gap:1rem;box-shadow:0 4px 14px rgb(17 24 39 / .05)}
+  .quote p{font-size:1rem;color:var(--dark);font-style:italic;margin:0}
+  .quote p::before{content:"“";color:var(--primary);font-size:1.4em;font-weight:700}
+  .quote footer b{display:block;color:var(--dark);font-size:.92rem}
+  .quote footer span{font-size:.82rem}
 
-  footer{background:var(--navy);color:#fff;padding:40px 0;font-size:.85rem}
-  footer a{color:#fff}
-  @media (max-width:640px){
-    .shift{grid-template-columns:48px 1fr}
-    .host{grid-template-columns:1fr}
-    .vmark{display:none}
-    .partner{text-align:left}
+  /* included */
+  .included{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-top:2.5rem}
+  .inc-group{background:#fff;border:1px solid var(--border);border-radius:1rem;padding:1.9rem}
+  .inc-group h3{font-size:1rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;margin-bottom:1rem}
+  .inc-group ul{list-style:none}
+  .inc-group li{padding:.45rem 0 .45rem 1.9rem;position:relative;font-size:.93rem}
+  .inc-group li::before{content:"✓";position:absolute;left:.1rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+
+  /* pricing */
+  .ways{display:grid;grid-template-columns:1.2fr .8fr;gap:1.6rem;margin-top:2.5rem;align-items:stretch}
+  .price-card{position:relative;background:#fff;border:2px solid transparent;background-image:linear-gradient(#fff,#fff),var(--grad);background-origin:border-box;background-clip:padding-box,border-box;border-radius:1.2rem;padding:2.6rem;box-shadow:0 20px 50px rgb(228 61 150 / .12)}
+  .badge-rec{position:absolute;top:-0.9rem;left:2.4rem;background:var(--grad);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem 1rem;border-radius:999px}
+  .was{font-size:1.25rem;font-weight:600;color:#9ca3af;text-decoration:line-through}
+  .price{font-size:clamp(2.6rem,6vw,3.6rem);font-weight:800;color:var(--dark);line-height:1.05;font-variant-numeric:tabular-nums}
+  .price small{font-size:1.05rem;font-weight:500;color:var(--fg)}
+  .grant-note{display:inline-block;background:rgb(31 55 140 / .08);color:var(--navy);font-size:.8rem;font-weight:600;border-radius:999px;padding:.3rem 1rem;margin:.8rem 0 1.2rem}
+  .price-card ul{list-style:none;margin:1.2rem 0 1.8rem}
+  .price-card li{padding:.4rem 0 .4rem 1.9rem;position:relative;font-size:.95rem}
+  .price-card li::before{content:"✓";position:absolute;left:.1rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+  .talk-card{background:var(--muted);border:1px solid var(--border);border-radius:1.2rem;padding:2.6rem;display:flex;flex-direction:column;justify-content:center}
+  .talk-card ul{list-style:none;margin:1.2rem 0 1.8rem}
+  .talk-card li{padding:.35rem 0 .35rem 1.7rem;position:relative;font-size:.92rem}
+  .talk-card li::before{content:"—";position:absolute;left:.1rem;color:var(--primary);font-weight:700}
+
+  /* faq */
+  .faq{max-width:760px;margin:2.5rem auto 0}
+  details{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.8rem;background:#fff;overflow:hidden}
+  summary{cursor:pointer;padding:1.1rem 1.4rem;font-weight:600;color:var(--dark);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;flex-shrink:0}
+  details[open] summary::after{content:"–"}
+  details div{padding:0 1.4rem 1.2rem;font-size:.95rem}
+
+  /* email template */
+  .email-card{max-width:760px;margin:2.5rem auto 0;background:#fff;border:1px solid var(--border);border-radius:1rem;overflow:hidden;box-shadow:0 4px 14px rgb(17 24 39 / .05)}
+  .email-head{background:var(--muted);border-bottom:1px solid var(--border);padding:1rem 1.6rem;font-size:.85rem}
+  .email-head b{color:var(--dark)}
+  .email-body{padding:1.6rem;font-size:.93rem}
+  .email-body p{margin-bottom:.8em}
+
+  /* letter */
+  .letter{max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:1.2rem;padding:3rem;box-shadow:0 10px 30px rgb(17 24 39 / .06)}
+  .letter p{font-size:1.02rem}
+  .letter .sign{font-weight:700;color:var(--dark)}
+
+  /* final cta */
+  .final{background:var(--dark);color:#e5e7eb;text-align:center}
+  .final h2{color:#fff}
+  .final .urgency{display:inline-block;background:rgb(228 61 150 / .15);color:#f9a8d4;border:1px solid rgb(228 61 150 / .4);font-size:.85rem;font-weight:600;border-radius:999px;padding:.4rem 1.2rem;margin-bottom:1.4rem}
+  .final .fine{font-size:.85rem;color:#9ca3af;margin-top:1.4rem}
+
+  footer{background:#0b101b;color:#9ca3af;padding:2.5rem 0;font-size:.85rem;text-align:center}
+  footer a{color:#d1d5db}
+
+  @media (max-width:860px){
+    .authority{grid-template-columns:1fr}
+    .ways{grid-template-columns:1fr}
+    .head-partner{display:none}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .stage,.stage:hover,a.btn-grad:hover{transform:none;transition:none}
   }
 </style>
 </head>
@@ -118,176 +188,358 @@
 
 <header>
   <div class="wrap">
-    <img src="assets/runfree-logo.png" alt="RunFree.Co — church vision and team coaching">
-    <div class="partner">In partnership with CCL Network<br>Funded in part by a Lilly Endowment grant</div>
+    <a href="https://runfree.co"><img src="assets/runfree-logo.png" alt="RunFree.Co"></a>
+    <div class="head-cta">
+      <div class="head-partner">In partnership with CCL Network<br>Funded in part by a Lilly Endowment grant</div>
+      <a class="head-btn" href="#register">Reserve Your Seat</a>
+    </div>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <svg class="vmark" viewBox="0 0 200 200" aria-hidden="true">
-      <path d="M20 20 L70 160 L120 20" fill="none" stroke="#1F378C" stroke-width="16"/>
-      <path d="M80 20 L130 160 L180 20" fill="none" stroke="#E11837" stroke-width="16"/>
-    </svg>
-    <p class="eyebrow">Pivvot Vision Framing co::Lab · 2026 Cohort</p>
-    <h1>Stop photocopying vision.<br>Lead the church only <span style="color:var(--magenta)">your</span> church can be.</h1>
-    <p class="lede">A 10-month guided journey for lead ministers and their teams — built on the Vision Frame that has served 40,000+ church teams — to clarify your church's unique disciple-making identity and craft a God-sized dream for 2030 and beyond.</p>
+    <span class="kicker">Pivvot Vision Framing co::Lab · RunFree.Co × CCL Network</span>
+    <h1>Stop photocopying vision.<br>Lead the church only <span class="grad-text">your church</span> can be.</h1>
+    <p class="sub">A 10-month guided journey for your church's lead team — built on the Vision Frame that has served 40,000+ church teams — to name your unique disciple-making identity and craft a God-sized dream for 2030 and beyond.</p>
+    <div class="meta-row">
+      <span>2026 cohort</span>
+      <span>10 monthly virtual intensives</span>
+      <span>8 churches only</span>
+      <span>Your whole lead team</span>
+    </div>
     <div class="btn-row">
-      <a class="btn btn-primary" href="#register">Reserve your church's seat</a>
-      <a class="btn btn-ghost" href="#talk">Talk with Andrew first</a>
+      <a class="btn btn-grad" href="#register">Reserve Your Church's Seat — $250/mo</a>
+      <a class="btn btn-outline" href="#talk">Start with a conversation</a>
     </div>
-    <div class="hero-facts">
-      <div class="fact"><b>8</b><span>churches max</span></div>
-      <div class="fact"><b>10</b><span>months</span></div>
-      <div class="fact"><b>40+</b><span>hours of training</span></div>
-      <div class="fact"><b>50%</b><span>grant-funded</span></div>
-    </div>
+    <p class="hero-note">Normally $5,000 per church — grant-funded to $2,500 through CCL Network's Lilly Endowment grant.</p>
   </div>
 </div>
 
-<div class="strip">
+<section class="muted-sec" style="padding:3.2rem 0">
   <div class="wrap">
-    <blockquote>"Many leaders have never actually turned the lights on in the upper room. They haven't done the deep work of codifying the mission, the values, the discipleship pathway — the vision of where we're going as a church."
-      <cite>Andrew Estes · RunFree.Co</cite>
-    </blockquote>
+    <div class="stats">
+      <div class="stat"><b data-count="40000" data-suffix="+">0+</b><span>Church teams using the Vision Frame</span></div>
+      <div class="stat"><b data-count="3000" data-suffix="+">0+</b><span>Churches guided through the process</span></div>
+      <div class="stat"><b data-count="21" data-suffix=" yrs">0 yrs</b><span>Vision Frame in the field</span></div>
+      <div class="stat"><b data-count="8" data-suffix=" seats">0 seats</b><span>In this cohort — that's all</span></div>
+    </div>
   </div>
-</div>
+</section>
 
 <section>
+  <div class="wrap narrow center">
+    <span class="kicker">Watch first</span>
+    <h2>A personal invitation from Andrew</h2>
+    <p class="sub" style="margin:0 auto 2.2rem">What the co::Lab is, what your team will build, and why CCL Network is covering half the investment. (~16 min)</p>
+    <div class="video-box">
+      <iframe src="https://www.loom.com/embed/1c55b3bc0e0647129d35673e35f855cf" title="Pivvot Vision Framing co::Lab overview" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="muted-sec">
   <div class="wrap narrow">
-    <p class="eyebrow orange">The problem</p>
-    <h2>People connect to your building, your programs, your personalities. All of that can change overnight.</h2>
-    <p>There's nothing wrong with a great facility, a beloved preacher, or a killer student ministry. But when those are the <em>primary</em> reasons people attend, connection stays consumeristic — and fragile. The deeper invitation is to connect people to the purpose your church exists for: a unique, disciple-making mission and vision.</p>
-    <p>Most leadership teams have never been given the tools — or the guided time together — to do that work. That's exactly what the co::Lab is for.</p>
-  </div>
-</section>
-
-<section style="background:var(--soft)">
-  <div class="wrap">
-    <p class="eyebrow">The journey</p>
-    <h2>Four paradigm shifts, in order</h2>
-    <div class="shift">
-      <div class="num">1</div>
-      <div><span class="tag">Mind shift</span><h3>Move the Finish Line</h3><p class="muted">Redefine success beyond attendance and program participation — normalize relational disciple-making with the Funnel Fusion tool.</p></div>
+    <span class="kicker">The real problem</span>
+    <h2>Your church doesn't lack activity. It lacks clarity for disciple-making.</h2>
+    <p>The church rarely lacks events, programs, or content. Somewhere along the way, the Great Commission quietly got rewritten in practice into something much smaller:</p>
+    <div class="bigquote">"Go into all the world and make more worship attenders, baptizing them into the name of small groups, and teaching them to volunteer a few times a month."
+      <cite>— the <b>Functional</b> Great Commission, from Will Mancini's <i>Future Church</i></cite>
     </div>
-    <div class="shift">
-      <div class="num">2</div>
-      <div><span class="tag">Heart shift</span><h3>Become a Hero-Maker</h3><p class="muted">Embrace the "pastorhood of every believer" and use the Crowd Cloud tool to see your congregation's full potential.</p></div>
-    </div>
-    <div class="shift">
-      <div class="num">3</div>
-      <div><span class="tag">Hands shift</span><h3>Build a Training Center</h3><p class="muted">Pivot from content-focused teaching to practice-based training with the Disciple's Journey tool — a training center, not just a teaching center.</p></div>
-    </div>
-    <div class="shift">
-      <div class="num">4</div>
-      <div><span class="tag">Platform shift</span><h3>Empower Each One</h3><p class="muted">Help every person identify and step into their unique kingdom calling with the Kingdom Platform tool.</p></div>
-    </div>
-    <p style="margin-top:28px">Then your team designs the future: codify your unique mission and model with the <b>Vision Frame</b>, and clarify a God-sized dream with the <b>Horizon Storyline</b>.</p>
+    <p>That's the problem underneath the problems: <b>over-programmed and under-discipled.</b> People connect to your building, your programs, and your personalities — the lower room — and every one of those can change overnight. The upper room is your church's purpose: a unique, disciple-making mission and vision. But in most churches, nobody has ever turned the lights on up there — not because leaders don't care, but because nobody ever gave them the tools or the guided time with their team to do the deep work.</p>
+    <p style="margin:0"><b style="color:var(--dark)">That deep work is exactly what the co::Lab is.</b></p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="eyebrow orange">Six master tools</p>
-    <h2>A visual road map your whole team can hold</h2>
-    <div class="tools">
-      <div class="tool c-navy">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 8h36L28 24v14l-8 4V24L6 8z" fill="none" stroke="#1F378C" stroke-width="3"/></svg>
-        <h3>Funnel Fusion</h3><p>Integrate Jesus' multiplication model into your existing ministry model.</p>
+    <div class="center">
+      <span class="kicker">The visual road map</span>
+      <h2>Six stages. Six master tools. One journey your whole team takes together.</h2>
+      <p class="sub" style="margin:0 auto">The Pivvot process moves your team through six stages — each with a proven master tool and a mantra your leaders will still be repeating years from now.</p>
+    </div>
+    <div class="stages">
+      <div class="stage">
+        <img src="assets/tool-1-funnel-fusion.png" alt="Funnel Fusion tool icon">
+        <div><span class="num">Stage 1 · Problem</span><h3>Funnel Fusion</h3><span class="mantra">Move the Finish Line!</span><p>Name the real problem. Redefine success beyond attendance and programs, and fuse Jesus' multiplication model into your ministry model.</p></div>
       </div>
-      <div class="tool c-orange">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="18" width="10" height="10" fill="none" stroke="#F15A25" stroke-width="3"/><rect x="19" y="8" width="10" height="10" fill="none" stroke="#F15A25" stroke-width="3"/><rect x="32" y="18" width="10" height="10" fill="none" stroke="#F15A25" stroke-width="3"/><rect x="19" y="30" width="10" height="10" fill="none" stroke="#F15A25" stroke-width="3"/></svg>
-        <h3>Crowd Cloud</h3><p>See and unleash the disciple-making potential already sitting in your congregation.</p>
+      <div class="stage">
+        <img src="assets/tool-2-crowd-cloud.png" alt="Crowd Cloud tool icon">
+        <div><span class="num">Stage 2 · Potential</span><h3>Crowd Cloud</h3><span class="mantra">Become a Hero-Maker!</span><p>See the disciple-making potential already in your pews — every believer's relational world where they live, work, learn, and play.</p></div>
       </div>
-      <div class="tool c-red">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40 L18 28 L28 34 L42 12" fill="none" stroke="#E11837" stroke-width="3"/><path d="M32 12h10v10" fill="none" stroke="#E11837" stroke-width="3"/></svg>
-        <h3>Disciple's Journey</h3><p>Design a practice-based pathway that trains people in the skills Jesus modeled.</p>
+      <div class="stage">
+        <img src="assets/tool-3-disciples-journey.png" alt="Disciple's Journey tool icon">
+        <div><span class="num">Stage 3 · Pathway</span><h3>Disciple's Journey</h3><span class="mantra">Build a Training Center!</span><p>Pivot from content-focused teaching to practice-based training — a clear pathway that forms the disciples Jesus modeled.</p></div>
       </div>
-      <div class="tool c-magenta">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="30" width="28" height="10" fill="none" stroke="#E43D96" stroke-width="3"/><path d="M24 30V14M16 22l8-8 8 8" fill="none" stroke="#E43D96" stroke-width="3"/></svg>
-        <h3>Kingdom Platform</h3><p>Activate every member's Ephesians 2:10 calling where they live, work, learn, and play.</p>
+      <div class="stage">
+        <img src="assets/tool-4-kingdom-platform.png" alt="Kingdom Platform tool icon">
+        <div><span class="num">Stage 4 · People</span><h3>Kingdom Platform</h3><span class="mantra">Empower Each One!</span><p>Help every member recognize and step into their unique Ephesians 2:10 calling — everyday missionaries, released.</p></div>
       </div>
-      <div class="tool c-navy">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="8" width="32" height="32" fill="none" stroke="#1F378C" stroke-width="3"/><rect x="17" y="17" width="14" height="14" fill="none" stroke="#1F378C" stroke-width="3"/></svg>
-        <h3>Vision Frame</h3><p>Answer the five irreducible questions of leadership — mission, values, strategy, measures, vision.</p>
+      <div class="stage">
+        <img src="assets/tool-5-vision-frame.png" alt="Vision Frame tool icon">
+        <div><span class="num">Stage 5 · Portal</span><h3>Vision Frame</h3><span class="mantra">Design the Culture!</span><p>Codify your church's unique DNA by answering the five irreducible questions of leadership — mission, values, strategy, measures, vision.</p></div>
       </div>
-      <div class="tool c-orange">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 38h36M10 38V26h7v12M22 38V18h7v20M34 38V10h7v28" fill="none" stroke="#F15A25" stroke-width="3"/></svg>
-        <h3>Horizon Storyline</h3><p>Dream long-range and execute short-term with a simple plan every leader can rally around.</p>
+      <div class="stage">
+        <img src="assets/tool-6-horizon-storyline.png" alt="Horizon Storyline tool icon">
+        <div><span class="num">Stage 6 · Picture</span><h3>Horizon Storyline</h3><span class="mantra">Create the Future!</span><p>Clarify a God-sized dream for 2030 and beyond — with a simple, executable plan every leader can rally around.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<section style="border-top:3px solid var(--navy);border-bottom:3px solid var(--navy)">
+<section class="muted-sec">
   <div class="wrap">
-    <p class="eyebrow">The format</p>
-    <h2>Built for real teams with real schedules</h2>
-    <div class="format">
-      <div><b>Monthly intensives</b><p>One 4-hour virtual session per month, for 10 months — your lead team learns alongside up to 7 other churches.</p></div>
-      <div><b>Online learning community</b><p>Interaction, encouragement, and shared wins between sessions.</p></div>
-      <div><b>Team-based work</b><p>Designed to engage your elders and staff — not just the lead minister — so alignment is built in, not bolted on.</p></div>
-      <div><b>The full library</b><p>Digital access to Will Mancini's books — Church Unique, God Dreams, Younique, and Future Church — plus additional training videos.</p></div>
+    <div class="center">
+      <span class="kicker">Who this is for</span>
+      <h2>Built for normal-size churches doing the deep work</h2>
     </div>
-  </div>
-</section>
-
-<section id="register" style="background:var(--soft)">
-  <div class="wrap">
-    <div class="price-card">
-      <span class="grant">CCL Network · Lilly Grant Scholarship</span>
-      <div class="was">$5,000 per church</div>
-      <div class="now">$2,500 <small>/ church · $250 a month</small></div>
-      <p class="muted">CCL Network's kingdom generosity through the Lilly Endowment covers half the investment for every participating church in this cohort.</p>
-      <ul class="includes">
-        <li>10 monthly 4-hour training intensives (40+ hours)</li>
-        <li>All six master tools, facilitated with your team</li>
-        <li>Digital copies of all four Mancini books for your team</li>
-        <li>Online learning community access all year</li>
-        <li>Finished deliverables: your Vision Frame + Horizon Storyline</li>
+    <div class="personas">
+      <div class="persona"><h3>Lead ministers ready for clarity</h3><p>You're done borrowing another church's vision. You want to lead from conviction, not photocopy — and you're willing to do the work to name what God is actually calling <i>your</i> church to.</p></div>
+      <div class="persona"><h3>Churches around 200 or less</h3><p>The co::Lab is designed for normal-size churches — the backbone of the Kingdom. Larger churches are welcome; talk with Andrew about fit for your context.</p></div>
+      <div class="persona"><h3>Teams, not lone rangers</h3><p>Your elders and key staff journey with you. Alignment isn't bolted on at the end — it's built in from the first session, so the vision belongs to the whole team.</p></div>
+    </div>
+    <div class="notfor">
+      <h3>This is <span class="grad-text">not</span> for you if…</h3>
+      <ul>
+        <li>You want a vision statement written <i>for</i> you in a weekend</li>
+        <li>You're looking for another conference to attend and forget</li>
+        <li>You aren't willing to bring your elders and key leaders along</li>
+        <li>You'd rather stay busy playing church every seven days than do the deep work</li>
       </ul>
-      <div class="btn-row" style="justify-content:center">
-        <a class="btn btn-primary" href="#REGISTRATION-LINK">Register your church</a>
-      </div>
-      <p class="muted" style="font-size:.85rem;margin-top:16px;margin-bottom:0">Cohort limited to eight churches. When it's full, it's full.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="wrap narrow">
-    <p class="eyebrow orange">Is this for your church?</p>
-    <h2>Built for normal-size churches doing the deep work</h2>
-    <ul class="who">
-      <li>Your church runs around <b>200 or fewer</b> in weekend attendance (larger teams welcome — ask Andrew).</li>
-      <li>You're tired of borrowing another church's vision and ready to name your own.</li>
-      <li>Your elders and staff would say "we're busy" faster than they'd say "we're clear."</li>
-      <li>You want to measure success by disciple-making impact — not just attendance.</li>
-    </ul>
+  <div class="wrap">
+    <div class="authority">
+      <div>
+        <span class="kicker">Proven thought leadership</span>
+        <h2>Built on 25 years of Will Mancini's work — led by the RunFree team</h2>
+        <p>The Vision Frame is 21 years old — and it is no theory. More than 3,000 churches have been guided through the full process, and over 40,000 church teams have used the Vision Frame. The co::Lab draws directly from <i>Church Unique</i>, <i>God Dreams</i>, <i>Younique</i>, and <i>Future Church</i> — and your team gets digital access to the full library for the entire year.</p>
+        <p>Your guide is <b style="color:var(--dark)">Andrew Estes</b>, RunFree Vision Coach — who co-facilitates alongside Will Mancini and has walked church teams through this exact process for years.</p>
+        <blockquote class="authority-quote">"Every church needs a strategic outsider — a trusted confidant, a well-equipped guide who helps them get out of the echo chamber, out of their own way, into clarity."</blockquote>
+        <cite>— Will Mancini, founder of the Vision Frame</cite>
+      </div>
+      <div>
+        <div class="books">
+          <div class="book"><b>Church Unique</b><span>The Vision Frame</span></div>
+          <div class="book"><b>God Dreams</b><span>The Horizon Storyline</span></div>
+          <div class="book"><b>Future Church</b><span>Funnel Fusion &amp; the 7 Laws</span></div>
+          <div class="book"><b>Younique</b><span>Personal calling</span></div>
+        </div>
+        <img class="frame-img" src="assets/vision-frame-with-symbols.png" alt="The Vision Frame — mission, values, strategy, measures, and vision">
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="talk" style="padding-top:0">
-  <div class="wrap narrow">
-    <div class="host">
-      <div class="avatar">AE</div>
-      <div>
-        <h3>Have questions about your context?</h3>
-        <p>Andrew Estes has spent years walking church teams through the Vision Frame process with RunFree.Co. Before you register, he's glad to have a real conversation about your church, your eldership, and whether this cohort is the right fit.</p>
-        <div class="btn-row" style="margin-top:12px">
-          <a class="btn btn-ghost" href="mailto:andrew@runfree.co">andrew@runfree.co</a>
-          <a class="btn btn-ghost" href="https://www.loom.com/share/1c55b3bc0e0647129d35673e35f855cf" target="_blank" rel="noopener">Watch the overview video</a>
-        </div>
+<section class="muted-sec">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Raving fans</span>
+      <h2>Churches the Vision Frame has transformed</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <p>RunFree helped us align 30,000 members around a clear, compelling vision for the first time in decades.</p>
+        <footer><b>Dr. Steve Gaines</b><span>Senior Pastor, Bellevue Baptist Church, Memphis, TN</span></footer>
+      </div>
+      <div class="quote">
+        <p>The Vision Frame gave us language our entire leadership team could rally behind. Game changer.</p>
+        <footer><b>Ken Werlein</b><span>Executive Pastor, Faithbridge Church, Spring, TX</span></footer>
+      </div>
+      <div class="quote">
+        <p>We went from 15 competing priorities to 3 clear ones. Our staff has never been more focused.</p>
+        <footer><b>Steve Andrews</b><span>Senior Pastor, Kensington Church, Troy, MI</span></footer>
       </div>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Everything included</span>
+      <h2>What your church receives over the 10 months</h2>
+    </div>
+    <div class="included">
+      <div class="inc-group">
+        <h3>Training &amp; Facilitation</h3>
+        <ul>
+          <li>10 monthly 4-hour virtual intensives — 40+ hours of guided vision framing</li>
+          <li>All six master tools facilitated live with your team</li>
+          <li>A cohort of up to 8 churches walking the same road</li>
+        </ul>
+      </div>
+      <div class="inc-group">
+        <h3>Resources &amp; Library</h3>
+        <ul>
+          <li>Digital access to Will Mancini's books for your whole team — Church Unique, God Dreams, Younique, Future Church</li>
+          <li>Additional training and equipping videos</li>
+          <li>Digital handouts and team exercises for every stage</li>
+        </ul>
+      </div>
+      <div class="inc-group">
+        <h3>Community &amp; Deliverables</h3>
+        <ul>
+          <li>Online learning community all year — conversation and encouragement between sessions</li>
+          <li>Your finished Vision Frame — your church's unique DNA, codified</li>
+          <li>Your Horizon Storyline — a God-sized dream with an executable plan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="register" class="muted-sec">
+  <div class="wrap">
+    <div class="center">
+      <span class="kicker">Two ways to begin</span>
+      <h2>CCL Network's Lilly grant covers half — for eight churches</h2>
+    </div>
+    <div class="ways">
+      <div class="price-card">
+        <span class="badge-rec">Grant-funded price</span>
+        <div class="was">$5,000 per church</div>
+        <div class="price">$2,500 <small>per church · just $250/month for 10 months</small></div>
+        <span class="grant-note">Underwritten by CCL Network through a Lilly Endowment grant</span>
+        <ul>
+          <li>Full 10-month Pivvot Vision Framing co::Lab for your lead team</li>
+          <li>Facilitated by RunFree Vision Coach Andrew Estes</li>
+          <li>Limited to 8 churches — when it's full, it's full</li>
+          <li>Everything listed above, included</li>
+        </ul>
+        <a class="btn btn-grad" href="#REGISTRATION-LINK">Reserve Your Church's Seat</a>
+      </div>
+      <div class="talk-card" id="talk">
+        <h3>Talk with Andrew first</h3>
+        <p style="font-size:.95rem">Get the full details, talk through your context and your eldership, and ask anything on a real conversation — no commitment required.</p>
+        <ul>
+          <li>No commitment required</li>
+          <li>Get your questions answered</li>
+          <li>Most churches start here</li>
+        </ul>
+        <a class="btn btn-outline" href="mailto:andrew@runfree.co?subject=Vision%20Framing%20co%3A%3ALab%20%E2%80%94%20let%27s%20talk">Email Andrew — andrew@runfree.co</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <span class="kicker">Questions</span>
+    <h2>Frequently asked questions</h2>
+    <div class="faq" style="text-align:left">
+      <details>
+        <summary>Who from our church should participate?</summary>
+        <div>Your lead minister plus your key leaders — elders and staff who carry the weight of direction. The process is designed for a "Future Team," not a solo pastor, because alignment is built during the journey, not after it.</div>
+      </details>
+      <details>
+        <summary>What's the actual time commitment?</summary>
+        <div>One 4-hour virtual intensive per month for 10 months, plus team conversations between sessions using the provided exercises. It's designed for real teams with real schedules.</div>
+      </details>
+      <details>
+        <summary>We're bigger than 200 — can we still join?</summary>
+        <div>Yes. The cohort is tuned for churches around 200 or less, but larger churches have walked this process with great fruit. Talk with Andrew about fit for your context.</div>
+      </details>
+      <details>
+        <summary>How does the grant pricing work?</summary>
+        <div>The co::Lab is normally $5,000 per church. Through RunFree's partnership with CCL Network and their Lilly Endowment grant, every church in this cohort participates for $2,500 — billed as $250/month across the 10 months.</div>
+      </details>
+      <details>
+        <summary>What do we walk away with?</summary>
+        <div>Two celebrated deliverables: your Vision Frame (mission, values, strategy, measures, and vision — your church's unique DNA, codified) and your Horizon Storyline (a long-range, God-sized dream with a short-term executable plan). Plus a leadership team that's actually aligned around both.</div>
+      </details>
+      <details>
+        <summary>Is this just another vision statement exercise?</summary>
+        <div>No. Wordsmithing a statement is the smallest part. The Pivvot process addresses the paradigm underneath — moving the finish line from attendance to disciple-making — and then codifies vision that your team owns because they built it.</div>
+      </details>
+      <details>
+        <summary>What if we miss a session or our plans change?</summary>
+        <div>Life happens in ministry — reach out to Andrew and the team will work with you. The online community and digital resources keep your team moving between and around sessions.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="muted-sec">
+  <div class="wrap center">
+    <span class="kicker">Need buy-in?</span>
+    <h2>Need approval from your elders? We've drafted it for you.</h2>
+    <div class="email-card" style="text-align:left">
+      <div class="email-head">
+        <b>From:</b> [Your name] &lt;you@yourchurch.org&gt;<br>
+        <b>To:</b> [Elder chair / leadership team]<br>
+        <b>Subject:</b> Request: Pivvot Vision Framing co::Lab ($250/mo, grant-funded)
+      </div>
+      <div class="email-body">
+        <p>Team,</p>
+        <p>I'd like our church to join the Pivvot Vision Framing co::Lab — a 10-month guided journey with RunFree.Co, in partnership with CCL Network.</p>
+        <p>It's built on the Vision Frame methodology that more than 3,000 churches and 40,000 church teams have used. Our lead team would meet virtually 4 hours a month, and by the end we'd have two finished deliverables: a codified Vision Frame (our mission, values, strategy, and measures) and a Horizon Storyline (a long-range plan we can actually execute).</p>
+        <p>The investment is normally $5,000 per church, but a Lilly Endowment grant through CCL Network covers half — so it's $250/month for 10 months. The cohort is limited to eight churches.</p>
+        <p>Could we discuss this at our next meeting?</p>
+        <p>[Your name]</p>
+      </div>
+    </div>
+    <a class="btn btn-outline" style="margin-top:1.6rem" href="mailto:?subject=Request%3A%20Pivvot%20Vision%20Framing%20co%3A%3ALab%20(%24250%2Fmo%2C%20grant-funded)&body=Team%2C%0A%0AI%27d%20like%20our%20church%20to%20join%20the%20Pivvot%20Vision%20Framing%20co%3A%3ALab%20%E2%80%94%20a%2010-month%20guided%20journey%20with%20RunFree.Co%2C%20in%20partnership%20with%20CCL%20Network.%0A%0AIt%27s%20built%20on%20the%20Vision%20Frame%20methodology%20that%20more%20than%203%2C000%20churches%20and%2040%2C000%20church%20teams%20have%20used.%20Our%20lead%20team%20would%20meet%20virtually%204%20hours%20a%20month%2C%20and%20by%20the%20end%20we%27d%20have%20two%20finished%20deliverables%3A%20a%20codified%20Vision%20Frame%20and%20a%20Horizon%20Storyline.%0A%0AThe%20investment%20is%20normally%20%245%2C000%20per%20church%2C%20but%20a%20Lilly%20Endowment%20grant%20through%20CCL%20Network%20covers%20half%20%E2%80%94%20so%20it%27s%20%24250%2Fmonth%20for%2010%20months.%20The%20cohort%20is%20limited%20to%20eight%20churches.%0A%0ACould%20we%20discuss%20this%20at%20our%20next%20meeting%3F%0A%0A%5BYour%20name%5D">Open in your mail app</a>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="letter">
+      <span class="kicker">From Andrew</span>
+      <h2 style="font-size:1.5rem">Rather than staying busy playing church every seven days…</h2>
+      <p>…we want to help leaders run free into what Jesus actually started.</p>
+      <p>For years I've sat with church teams — elders, staff, lead ministers — who love Jesus and work incredibly hard, but who couldn't answer the five irreducible questions of leadership the same way twice. Not because they don't care. Because nobody ever turned the lights on in the upper room with them.</p>
+      <p>The co::Lab is the most accessible way we've ever offered this process. CCL Network's kingdom generosity through the Lilly grant cuts the investment in half, and the cohort format means your team isn't walking alone — seven other churches are doing the deep work right beside you.</p>
+      <p>Eight seats. Ten months. A vision only your church can carry.</p>
+      <p>If you want to talk it through first, my inbox is open — <a href="mailto:andrew@runfree.co" style="color:var(--primary)">andrew@runfree.co</a>. I'd love to hear about your context.</p>
+      <p class="sign">— Andrew Estes<br><span style="font-weight:400;font-size:.9rem;color:var(--fg)">Vision Coach, RunFree.Co</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <span class="urgency">The 2026 cohort is limited to eight churches</span>
+    <h2>When it's full, it's full.</h2>
+    <p style="max-width:38em;margin:0 auto">Eight churches, one guided journey, half the investment covered by the Lilly grant. Reserve your church's seat — or start with a conversation.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-grad" href="#REGISTRATION-LINK">Reserve Your Church's Seat</a>
+      <a class="btn btn-outline" style="border-color:#fff;color:#fff" href="mailto:andrew@runfree.co?subject=Vision%20Framing%20co%3A%3ALab%20%E2%80%94%20let%27s%20talk">Talk with Andrew</a>
+    </div>
+    <p class="fine">Vision Frame + Horizon Storyline deliverables · Online learning community all year · Digital library of Will Mancini's books included</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
     <p>RunFree.Co · Helping churches clarify vision, strengthen teams, and activate calling.<br>
-    Offered in partnership with CCL Network, funded in part by a Lilly Endowment grant. · <a href="https://runfree.co">runfree.co</a></p>
+    Offered in partnership with CCL Network, funded in part by a Lilly Endowment grant. · <a href="https://runfree.co">runfree.co</a> · <a href="mailto:andrew@runfree.co">andrew@runfree.co</a></p>
   </div>
 </footer>
+
+<script>
+  // Animated counters, matching the certification page's stats band
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  const fmt = n => n.toLocaleString('en-US');
+  const animate = el => {
+    const target = +el.dataset.count, suffix = el.dataset.suffix || '';
+    const dur = 1600, t0 = performance.now();
+    const tick = now => {
+      const p = Math.min((now - t0) / dur, 1);
+      el.textContent = fmt(Math.round(target * ease(p))) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('[data-count]').forEach(el => el.textContent = fmt(+el.dataset.count) + (el.dataset.suffix||''));
+  } else {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } }), {threshold:.6});
+    document.querySelectorAll('[data-count]').forEach(el => io.observe(el));
+  }
+</script>
 </body>
 </html>
