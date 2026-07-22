@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pivvot Vision Framing — Visual Road Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Standalone embed of the co::Lab six-stage journey — RunFree brand system */
+  :root{
+    --primary:#E43D96;--secondary:#F15A25;--navy:#1F378C;--fg:#4b5563;--dark:#111827;
+    --border:#e5e7eb;--grad:linear-gradient(90deg,#E43D96,#F15A25);
+    --font:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);color:var(--fg);background:#fff;line-height:1.65;font-size:16px;padding:1.2rem 1rem}
+  .journey{max-width:880px;margin:0 auto}
+  .journey-track{position:relative;display:flex;justify-content:space-between;align-items:flex-start}
+  .journey-track::before{content:"";position:absolute;top:44px;left:44px;right:44px;height:4px;background:var(--border);border-radius:999px}
+  .journey-track::after{content:"";position:absolute;top:44px;left:44px;height:4px;background:var(--grad);border-radius:999px;width:var(--progress,0%);max-width:calc(100% - 88px);transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .jstop{position:relative;z-index:1;background:none;border:0;cursor:pointer;font-family:var(--font);display:flex;flex-direction:column;align-items:center;gap:.55rem;width:88px}
+  .jstop .disc{width:88px;height:88px;border-radius:50%;background:#fff;border:3px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+  .jstop img{width:52px;height:52px;object-fit:contain;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+  .jstop .jlabel{font-size:.72rem;font-weight:600;color:var(--fg);letter-spacing:.04em;transition:color .3s}
+  .jstop:hover .disc{border-color:#f3b6d4;transform:translateY(-4px)}
+  .jstop[aria-selected="true"] .disc{border-color:transparent;background-image:linear-gradient(#fff,#fff),var(--grad);background-origin:border-box;background-clip:padding-box,border-box;transform:translateY(-6px) scale(1.08);box-shadow:0 16px 34px rgb(228 61 150 / .25);animation:pop .45s cubic-bezier(.34,1.56,.64,1)}
+  .jstop[aria-selected="true"] img{transform:scale(1.12)}
+  .jstop[aria-selected="true"] .jlabel{color:var(--dark);font-weight:700}
+  @keyframes pop{0%{transform:translateY(-6px) scale(.92)}60%{transform:translateY(-6px) scale(1.14)}100%{transform:translateY(-6px) scale(1.08)}}
+  .stage-panel{margin-top:2rem;background:#fff;border:1px solid var(--border);border-radius:1.2rem;padding:2rem 2.2rem;box-shadow:0 14px 40px rgb(17 24 39 / .08);min-height:12rem}
+  .stage-panel.switching .panel-inner{opacity:0;transform:translateY(10px)}
+  .panel-inner{transition:opacity .28s ease,transform .28s ease}
+  .stage-panel .num{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stage-panel h3{font-size:1.4rem;margin:.2rem 0 .5rem;color:var(--dark);font-weight:800}
+  .stage-panel .mantra{display:inline-block;font-size:.85rem;font-weight:600;color:var(--navy);background:rgb(31 55 140 / .08);border-radius:999px;padding:.25rem 1rem;margin-bottom:.8rem}
+  .stage-panel p{font-size:.98rem;margin:0;max-width:52em}
+  @media (max-width:640px){
+    .jstop{width:48px}
+    .jstop .disc{width:48px;height:48px;border-width:2px}
+    .jstop img{width:28px;height:28px}
+    .jstop .jlabel{display:none}
+    .journey-track::before{top:24px;left:24px;right:24px}
+    .journey-track::after{top:24px;left:24px;max-width:calc(100% - 48px)}
+    .stage-panel{padding:1.4rem;margin-top:1.4rem}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .jstop .disc,.jstop img,.panel-inner{transition:none;animation:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="journey">
+  <div class="journey-track" id="jtrack" role="tablist" aria-label="The six stages of the Pivvot process">
+    <button class="jstop" role="tab" aria-selected="true" data-i="0"><span class="disc"><img src="assets/tool-1-funnel-fusion.png" alt=""></span><span class="jlabel">Funnel Fusion</span></button>
+    <button class="jstop" role="tab" aria-selected="false" data-i="1"><span class="disc"><img src="assets/tool-2-crowd-cloud.png" alt=""></span><span class="jlabel">Crowd Cloud</span></button>
+    <button class="jstop" role="tab" aria-selected="false" data-i="2"><span class="disc"><img src="assets/tool-3-disciples-journey.png" alt=""></span><span class="jlabel">Disciple's Journey</span></button>
+    <button class="jstop" role="tab" aria-selected="false" data-i="3"><span class="disc"><img src="assets/tool-4-kingdom-platform.png" alt=""></span><span class="jlabel">Kingdom Platform</span></button>
+    <button class="jstop" role="tab" aria-selected="false" data-i="4"><span class="disc"><img src="assets/tool-5-vision-frame.png" alt=""></span><span class="jlabel">Vision Frame</span></button>
+    <button class="jstop" role="tab" aria-selected="false" data-i="5"><span class="disc"><img src="assets/tool-6-horizon-storyline.png" alt=""></span><span class="jlabel">Horizon Storyline</span></button>
+  </div>
+  <div class="stage-panel" id="jpanel" role="tabpanel">
+    <div class="panel-inner">
+      <span class="num" id="jnum">Stage 1 · Problem</span>
+      <h3 id="jtitle">Funnel Fusion</h3>
+      <span class="mantra" id="jmantra">Move the Finish Line!</span>
+      <p id="jdesc">Name the real problem. Redefine success beyond attendance and programs, and fuse Jesus' multiplication model into your ministry model.</p>
+    </div>
+  </div>
+</div>
+<script>
+  const STAGES = [
+    {num:"Stage 1 · Problem",   title:"Funnel Fusion",      mantra:"Move the Finish Line!",    desc:"Name the real problem. Redefine success beyond attendance and programs, and fuse Jesus' multiplication model into your ministry model."},
+    {num:"Stage 2 · Potential", title:"Crowd Cloud",        mantra:"Become a Hero-Maker!",     desc:"See the disciple-making potential already in your pews — every believer's relational world where they live, work, learn, and play."},
+    {num:"Stage 3 · Pathway",   title:"Disciple's Journey", mantra:"Build a Training Center!", desc:"Pivot from content-focused teaching to practice-based training — a clear pathway that forms the disciples Jesus modeled."},
+    {num:"Stage 4 · People",    title:"Kingdom Platform",   mantra:"Empower Each One!",        desc:"Help every member recognize and step into their unique Ephesians 2:10 calling — everyday missionaries, released."},
+    {num:"Stage 5 · Portal",    title:"Vision Frame",       mantra:"Design the Culture!",      desc:"Codify your church's unique DNA by answering the five irreducible questions of leadership — mission, values, strategy, measures, vision."},
+    {num:"Stage 6 · Picture",   title:"Horizon Storyline",  mantra:"Create the Future!",       desc:"Clarify a God-sized dream for 2030 and beyond — with a simple, executable plan every leader can rally around."}
+  ];
+  const track = document.getElementById('jtrack');
+  const panel = document.getElementById('jpanel');
+  const stops = Array.from(track.querySelectorAll('.jstop'));
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let current = 0, timer = null, interacted = false;
+  function render(i){
+    const s = STAGES[i];
+    document.getElementById('jnum').textContent = s.num;
+    document.getElementById('jtitle').textContent = s.title;
+    document.getElementById('jmantra').textContent = s.mantra;
+    document.getElementById('jdesc').textContent = s.desc;
+  }
+  function select(i, animate=true){
+    if (i === current && animate) return;
+    current = i;
+    stops.forEach((b,j)=>b.setAttribute('aria-selected', j===i ? 'true':'false'));
+    track.style.setProperty('--progress', (i/(STAGES.length-1))*100 + '%');
+    if (animate && !reduced){
+      panel.classList.add('switching');
+      setTimeout(()=>{ render(i); panel.classList.remove('switching'); }, 280);
+    } else { render(i); }
+  }
+  function stopAuto(){ interacted = true; if (timer){ clearInterval(timer); timer = null; } }
+  stops.forEach(b=>{
+    b.addEventListener('click', ()=>{ stopAuto(); select(+b.dataset.i); });
+    b.addEventListener('mouseenter', ()=>{ stopAuto(); select(+b.dataset.i); });
+  });
+  select(0, false);
+  if (!reduced){
+    timer = setInterval(()=>{ if(!interacted) select((current+1)%STAGES.length); }, 4200);
+  }
+</script>
+</body>
+</html>
