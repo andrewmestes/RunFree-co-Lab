@@ -218,6 +218,7 @@
     setTimeout(function(){ ring.style.strokeDashoffset = circ*(1-total/25); },60);
     var sn = document.getElementById('scoreNum'), t0=null;
     requestAnimationFrame(function anim(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/1100,1); sn.textContent=Math.round(total*p); if(p<1)requestAnimationFrame(anim); });
+    setTimeout(function(){ sn.textContent = total; }, 1150); // guarantee final value even if rAF is throttled
     // tier
     var tier, desc;
     if(total<=11){ tier="Vision is Blurry"; desc="Right now your vision likely lives in your head more than on your team's lips. That's the most common — and most fixable — place to start."; }
