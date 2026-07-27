@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The 5-minute Church Vision Health Check — score your church on the five irreducible questions of leadership and get the free Vision Frame Field Guide.">
+<title>Church Vision Health Check — RunFree.Co</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#E43D96;--secondary:#F15A25;--navy:#1F378C;--fg:#4b5563;--dark:#111827;
+    --soft:#f9fafb;--border:#e5e7eb;--radius:.65rem;--grad:linear-gradient(90deg,#E43D96,#F15A25);
+    --font:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--fg);background:
+    radial-gradient(50rem 26rem at 12% -8%, rgb(228 61 150 / .07), transparent 60%),
+    radial-gradient(50rem 26rem at 88% -8%, rgb(241 90 37 / .07), transparent 60%),#fff;
+    line-height:1.65;font-size:16.5px;min-height:100vh}
+  .wrap{max-width:760px;margin:0 auto;padding:2.4rem 1.4rem 4rem}
+  header{text-align:center;margin-bottom:2rem}
+  header img{height:2.6rem;width:auto;margin:0 auto 1.6rem}
+  .kicker{display:inline-flex;align-items:center;gap:.5rem;background:var(--grad);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1.2rem;border-radius:999px;margin-bottom:1.3rem}
+  h1{font-size:clamp(1.9rem,5vw,2.9rem);font-weight:800;color:var(--dark);letter-spacing:-.02em;line-height:1.12;text-wrap:balance}
+  h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:1.08rem;color:var(--fg);max-width:34em;margin:1.1rem auto 0}
+  .card{background:#fff;border:1px solid var(--border);border-radius:1rem;box-shadow:0 14px 40px rgb(17 24 39 / .07);padding:clamp(1.4rem,4vw,2.4rem);margin-top:1.8rem}
+
+  /* progress */
+  .pbar{height:6px;background:var(--soft);border-radius:999px;overflow:hidden;margin-bottom:1.6rem}
+  .pbar span{display:block;height:100%;background:var(--grad);width:0;transition:width .4s ease}
+  .qcount{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--primary);margin-bottom:.5rem}
+
+  .q{display:none}
+  .q.active{display:block;animation:fade .35s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .q .cat{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--secondary)}
+  .q h2{font-size:clamp(1.25rem,3vw,1.6rem);font-weight:700;color:var(--dark);margin:.4rem 0 1.4rem;line-height:1.3;letter-spacing:-.01em}
+  .scale{display:flex;flex-direction:column;gap:.6rem}
+  .opt{display:flex;align-items:center;gap:.9rem;width:100%;text-align:left;background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:.9rem 1.1rem;font-family:var(--font);font-size:.98rem;color:var(--dark);cursor:pointer;transition:border-color .18s,background .18s,transform .12s}
+  .opt:hover{border-color:#f3b6d4}
+  .opt.sel{border-color:var(--primary);background:rgb(228 61 150 / .05)}
+  .opt .dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);flex:none;transition:all .18s}
+  .opt.sel .dot{border-color:var(--primary);background:var(--primary);box-shadow:inset 0 0 0 3px #fff}
+  .nav{display:flex;justify-content:space-between;margin-top:1.6rem;gap:1rem}
+  .back{background:none;border:0;color:var(--fg);font-family:var(--font);font-size:.92rem;font-weight:500;cursor:pointer;padding:.5rem}
+  .back:disabled{opacity:.35;cursor:default}
+
+  /* result */
+  #result{display:none}
+  #result.show{display:block;animation:fade .4s ease}
+  .score-ring{width:150px;height:150px;margin:0 auto 1rem;position:relative}
+  .score-ring svg{transform:rotate(-90deg)}
+  .score-ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .score-ring .num b{font-size:2.4rem;font-weight:800;color:var(--dark);line-height:1;font-variant-numeric:tabular-nums}
+  .score-ring .num span{font-size:.72rem;color:var(--fg);letter-spacing:.06em}
+  .tier{text-align:center;font-size:1.5rem;font-weight:800;color:var(--dark);margin-bottom:.3rem}
+  .tier-sub{text-align:center;color:var(--fg);max-width:36em;margin:0 auto 1.6rem}
+  .bars{display:flex;flex-direction:column;gap:.7rem;margin:1.4rem 0}
+  .brow{display:grid;grid-template-columns:8.5rem 1fr auto;align-items:center;gap:.8rem}
+  .brow .bl{font-size:.9rem;font-weight:600;color:var(--dark)}
+  .brow .bt{height:9px;background:var(--soft);border-radius:999px;overflow:hidden}
+  .brow .bt span{display:block;height:100%;border-radius:999px;background:var(--grad)}
+  .brow .bv{font-size:.82rem;color:var(--fg);font-variant-numeric:tabular-nums}
+  .gap-note{background:rgb(31 55 140 / .05);border-left:4px solid var(--navy);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.2rem;font-size:.95rem;margin:1.4rem 0}
+  .gap-note b{color:var(--navy)}
+
+  /* email capture */
+  .capture{margin-top:1.6rem;border-top:1px solid var(--border);padding-top:1.6rem}
+  .capture h3{font-size:1.2rem;font-weight:700;color:var(--dark);text-align:center;margin-bottom:.3rem}
+  .capture p{text-align:center;font-size:.93rem;margin-bottom:1.2rem}
+  .guide-row{display:flex;align-items:center;gap:1rem;background:var(--soft);border:1px solid var(--border);border-radius:var(--radius);padding:.9rem 1rem;margin-bottom:1.2rem}
+  .guide-row .gi{width:44px;height:56px;border-radius:4px;background:var(--grad);flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.7rem;text-align:center;line-height:1.1}
+  .guide-row .gt b{display:block;color:var(--dark);font-size:.92rem}
+  .guide-row .gt span{font-size:.82rem}
+  form .field{margin-bottom:.8rem}
+  form input{width:100%;font-family:var(--font);font-size:1rem;padding:.85rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);color:var(--dark)}
+  form input:focus{outline:none;border-color:var(--primary)}
+  .consent{display:flex;align-items:flex-start;gap:.6rem;font-size:.85rem;color:var(--fg);margin:.4rem 0 1.1rem;cursor:pointer}
+  .consent input{width:auto;margin-top:.2rem}
+  .btn{display:block;width:100%;text-align:center;background:var(--grad);color:#fff;border:0;border-radius:999px;font-family:var(--font);font-weight:600;font-size:1.02rem;padding:1rem;cursor:pointer;text-decoration:none;transition:opacity .2s,transform .12s}
+  .btn:hover{opacity:.93;transform:translateY(-1px)}
+  .fineprint{text-align:center;font-size:.78rem;color:#9ca3af;margin-top:.9rem}
+
+  /* success */
+  #done{display:none;text-align:center}
+  #done.show{display:block;animation:fade .4s ease}
+  #done .check{width:64px;height:64px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1.2rem}
+  #done h3{font-size:1.5rem;font-weight:800;color:var(--dark);margin-bottom:.5rem}
+  .colab-cta{margin-top:1.6rem;background:rgb(31 55 140 / .05);border-radius:var(--radius);padding:1.4rem}
+  .colab-cta b{color:var(--navy)}
+  a.textlink{color:var(--primary);font-weight:600;text-decoration:none}
+  a.textlink:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="../assets/runfree-logo.png" alt="RunFree.Co">
+    <span class="kicker">Free · 5-minute assessment</span>
+    <h1>Can your team answer the <span class="g">five questions</span> the same way?</h1>
+    <p class="lead">Most leadership teams can't. Score your church on the five irreducible questions of leadership — and get the free 40-page Vision Frame Field Guide with your results.</p>
+  </header>
+
+  <div class="card">
+    <!-- QUIZ -->
+    <div id="quiz">
+      <div class="pbar"><span id="pfill"></span></div>
+      <div class="qcount" id="qcount">Question 1 of 5</div>
+      <div id="questions"></div>
+      <div class="nav">
+        <button class="back" id="backBtn" disabled>&larr; Back</button>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="result">
+      <div class="score-ring">
+        <svg width="150" height="150" viewBox="0 0 150 150">
+          <circle cx="75" cy="75" r="66" fill="none" stroke="#f0f0f2" stroke-width="12"/>
+          <circle id="ringFill" cx="75" cy="75" r="66" fill="none" stroke="url(#rg)" stroke-width="12" stroke-linecap="round" stroke-dasharray="414.7" stroke-dashoffset="414.7"/>
+          <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E43D96"/><stop offset="1" stop-color="#F15A25"/></linearGradient></defs>
+        </svg>
+        <div class="num"><b id="scoreNum">0</b><span>of 25</span></div>
+      </div>
+      <div class="tier" id="tierName">—</div>
+      <p class="tier-sub" id="tierDesc"></p>
+      <div class="bars" id="bars"></div>
+      <div class="gap-note" id="gapNote"></div>
+
+      <div class="capture">
+        <h3>Get your full breakdown + the Field Guide</h3>
+        <p>We'll email your results and the complete guide — free.</p>
+        <div class="guide-row">
+          <div class="gi">FIELD GUIDE</div>
+          <div class="gt"><b>The Vision Frame Field Guide</b><span>40 pages · the five questions, fully explained · normally for our cohort teams</span></div>
+        </div>
+        <form id="leadForm" novalidate>
+          <div class="field"><input type="text" id="fName" name="name" placeholder="Your name" autocomplete="name" required></div>
+          <div class="field"><input type="text" id="fChurch" name="church" placeholder="Church name" autocomplete="organization"></div>
+          <div class="field"><input type="email" id="fEmail" name="email" placeholder="Email address" autocomplete="email" required></div>
+          <label class="consent"><input type="checkbox" id="fConsent" checked> Send me the free weekly RunFree email — practical vision &amp; disciple-making help for church leaders. (Unsubscribe anytime.)</label>
+          <button type="submit" class="btn">Email me my results + the Field Guide</button>
+          <p class="fineprint">No spam. Your info stays with RunFree.Co.</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div id="done">
+      <div class="check">&#10003;</div>
+      <h3>Check your inbox!</h3>
+      <p>Your results and the Vision Frame Field Guide are on the way. While you wait, grab the guide right here:</p>
+      <p style="margin-top:1rem"><a class="btn" id="dlBtn" href="../assets/vision-frame-field-guide.pdf" download>Download the Field Guide (PDF)</a></p>
+      <div class="colab-cta">
+        <p style="margin:0">Scored lower than you'd like? That's exactly what the <b>Pivvot Vision Framing co::Lab</b> fixes — a 10-month guided journey for your team, grant-funded to $250/month.<br>
+        <a class="textlink" href="/">See the co::Lab &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var QUESTIONS = [
+    {cat:"Mission · The What", q:"Every person on our leadership team would state our church's mission the same way — in one clear sentence."},
+    {cat:"Values · The Why", q:"We've named the handful of values that actually drive our decisions — and we'd hire, celebrate, and part ways by them."},
+    {cat:"Strategy · The How", q:"We could draw our disciple-making pathway on a napkin — the clear steps that move someone from guest to fully engaged."},
+    {cat:"Measures · The When", q:"We measure success by who people are becoming (disciples), not just attendance and giving."},
+    {cat:"Vision · The Where", q:"We have a clear, compelling picture of where God is taking our church in the next 3–5 years that our whole team can articulate."}
+  ];
+  var LABELS = ["Not at all","A little","Somewhat","Mostly","Completely"];
+  var SHORT = ["Mission","Values","Strategy","Measures","Vision"];
+  var answers = new Array(QUESTIONS.length).fill(0);
+  var idx = 0;
+  var qWrap = document.getElementById('questions');
+  var pfill = document.getElementById('pfill');
+  var qcount = document.getElementById('qcount');
+  var backBtn = document.getElementById('backBtn');
+
+  function renderQ(){
+    var Q = QUESTIONS[idx];
+    var html = '<div class="q active"><div class="cat">'+Q.cat+'</div><h2>'+Q.q+'</h2><div class="scale">';
+    for(var i=1;i<=5;i++){
+      html += '<button class="opt'+(answers[idx]===i?' sel':'')+'" data-v="'+i+'"><span class="dot"></span>'+LABELS[i-1]+'</button>';
+    }
+    html += '</div></div>';
+    qWrap.innerHTML = html;
+    qcount.textContent = 'Question '+(idx+1)+' of '+QUESTIONS.length;
+    pfill.style.width = ((idx+(answers[idx]?1:0))/QUESTIONS.length*100)+'%';
+    backBtn.disabled = idx===0;
+    Array.prototype.forEach.call(qWrap.querySelectorAll('.opt'), function(btn){
+      btn.addEventListener('click', function(){
+        answers[idx] = +btn.getAttribute('data-v');
+        pfill.style.width = ((idx+1)/QUESTIONS.length*100)+'%';
+        setTimeout(next, 220);
+      });
+    });
+  }
+  function next(){
+    if(idx < QUESTIONS.length-1){ idx++; renderQ(); }
+    else { showResult(); }
+  }
+  backBtn.addEventListener('click', function(){ if(idx>0){ idx--; renderQ(); } });
+
+  function showResult(){
+    document.getElementById('quiz').style.display='none';
+    var total = answers.reduce(function(a,b){return a+b;},0);
+    var res = document.getElementById('result');
+    res.classList.add('show');
+    // ring + count-up
+    var ring = document.getElementById('ringFill');
+    var circ = 414.7;
+    ring.style.transition='stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1)';
+    setTimeout(function(){ ring.style.strokeDashoffset = circ*(1-total/25); },60);
+    var sn = document.getElementById('scoreNum'), t0=null;
+    requestAnimationFrame(function anim(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/1100,1); sn.textContent=Math.round(total*p); if(p<1)requestAnimationFrame(anim); });
+    // tier
+    var tier, desc;
+    if(total<=11){ tier="Vision is Blurry"; desc="Right now your vision likely lives in your head more than on your team's lips. That's the most common — and most fixable — place to start."; }
+    else if(total<=18){ tier="Vision is Emerging"; desc="You've done real work, but there are clear gaps where your team isn't yet aligned. Closing them is what turns effort into momentum."; }
+    else { tier="Vision is Taking Shape"; desc="Strong foundation. The opportunity now is to sharpen the edges and get every leader carrying the same picture with total clarity."; }
+    document.getElementById('tierName').textContent = tier;
+    document.getElementById('tierDesc').textContent = desc;
+    // bars
+    var bars = document.getElementById('bars'), bhtml='';
+    for(var i=0;i<QUESTIONS.length;i++){
+      bhtml += '<div class="brow"><span class="bl">'+SHORT[i]+'</span><span class="bt"><span style="width:0" data-w="'+(answers[i]/5*100)+'"></span></span><span class="bv">'+answers[i]+'/5</span></div>';
+    }
+    bars.innerHTML = bhtml;
+    setTimeout(function(){ Array.prototype.forEach.call(bars.querySelectorAll('.bt span'), function(s){ s.style.transition='width .8s ease'; s.style.width=s.getAttribute('data-w')+'%'; }); }, 200);
+    // weakest area
+    var min=6, mi=0;
+    for(var j=0;j<answers.length;j++){ if(answers[j]<min){ min=answers[j]; mi=j; } }
+    document.getElementById('gapNote').innerHTML = 'Your biggest opportunity: <b>'+SHORT[mi]+'</b>. '+(min<=3?'This is where clarity is leaking most — and where a little focused work pays off fastest.':'Even your strongest churches sharpen here.');
+  }
+
+  // Lead form — TODO: wire endpoint to GoHighLevel form / Mailchimp.
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('fEmail').value.trim();
+    var name = document.getElementById('fName').value.trim();
+    if(!name || !/.+@.+\..+/.test(email)){ alert('Please add your name and a valid email.'); return; }
+    var payload = {
+      name: name,
+      church: document.getElementById('fChurch').value.trim(),
+      email: email,
+      weeklyEmail: document.getElementById('fConsent').checked,
+      score: answers.reduce(function(a,b){return a+b;},0),
+      answers: SHORT.map(function(s,i){return s+':'+answers[i];}).join(', '),
+      source: 'vision-check'
+    };
+    // Placeholder: POST payload to GHL/Mailchimp here. For now, advance to success.
+    if(window.ENDPOINT){ try{ fetch(window.ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); }catch(err){} }
+    document.getElementById('result').classList.remove('show');
+    document.getElementById('result').style.display='none';
+    document.getElementById('done').classList.add('show');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  renderQ();
+</script>
+</body>
+</html>
