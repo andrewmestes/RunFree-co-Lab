@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="The Pivvot Vision Framing co::Lab — a 10-month guided journey for your church's lead team, built on the Vision Frame used by 40,000+ church teams. Grant-funded through CCL Network: $250/month.">
 <title>Pivvot Vision Framing co::Lab — RunFree.Co × CCL Network</title>
+<link rel="canonical" href="https://run-free-co-lab.vercel.app/">
+<meta name="theme-color" content="#E43D96">
+<!-- Social share card. Image is 1200x630; keep the seat COUNT out of it — iMessage/Facebook
+     cache previews hard, so a changing number would go stale in the cache. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RunFree.Co">
+<meta property="og:url" content="https://run-free-co-lab.vercel.app/">
+<meta property="og:title" content="Pivvot Vision Framing co::Lab — begins September 30">
+<meta property="og:description" content="A 10-month guided journey for your church's lead team, built on the Vision Frame used by 40,000+ church teams. Eight churches only — grant-funded at $250/month through CCL Network.">
+<meta property="og:image" content="https://run-free-co-lab.vercel.app/assets/og-colab.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pivvot Vision Framing co::Lab — Stop photocopying vision. Begins September 30, 2026.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pivvot Vision Framing co::Lab — begins September 30">
+<meta name="twitter:description" content="A 10-month guided journey for your church's lead team, built on the Vision Frame used by 40,000+ church teams. Eight churches only — grant-funded at $250/month through CCL Network.">
+<meta name="twitter:image" content="https://run-free-co-lab.vercel.app/assets/og-colab.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -51,6 +68,12 @@
   .meta-row span+span::before{content:"·";color:#c9ced6;margin-right:.6rem}
 
   /* header */
+  .announce{background:var(--grad);color:#fff;text-align:center;font-size:.9rem;font-weight:600;padding:.7rem 1rem;line-height:1.45}
+  .announce b{font-weight:700}
+  .announce .sep{opacity:.5;margin:0 .6rem}
+  .announce a{color:#fff;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+  .announce a:hover{opacity:.85}
+  @media(max-width:640px){.announce{font-size:.82rem}.announce .sep{display:none}.announce .seg{display:block}}
   header{position:sticky;top:0;z-index:999;background:rgb(255 255 255 / .85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
   header .wrap{display:flex;align-items:center;justify-content:space-between;height:5.5rem}
   header img{height:3rem;width:auto;display:block}
@@ -234,6 +257,11 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 </head>
 <body>
 
+<!-- SEATS/DATE urgency. Update all spots at once: grep -n 'SEATS-DATE' index.html overview/index.html -->
+<div class="announce"><!-- SEATS-DATE -->
+  <span class="seg">Cohort begins <b>September 30</b></span><span class="sep">·</span><span class="seg"><b>Only 4 of 8 seats remain</b></span><span class="sep">·</span><a href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register →</a>
+</div>
+
 <header>
   <div class="wrap">
     <a href="https://runfree.co"><img src="assets/runfree-logo.png" alt="RunFree.Co"></a>
@@ -250,16 +278,16 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     <h1>Stop photocopying vision.<br>Lead the church only <span class="grad-text">your church</span> can be.</h1>
     <p class="sub">A 10-month guided journey for your church's lead team — built on the Vision Frame that has served 40,000+ church teams — to name your unique disciple-making identity and craft a God-sized dream for 2030 and beyond.</p>
     <div class="meta-row">
-      <span>2026 cohort</span>
+      <span>Begins September 30, 2026</span><!-- SEATS-DATE -->
       <span>10 monthly virtual intensives</span>
-      <span>8 churches only</span>
+      <span>Only 4 of 8 seats remain</span>
       <span>Your whole lead team</span>
     </div>
     <div class="btn-row">
       <a class="btn btn-grad" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register your church — $250/mo</a>
       <a class="btn btn-outline" href="#talk">Start with a conversation</a>
     </div>
-    <p class="hero-note">Normally $5,000 per church — grant-funded to $2,500 through CCL Network's Lilly Endowment grant.</p>
+    <p class="hero-note">Normally $5,000 per church — grant-funded to $2,500 through CCL Network's Lilly Endowment grant. Half the cohort is already filled; registration closes when the eighth church is in.</p><!-- SEATS-DATE -->
   </div>
 </div>
 
@@ -269,7 +297,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <div class="stat"><b data-count="40000" data-suffix="+">0+</b><span>Church teams using the Vision Frame</span></div>
       <div class="stat"><b data-count="3000" data-suffix="+">0+</b><span>Churches guided through the process</span></div>
       <div class="stat"><b data-count="21" data-suffix=" yrs">0 yrs</b><span>Vision Frame in the field</span></div>
-      <div class="stat"><b data-count="8" data-suffix=" seats">0 seats</b><span>In this cohort — that's all</span></div>
+      <div class="stat"><b data-count="4" data-suffix=" seats">0 seats</b><span>Still open — 4 of 8 taken</span></div><!-- SEATS-DATE -->
     </div>
   </div>
 </section>
@@ -443,7 +471,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
   <div class="wrap">
     <div class="center">
       <span class="kicker">Two ways to begin</span>
-      <h2>CCL Network's Lilly grant covers half — for eight churches</h2>
+      <h2>CCL Network's Lilly grant covers half — and only four seats are left</h2><!-- SEATS-DATE -->
     </div>
     <div class="ways">
       <div class="price-card">
@@ -452,9 +480,10 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
         <div class="price">$2,500 <small>per church · just $250/month for 10 months</small></div>
         <span class="grant-note">Underwritten by CCL Network through a Lilly Endowment grant</span>
         <ul>
+          <li><b>Begins September 30, 2026</b> — 10 monthly intensives</li><!-- SEATS-DATE -->
           <li>Full 10-month Pivvot Vision Framing co::Lab for your lead team</li>
           <li>Facilitated by RunFree Vision Coach Andrew Estes</li>
-          <li>Limited to 8 churches — when it's full, it's full</li>
+          <li><b>4 of 8 seats already taken</b> — when it's full, it's full</li>
           <li>Everything listed above, included</li>
         </ul>
         <a class="btn btn-grad" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register for the co::Lab</a>
@@ -478,6 +507,10 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     <span class="kicker">Questions</span>
     <h2>Frequently asked questions</h2>
     <div class="faq" style="text-align:left">
+      <details open><!-- SEATS-DATE -->
+        <summary>When does the cohort start?</summary>
+        <div>The 2026 cohort begins <b>September 30, 2026</b> and runs 10 months — one 4-hour virtual intensive per month. <b>Four of the eight seats are already taken</b>, and registration closes once the eighth church is in.</div>
+      </details>
       <details>
         <summary>Who from our church should participate?</summary>
         <div>Your lead minister plus your key leaders — elders and staff who carry the weight of direction. The process is designed for a "Future Team," not a solo pastor, because alignment is built during the journey, not after it.</div>
@@ -524,12 +557,12 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
         <p>Team,</p>
         <p>I'd like our church to join the Pivvot Vision Framing co::Lab — a 10-month guided journey with RunFree.Co, in partnership with CCL Network.</p>
         <p>It's built on the Vision Frame methodology that more than 3,000 churches and 40,000 church teams have used. Our lead team would meet virtually 4 hours a month, and by the end we'd have two finished deliverables: a codified Vision Frame (our mission, values, strategy, and measures) and a Horizon Storyline (a long-range plan we can actually execute).</p>
-        <p>The investment is normally $5,000 per church, but a Lilly Endowment grant through CCL Network covers half — so it's $250/month for 10 months. The cohort is limited to eight churches.</p>
+        <p>The investment is normally $5,000 per church, but a Lilly Endowment grant through CCL Network covers half — so it's $250/month for 10 months. The cohort is limited to eight churches and four seats are already taken. It begins September 30, so we'd need to decide soon.</p><!-- SEATS-DATE -->
         <p>Could we discuss this at our next meeting?</p>
         <p>[Your name]</p>
       </div>
     </div>
-    <a class="btn btn-outline" style="margin-top:1.6rem" href="mailto:?subject=Request%3A%20Pivvot%20Vision%20Framing%20co%3A%3ALab%20(%24250%2Fmo%2C%20grant-funded)&body=Team%2C%0A%0AI%27d%20like%20our%20church%20to%20join%20the%20Pivvot%20Vision%20Framing%20co%3A%3ALab%20%E2%80%94%20a%2010-month%20guided%20journey%20with%20RunFree.Co%2C%20in%20partnership%20with%20CCL%20Network.%0A%0AIt%27s%20built%20on%20the%20Vision%20Frame%20methodology%20that%20more%20than%203%2C000%20churches%20and%2040%2C000%20church%20teams%20have%20used.%20Our%20lead%20team%20would%20meet%20virtually%204%20hours%20a%20month%2C%20and%20by%20the%20end%20we%27d%20have%20two%20finished%20deliverables%3A%20a%20codified%20Vision%20Frame%20and%20a%20Horizon%20Storyline.%0A%0AThe%20investment%20is%20normally%20%245%2C000%20per%20church%2C%20but%20a%20Lilly%20Endowment%20grant%20through%20CCL%20Network%20covers%20half%20%E2%80%94%20so%20it%27s%20%24250%2Fmonth%20for%2010%20months.%20The%20cohort%20is%20limited%20to%20eight%20churches.%0A%0ACould%20we%20discuss%20this%20at%20our%20next%20meeting%3F%0A%0A%5BYour%20name%5D">Open in your mail app</a>
+    <a class="btn btn-outline" style="margin-top:1.6rem" href="mailto:?subject=Request%3A%20Pivvot%20Vision%20Framing%20co%3A%3ALab%20(%24250%2Fmo%2C%20grant-funded)&body=Team%2C%0A%0AI%27d%20like%20our%20church%20to%20join%20the%20Pivvot%20Vision%20Framing%20co%3A%3ALab%20%E2%80%94%20a%2010-month%20guided%20journey%20with%20RunFree.Co%2C%20in%20partnership%20with%20CCL%20Network.%0A%0AIt%27s%20built%20on%20the%20Vision%20Frame%20methodology%20that%20more%20than%203%2C000%20churches%20and%2040%2C000%20church%20teams%20have%20used.%20Our%20lead%20team%20would%20meet%20virtually%204%20hours%20a%20month%2C%20and%20by%20the%20end%20we%27d%20have%20two%20finished%20deliverables%3A%20a%20codified%20Vision%20Frame%20and%20a%20Horizon%20Storyline.%0A%0AThe%20investment%20is%20normally%20%245%2C000%20per%20church%2C%20but%20a%20Lilly%20Endowment%20grant%20through%20CCL%20Network%20covers%20half%20%E2%80%94%20so%20it%27s%20%24250%2Fmonth%20for%2010%20months.%20The%20cohort%20is%20limited%20to%20eight%20churches%20and%20four%20seats%20are%20already%20taken.%20It%20begins%20September%2030%2C%20so%20we%27d%20need%20to%20decide%20soon.%0A%0ACould%20we%20discuss%20this%20at%20our%20next%20meeting%3F%0A%0A%5BYour%20name%5D">Open in your mail app</a>
   </div>
 </section>
 
@@ -551,9 +584,9 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 
 <section class="final">
   <div class="wrap">
-    <span class="urgency">The 2026 cohort is limited to eight churches</span>
+    <span class="urgency">Only 4 of 8 seats remain · Begins September 30</span><!-- SEATS-DATE -->
     <h2>When it's full, it's full.</h2>
-    <p style="max-width:38em;margin:0 auto">Eight churches, one guided journey, half the investment covered by the Lilly grant. Register your church — or start with a conversation.</p>
+    <p style="max-width:38em;margin:0 auto">Four churches are already in. Four seats are left, the journey begins <b>September 30</b>, and half the investment is covered by the Lilly grant. Register your church — or start with a conversation.</p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn-grad" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register your church</a>
       <a class="btn btn-outline" style="border-color:#fff;color:#fff" href="mailto:andrew@runfree.co?subject=Vision%20Framing%20co%3A%3ALab%20%E2%80%94%20let%27s%20talk">Talk with Andrew</a>
