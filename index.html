@@ -74,6 +74,27 @@
   .announce a{color:#fff;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
   .announce a:hover{opacity:.85}
   @media(max-width:640px){.announce{font-size:.82rem}.announce .sep{display:none}.announce .seg{display:block}}
+  /* Seat scarcity. Same visual device as .was/.price: struck original, live figure. */
+  .seat-was{color:#9ca3af;text-decoration:line-through;text-decoration-thickness:2px;font-weight:600}
+  .seat-left{font-weight:700;color:var(--primary)}
+  .announce .seat-was{color:#fff;opacity:.6}
+  .announce .seat-left{color:#fff}
+  .final .seat-was{color:#f9a8d4;opacity:.65}
+  .final .seat-left{color:#fff}
+  /* Lifted out of flow so the struck line doesn't drop this tile's number
+     below the baseline the other three stats share. */
+  .stat{position:relative}
+  .stat .seat-was{position:absolute;top:-1.45rem;left:0;right:0;font-size:1.05rem}
+  /* Filled dot = taken seat. Dots are drawn by JS from data-taken; the label is
+     in the HTML so it still reads correctly with no JS. */
+  .seatmeter{display:inline-flex;align-items:center;gap:.8rem;flex-wrap:wrap;
+             justify-content:center;margin:0 auto 2rem;padding:.7rem 1.4rem;
+             border:1px solid var(--border);border-radius:999px;background:#fff}
+  .seatmeter .dots{display:inline-flex;gap:.42rem}
+  .seatmeter i{width:15px;height:15px;border-radius:50%;border:2px solid var(--primary);display:block}
+  .seatmeter i.taken{background:var(--primary)}
+  .seatmeter .lbl{font-size:.92rem;font-weight:600;color:var(--dark)}
+  @media(max-width:480px){.seatmeter{gap:.6rem;padding:.6rem 1rem}.seatmeter .lbl{font-size:.84rem}}
   header{position:sticky;top:0;z-index:999;background:rgb(255 255 255 / .85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
   header .wrap{display:flex;align-items:center;justify-content:space-between;height:5.5rem}
   header img{height:3rem;width:auto;display:block}
@@ -259,7 +280,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 
 <!-- SEATS/DATE urgency. Update all spots at once: grep -n 'SEATS-DATE' index.html overview/index.html -->
 <div class="announce"><!-- SEATS-DATE -->
-  <span class="seg">Cohort begins <b>September 30</b></span><span class="sep">·</span><span class="seg"><b>Only 4 of 8 seats remain</b></span><span class="sep">·</span><a href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register →</a>
+  <span class="seg">Cohort begins <b>September 30</b></span><span class="sep">·</span><span class="seg"><s class="seat-was">8 seats</s> <b class="seat-left">Only 4 remain</b></span><span class="sep">·</span><a href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register →</a>
 </div>
 
 <header>
@@ -280,7 +301,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     <div class="meta-row">
       <span>Begins September 30, 2026</span><!-- SEATS-DATE -->
       <span>10 monthly virtual intensives</span>
-      <span>Only 4 of 8 seats remain</span>
+      <span><s class="seat-was">8 seats</s>&nbsp;<b class="seat-left">only 4 remain</b></span>
       <span>Your whole lead team</span>
     </div>
     <div class="btn-row">
@@ -297,7 +318,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <div class="stat"><b data-count="40000" data-suffix="+">0+</b><span>Church teams using the Vision Frame</span></div>
       <div class="stat"><b data-count="3000" data-suffix="+">0+</b><span>Churches guided through the process</span></div>
       <div class="stat"><b data-count="21" data-suffix=" yrs">0 yrs</b><span>Vision Frame in the field</span></div>
-      <div class="stat"><b data-count="4" data-suffix=" seats">0 seats</b><span>Still open — 4 of 8 taken</span></div><!-- SEATS-DATE -->
+      <div class="stat"><s class="seat-was">8 seats</s><b data-count="4" data-suffix=" seats">0 seats</b><span>Still open — 4 of 8 taken</span></div><!-- SEATS-DATE -->
     </div>
   </div>
 </section>
@@ -472,6 +493,9 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     <div class="center">
       <span class="kicker">Two ways to begin</span>
       <h2>CCL Network's Lilly grant covers half — and only four seats are left</h2><!-- SEATS-DATE -->
+      <div class="seatmeter" data-taken="4" data-total="8"><!-- SEATS-DATE -->
+        <span class="lbl">4 of 8 seats taken — <b class="seat-left">only 4 remain</b></span>
+      </div>
     </div>
     <div class="ways">
       <div class="price-card">
@@ -483,7 +507,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
           <li><b>Begins September 30, 2026</b> — 10 monthly intensives</li><!-- SEATS-DATE -->
           <li>Full 10-month Pivvot Vision Framing co::Lab for your lead team</li>
           <li>Facilitated by RunFree Vision Coach Andrew Estes</li>
-          <li><b>4 of 8 seats already taken</b> — when it's full, it's full</li>
+          <li><s class="seat-was">8 seats</s> <b class="seat-left">only 4 left</b> — when it's full, it's full</li><!-- SEATS-DATE -->
           <li>Everything listed above, included</li>
         </ul>
         <a class="btn btn-grad" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register for the co::Lab</a>
@@ -584,7 +608,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 
 <section class="final">
   <div class="wrap">
-    <span class="urgency">Only 4 of 8 seats remain · Begins September 30</span><!-- SEATS-DATE -->
+    <span class="urgency"><s class="seat-was">8 seats</s> <b class="seat-left">Only 4 remain</b> · Begins September 30</span><!-- SEATS-DATE -->
     <h2>When it's full, it's full.</h2>
     <p style="max-width:38em;margin:0 auto">Four churches are already in. Four seats are left, the journey begins <b>September 30</b>, and half the investment is covered by the Lilly grant. Register your church — or start with a conversation.</p>
     <div class="btn-row" style="justify-content:center">
@@ -670,6 +694,21 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } }), {threshold:.6});
     document.querySelectorAll('[data-count]').forEach(el => io.observe(el));
   }
+
+  // Seat meter: filled dot = taken. Label is already in the HTML.
+  document.querySelectorAll('.seatmeter').forEach(m => {
+    const taken = +m.dataset.taken, total = +m.dataset.total;
+    if (!total) return;
+    const d = document.createElement('span');
+    d.className = 'dots';
+    d.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('i');
+      if (i < taken) dot.className = 'taken';
+      d.appendChild(dot);
+    }
+    m.prepend(d);
+  });
 </script>
 </body>
 </html>
