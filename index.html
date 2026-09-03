@@ -75,16 +75,25 @@
   .announce a:hover{opacity:.85}
   @media(max-width:640px){.announce{font-size:.82rem}.announce .sep{display:none}.announce .seg{display:block}}
   /* Seat scarcity. Same visual device as .was/.price: struck original, live figure. */
-  .seat-was{color:#9ca3af;text-decoration:line-through;text-decoration-thickness:2px;font-weight:600}
+  /* The rule is a pseudo-element, not text-decoration. A flat line-through sits
+     exactly on the 8's waist and the digit turns to mush; angling it clears the
+     crossbar. Sized in em so it stays proportional everywhere the class is used. */
+  .seat-was{position:relative;display:inline-block;color:#9ca3af;font-weight:700;text-decoration:none}
+  .seat-was::after{content:"";position:absolute;left:-.06em;right:-.06em;top:57%;
+                   height:.055em;min-height:1px;background:currentColor;border-radius:1px;
+                   transform:translateY(-50%)}
   .seat-left{font-weight:700;color:var(--primary)}
-  .announce .seat-was{color:#fff;opacity:.6}
+  .announce .seat-was{color:#fff;opacity:.7}
   .announce .seat-left{color:#fff}
-  .final .seat-was{color:#f9a8d4;opacity:.65}
+  .final .seat-was{color:#f9a8d4;opacity:.75}
   .final .seat-left{color:#fff}
-  /* Lifted out of flow so the struck line doesn't drop this tile's number
-     below the baseline the other three stats share. */
+  /* Lifted out of flow so the struck line doesn't drop this tile's number below
+     the baseline the other three stats share. Shrink-to-fit and centred, so the
+     rule hugs the text rather than spanning the column. Keep the whole phrase:
+     a rule across a lone "8" reads as a bar through the digit, not a deletion. */
   .stat{position:relative}
-  .stat .seat-was{position:absolute;top:-1.45rem;left:0;right:0;font-size:1.05rem}
+  .stat .seat-was{position:absolute;top:-1.05em;left:50%;transform:translateX(-50%);
+                  font-size:clamp(1.35rem,2.8vw,1.7rem);white-space:nowrap;color:#aeb5c0}
   /* Filled dot = taken seat. Dots are drawn by JS from data-taken; the label is
      in the HTML so it still reads correctly with no JS. */
   .seatmeter{display:inline-flex;align-items:center;gap:.8rem;flex-wrap:wrap;
