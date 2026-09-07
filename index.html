@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.className+=" js";</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Get your whole leadership team clear on where your church is going. A 10-month coached cohort for churches around 200 or less — one session a month, your vision on one page. $250/month through a CCL Network grant. Begins September 30.">
@@ -320,6 +321,24 @@
   @media (prefers-reduced-motion: reduce){
     .stage,.stage:hover,a.btn-grad:hover{transform:none;transition:none}
   }
+
+  /* ---- Reveal system (progressive; scoped to html.js so no-JS visitors see everything) ---- */
+  html.js section:not(.in) .wrap > :is(.kicker,h2,.sub){opacity:0;transform:translateY(16px)}
+  html.js section .wrap > :is(.kicker,h2,.sub){transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  html.js section.in .wrap > h2{transition-delay:.06s}
+  html.js section.in .wrap > .sub{transition-delay:.14s}
+  html.js .stg > *{opacity:0;transform:translateY(16px);transition:opacity .65s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1)}
+  html.js .stg.in > *{opacity:1;transform:none}
+  html.js .stg.in > :nth-child(1){transition-delay:.05s}
+  html.js .stg.in > :nth-child(2){transition-delay:.13s}
+  html.js .stg.in > :nth-child(3){transition-delay:.21s}
+  html.js .stg.in > :nth-child(4){transition-delay:.29s}
+  html.js .stg.in > :nth-child(5){transition-delay:.37s}
+  html.js .stg.in > :nth-child(6){transition-delay:.45s}
+  html.js .stg.in > :nth-child(n+7){transition-delay:.5s}
+  @media (prefers-reduced-motion: reduce){
+    html.js section .wrap > :is(.kicker,h2,.sub), html.js .stg > *{opacity:1 !important;transform:none !important;transition:none !important}
+  }
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -347,7 +366,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 
 <header>
   <div class="wrap">
-    <a href="https://runfree.co"><img src="assets/runfree-logo.png" alt="RunFree.Co"></a>
+    <a href="https://runfree.co"><img src="assets/runfree-logo.png" width="548" height="240" alt="RunFree.Co"></a>
     <div class="head-cta">
       <div class="head-partner">In partnership with CCL Network<br>Funded in part by a Lilly Endowment grant</div>
       <a class="head-btn" href="https://tidycal.com/andrew-estes/discovery-call" data-ev="Schedule">Book a call</a>
@@ -374,13 +393,13 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <p class="proof">"This class has catapulted our fellowship into a new season of ministry."<i>Jose Dominguez, pastor of a church under 200 — Luz Del Valle, Keizer, OR</i></p>
       <p class="hero-note">Normally $5,000 per church. $2,500 for this cohort through the CCL Network's Lilly Endowment grant — $500 to start, then $250 a month. Four of the eight seats are taken.</p><!-- SEATS-DATE -->
     </div>
-    <div class="hero-photo"><img src="assets/hero-andrew.jpg" srcset="assets/hero-andrew-900.jpg 900w, assets/hero-andrew.jpg 1800w" sizes="(max-width:860px) 100vw, 50vw" alt="Andrew Estes coaching a church team through the Pivvot Vision Framing process at a whiteboard" fetchpriority="high"></div>
+    <div class="hero-photo"><img src="assets/hero-andrew.jpg" width="1800" height="1012" srcset="assets/hero-andrew-900.jpg 900w, assets/hero-andrew.jpg 1800w" sizes="(max-width:860px) 100vw, 50vw" alt="Andrew Estes coaching a church team through the Pivvot Vision Framing process at a whiteboard" fetchpriority="high"></div>
   </div>
 </div>
 
 <section class="muted-sec" style="padding:3.2rem 0">
   <div class="wrap">
-    <div class="stats">
+    <div class="stats stg">
       <div class="stat"><b data-count="40000" data-suffix="+">40,000+</b><span>Church teams using the Vision Frame</span></div>
       <div class="stat"><b data-count="3000" data-suffix="+">3,000+</b><span>Churches guided through the process</span></div>
       <div class="stat"><b data-count="21" data-suffix=" yrs">21 yrs</b><span>Vision Frame in the field</span></div>
@@ -393,7 +412,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
   <div class="wrap center">
     <span class="kicker">How it works</span>
     <h2>Three steps. No pressure at any of them.</h2>
-    <div class="steps">
+    <div class="steps stg">
       <div class="step"><b class="n">1</b><h3>Book a free 30-minute call</h3><p>Tell Andrew about your church and your team. He'll tell you honestly whether the co::Lab is a fit — and if it isn't, he'll say so.</p></div>
       <div class="step"><b class="n">2</b><h3>Bring four leaders</h3><p>Your lead pastor plus the three people who carry the weight of direction — elders, staff, key volunteers. Register when your team is ready. Nothing is due at registration.</p></div>
       <div class="step"><b class="n">3</b><h3>Leave with your vision on one page</h3><p>One afternoon a month for ten months, coached, alongside seven other churches. You finish with a vision your whole team built and a plan for the next five years.</p></div>
@@ -426,7 +445,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     <p>That's the problem underneath the problems: <b>over-programmed and under-discipled.</b> Most people connect to a church through its building, its programs, and its people — and every one of those can change overnight. Underneath all of it is the question that rarely gets answered together: what is this church actually here to do, and how would we know it's working? Not because leaders don't care. Because nobody ever gave them the tools, a guide, and the protected time with their team to work it out.</p>
     <p style="margin:0"><b style="color:var(--dark)">That deep work is exactly what the co::Lab is.</b></p>
    </div>
-   <div class="sec-photo"><img src="assets/andrew-whiteboard.jpg" alt="Andrew writing The Pivvot Vision Framing Process across a wall chart" loading="lazy"></div>
+   <div class="sec-photo"><img src="assets/andrew-whiteboard.jpg" width="1400" height="787" alt="Andrew writing The Pivvot Vision Framing Process across a wall chart" loading="lazy"></div>
   </div>
 </section>
 
@@ -437,7 +456,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <h2>Churches like yours — and a few big ones</h2>
       <p class="sub" style="margin:0 auto">The first three are churches under 200 that recently walked this process with RunFree. The other three are among the largest churches in the country. Same tools, same questions.</p>
     </div>
-    <div class="quotes">
+    <div class="quotes stg">
       <div class="quote">
         <span class="tag">Church under 200 · co::Lab graduate</span>
         <p>"This class has catapulted our fellowship into a new season of ministry. It taught me to go from a program church to a mission-oriented, disciple-making church… We have baptisms and new believers coming into the fellowship through intentional, discipleship-focused ministry."</p>
@@ -456,17 +475,17 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <div class="quote">
         <span class="qmark">“</span>
         <p>We went from 15 competing priorities to 3 clear ones. Our staff has never been more focused.</p>
-        <footer><img src="assets/pastor-andrews.webp" alt="Steve Andrews" loading="lazy"><div><b>Steve Andrews</b><span>Senior Pastor, Kensington Church, Troy, MI</span></div></footer>
+        <footer><img src="assets/pastor-andrews.webp" width="500" height="500" alt="Steve Andrews" loading="lazy"><div><b>Steve Andrews</b><span>Senior Pastor, Kensington Church, Troy, MI</span></div></footer>
       </div>
       <div class="quote">
         <span class="qmark">“</span>
         <p>The Vision Frame gave us language our entire leadership team could rally behind. Game changer.</p>
-        <footer><img src="assets/pastor-werlein.webp" alt="Ken Werlein" loading="lazy"><div><b>Ken Werlein</b><span>Executive Pastor, Faithbridge Church, Spring, TX</span></div></footer>
+        <footer><img src="assets/pastor-werlein.webp" width="320" height="320" alt="Ken Werlein" loading="lazy"><div><b>Ken Werlein</b><span>Executive Pastor, Faithbridge Church, Spring, TX</span></div></footer>
       </div>
       <div class="quote">
         <span class="qmark">“</span>
         <p>RunFree helped us align 30,000 members around a clear, compelling vision for the first time in decades.</p>
-        <footer><img src="assets/pastor-gaines.jpg" alt="Dr. Steve Gaines" loading="lazy"><div><b>Dr. Steve Gaines</b><span>Senior Pastor, Bellevue Baptist Church, Memphis, TN</span></div></footer>
+        <footer><img src="assets/pastor-gaines.jpg" width="320" height="320" alt="Dr. Steve Gaines" loading="lazy"><div><b>Dr. Steve Gaines</b><span>Senior Pastor, Bellevue Baptist Church, Memphis, TN</span></div></footer>
       </div>
     </div>
   </div>
@@ -488,13 +507,13 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <p class="sub" style="margin:0 auto">The Pivvot process moves your team through six stages — each with a proven master tool and a mantra your leaders will still be repeating years from now.</p>
     </div>
     <div class="journey">
-      <div class="journey-track" id="jtrack" role="tablist" aria-label="The six stages of the Pivvot process">
-        <button class="jstop" role="tab" aria-selected="true" data-i="0"><span class="disc"><img src="assets/tool-1-funnel-fusion.png" alt=""></span><span class="jlabel">Funnel Fusion</span></button>
-        <button class="jstop" role="tab" aria-selected="false" data-i="1"><span class="disc"><img src="assets/tool-2-crowd-cloud.png" alt=""></span><span class="jlabel">Crowd Cloud</span></button>
-        <button class="jstop" role="tab" aria-selected="false" data-i="2"><span class="disc"><img src="assets/tool-3-disciples-journey.png" alt=""></span><span class="jlabel">Disciple's Journey</span></button>
-        <button class="jstop" role="tab" aria-selected="false" data-i="3"><span class="disc"><img src="assets/tool-4-kingdom-platform.png" alt=""></span><span class="jlabel">Kingdom Platform</span></button>
-        <button class="jstop" role="tab" aria-selected="false" data-i="4"><span class="disc"><img src="assets/tool-5-vision-frame.png" alt=""></span><span class="jlabel">Vision Frame</span></button>
-        <button class="jstop" role="tab" aria-selected="false" data-i="5"><span class="disc"><img src="assets/tool-6-horizon-storyline.png" alt=""></span><span class="jlabel">Horizon Storyline</span></button>
+      <div class="journey-track stg" id="jtrack" role="tablist" aria-label="The six stages of the Pivvot process">
+        <button class="jstop" role="tab" aria-selected="true" data-i="0"><span class="disc"><img src="assets/tool-1-funnel-fusion.png" width="299" height="301" alt=""></span><span class="jlabel">Funnel Fusion</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="1"><span class="disc"><img src="assets/tool-2-crowd-cloud.png" width="301" height="301" alt=""></span><span class="jlabel">Crowd Cloud</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="2"><span class="disc"><img src="assets/tool-3-disciples-journey.png" width="301" height="301" alt=""></span><span class="jlabel">Disciple's Journey</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="3"><span class="disc"><img src="assets/tool-4-kingdom-platform.png" width="301" height="301" alt=""></span><span class="jlabel">Kingdom Platform</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="4"><span class="disc"><img src="assets/tool-5-vision-frame.png" width="301" height="301" alt=""></span><span class="jlabel">Vision Frame</span></button>
+        <button class="jstop" role="tab" aria-selected="false" data-i="5"><span class="disc"><img src="assets/tool-6-horizon-storyline.png" width="301" height="301" alt=""></span><span class="jlabel">Horizon Storyline</span></button>
       </div>
       <div class="stage-panel" id="jpanel" role="tabpanel">
         <div class="panel-inner">
@@ -515,7 +534,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <h2>Built for normal-size churches doing the deep work</h2>
       <p class="sub" style="margin:0 auto">Not a conference and not a consultant. A small cohort, your real team, and a coach who's done this with churches your size.</p>
     </div>
-    <div class="sec-photo" style="max-width:880px;margin:2.2rem auto 0"><img src="assets/team-huddle.jpg" alt="Andrew working through a chart with a church leadership team" loading="lazy"></div>
+    <div class="sec-photo" style="max-width:880px;margin:2.2rem auto 0"><img src="assets/team-huddle.jpg" width="1400" height="787" alt="Andrew working through a chart with a church leadership team" loading="lazy"></div>
     <div class="personas">
       <div class="persona"><h3>Pastors who want to be able to say it</h3><p>Ask four of your leaders where the church is going and you'd get four answers. You want one — in a sentence, in your own words, not borrowed from a bigger church — and you're willing to do the work with your team to find it.</p></div>
       <div class="persona"><h3>Churches around 200 or less</h3><p>The co::Lab is designed for normal-size churches — the backbone of the Kingdom. Larger churches are welcome; talk with Andrew about fit for your context.</p></div>
@@ -539,11 +558,11 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <span class="kicker">Everything included</span>
       <h2>What your church receives over the 10 months</h2>
     </div>
-    <div class="included">
+    <div class="included stg">
       <div class="inc-group">
         <h3>Training &amp; Facilitation</h3>
         <ul>
-          <li>10 monthly 4-hour virtual intensives — 40+ hours of guided vision framing</li>
+          <li>10 monthly 4-hour virtual intensives — over 40 hours of vision framing content, in the room and between sessions</li>
           <li>All six master tools facilitated live with your team</li>
           <li>A cohort of up to 8 churches walking the same road</li>
         </ul>
@@ -612,7 +631,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
   <div class="wrap center">
     <span class="kicker">Questions</span>
     <h2>Frequently asked questions</h2>
-    <div class="faq" style="text-align:left">
+    <div class="faq stg" style="text-align:left">
       <details open><!-- SEATS-DATE -->
         <summary>When does the cohort start?</summary>
         <div>The 2026 cohort begins <b>September 30, 2026</b> and runs 10 months — one 4-hour virtual intensive per month. <b>Four of the eight seats are already taken</b>, and registration closes once the eighth church is in.</div>
@@ -663,19 +682,19 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
         <p>Your coach is <b style="color:var(--dark)">Andrew Estes</b>, RunFree Vision Coach. Andrew was trained by Will Mancini, co-facilitates alongside him, and has walked church teams — most of them under 200 — through this exact process for years.</p>
         <blockquote class="authority-quote">"Every church needs a strategic outsider — a trusted confidant, a well-equipped guide who helps them get out of the echo chamber, out of their own way, into clarity."</blockquote>
         <div class="will-cite">
-          <img src="assets/will-mancini.png" loading="lazy" alt="Will Mancini">
+          <img src="assets/will-mancini.webp" width="320" height="320" loading="lazy" alt="Will Mancini">
           <cite><b>Will Mancini</b>Founder of the Vision Frame · Author of Church Unique, God Dreams, Younique &amp; Future Church</cite>
         </div>
       </div>
       <div>
         <div class="bookshelf">
-          <a class="book" href="https://www.amazon.com/dp/0787996831" target="_blank" rel="noopener"><img src="assets/book-church-unique.jpg" loading="lazy" alt="Church Unique by Will Mancini"><b>Church Unique</b><span>The Vision Frame</span><span class="buy">Buy on Amazon ↗</span></a>
-          <a class="book" href="https://www.amazon.com/dp/B0DHPHJ1QZ" target="_blank" rel="noopener"><img src="assets/book-god-dreams.jpg" loading="lazy" alt="God Dreams by Will Mancini"><b>God Dreams</b><span>Horizon Storyline</span><span class="buy">Buy on Amazon ↗</span></a>
-          <a class="book" href="https://www.amazon.com/dp/1540900614" target="_blank" rel="noopener"><img src="assets/book-future-church.jpg" loading="lazy" alt="Future Church by Will Mancini"><b>Future Church</b><span>Funnel Fusion</span><span class="buy">Buy on Amazon ↗</span></a>
-          <a class="book" href="https://www.amazon.com/dp/B0DHQMY5DQ" target="_blank" rel="noopener"><img src="assets/book-younique.jpg" loading="lazy" alt="Younique by Will Mancini"><b>Younique</b><span>Personal calling</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/0787996831" target="_blank" rel="noopener"><img src="assets/book-church-unique.jpg" width="315" height="466" loading="lazy" alt="Church Unique by Will Mancini"><b>Church Unique</b><span>The Vision Frame</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/B0DHPHJ1QZ" target="_blank" rel="noopener"><img src="assets/book-god-dreams.jpg" width="400" height="600" loading="lazy" alt="God Dreams by Will Mancini"><b>God Dreams</b><span>Horizon Storyline</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/1540900614" target="_blank" rel="noopener"><img src="assets/book-future-church.jpg" width="480" height="740" loading="lazy" alt="Future Church by Will Mancini"><b>Future Church</b><span>Funnel Fusion</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/B0DHQMY5DQ" target="_blank" rel="noopener"><img src="assets/book-younique.jpg" width="400" height="600" loading="lazy" alt="Younique by Will Mancini"><b>Younique</b><span>Personal calling</span><span class="buy">Buy on Amazon ↗</span></a>
         </div>
         <p class="shelf-note">Digital access to the full library is included for your whole team, all year.</p>
-        <img class="frame-img" src="assets/vision-frame-with-symbols.png" loading="lazy" alt="The Vision Frame — mission, values, strategy, measures, and vision">
+        <img class="frame-img" src="assets/vision-frame-with-symbols.png" width="463" height="409" loading="lazy" alt="The Vision Frame — mission, values, strategy, measures, and vision">
       </div>
     </div>
   </div>
@@ -707,7 +726,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 <section>
   <div class="wrap">
     <div class="letter">
-      <img class="letter-photo" src="assets/andrew-laptop.jpg" alt="Andrew Estes on a coaching call" loading="lazy">
+      <img class="letter-photo" src="assets/andrew-laptop.jpg" width="1400" height="787" alt="Andrew Estes on a coaching call" loading="lazy">
       <span class="kicker">From Andrew</span>
       <h2 style="font-size:1.5rem">Rather than staying busy playing church every seven days…</h2>
       <p>…we want to help leaders run free into what Jesus actually started.</p>
@@ -854,6 +873,35 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     }
     m.prepend(d);
   });
+</script>
+<script>
+  // Reveal on scroll: sections reveal their heading block, .stg containers stagger their children.
+  // IntersectionObserver is primary. Some in-app browsers (Meta/Instagram) preload pages in a hidden
+  // webview where intersections never arrive, so a scroll/resize sweep and a visibility sweep back it up —
+  // the same pattern the sticky call bar already uses.
+  (function(){
+    var targets=[].slice.call(document.querySelectorAll('section, .stg'));
+    var pending=targets.slice(), io=null;
+    function show(el){ if(!el.classList.contains('in')){ el.classList.add('in'); } var i=pending.indexOf(el); if(i>-1) pending.splice(i,1); if(io) io.unobserve(el); }
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ targets.forEach(show); return; }
+    if('IntersectionObserver' in window){
+      io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting) show(e.target); })},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+      targets.forEach(function(t){ io.observe(t); });
+    }
+    var last=0;
+    function sweep(){
+      last=Date.now();
+      var vh=window.innerHeight||document.documentElement.clientHeight||800; // some in-app webviews report 0 while preloading
+      pending.slice().forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top < vh*0.92 && r.bottom > 0) show(el); });
+      if(!pending.length){ window.removeEventListener('scroll',onScroll); window.removeEventListener('resize',onScroll); }
+    }
+    function onScroll(){ if(Date.now()-last>80) sweep(); }  // rAF is paused in hidden tabs; a plain time throttle is not
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
+    window.addEventListener('load',function(){ setTimeout(sweep,150); });
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) sweep(); });
+    if(!io) sweep();
+  })();
 </script>
 </body>
 </html>
