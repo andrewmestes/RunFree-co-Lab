@@ -3,25 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Pivvot Vision Framing co::Lab — a 10-month guided journey for your church's lead team, built on the Vision Frame used by 40,000+ church teams. Grant-funded through CCL Network: $250/month.">
+<meta name="description" content="Get your whole leadership team clear on where your church is going. A 10-month coached cohort for churches around 200 or less — one session a month, your vision on one page. $250/month through a CCL Network grant. Begins September 30.">
 <title>Pivvot Vision Framing co::Lab — RunFree.Co × CCL Network</title>
-<link rel="canonical" href="https://run-free-co-lab.vercel.app/">
+<link rel="canonical" href="https://runfree-colab.vercel.app/">
 <meta name="theme-color" content="#E43D96">
 <!-- Social share card. Image is 1200x630; keep the seat COUNT out of it — iMessage/Facebook
      cache previews hard, so a changing number would go stale in the cache. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RunFree.Co">
-<meta property="og:url" content="https://run-free-co-lab.vercel.app/">
-<meta property="og:title" content="Pivvot Vision Framing co::Lab — begins September 30">
-<meta property="og:description" content="A 10-month guided journey for your church's lead team, built on the Vision Frame used by 40,000+ church teams. Eight churches only — grant-funded at $250/month through CCL Network.">
-<meta property="og:image" content="https://run-free-co-lab.vercel.app/assets/og-colab.png">
+<meta property="og:url" content="https://runfree-colab.vercel.app/">
+<meta property="og:title" content="Get your whole team clear on where your church is going — co::Lab begins Sept 30">
+<meta property="og:description" content="A 10-month coached cohort for churches around 200 or less. Four leaders, one session a month, your vision on one page. Eight churches, four seats left — $250/month through a CCL Network grant.">
+<meta property="og:image" content="https://runfree-colab.vercel.app/assets/og-colab.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Pivvot Vision Framing co::Lab — Stop photocopying vision. Begins September 30, 2026.">
+<meta property="og:image:alt" content="Pivvot Vision Framing co::Lab — get your whole team clear on where your church is going. Begins September 30, 2026.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pivvot Vision Framing co::Lab — begins September 30">
 <meta name="twitter:description" content="A 10-month guided journey for your church's lead team, built on the Vision Frame used by 40,000+ church teams. Eight churches only — grant-funded at $250/month through CCL Network.">
-<meta name="twitter:image" content="https://run-free-co-lab.vercel.app/assets/og-colab.png">
+<meta name="twitter:image" content="https://runfree-colab.vercel.app/assets/og-colab.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -120,6 +120,27 @@
   .hero .meta-row{justify-content:center}
   .hero .btn-row{justify-content:center}
   .hero-note{font-size:.85rem;color:#9ca3af;margin-top:1rem}
+  /* hero: photo + copy. Photo first on phones so the first screen shows a face, a headline and a button. */
+  .hero{padding:3rem 0 4rem;text-align:left}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+  .hero-photo{border-radius:1.2rem;overflow:hidden;box-shadow:0 25px 60px rgb(17 24 39 / .18);aspect-ratio:4/3;background:var(--dark)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:55% 40%;display:block}
+  .hero .meta-row{justify-content:flex-start}
+  .hero .btn-row{justify-content:flex-start;margin-top:1.6rem}
+  .hero .sub{margin:1.2rem 0 0}
+  .hero .kicker{font-size:.7rem;padding:.45rem 1rem;margin-bottom:1.2rem}
+  h1{overflow-wrap:anywhere}
+  @media (max-width:860px){
+    .hero{padding:1.4rem 0 3rem}
+    .hero-grid{grid-template-columns:1fr;gap:1.4rem}
+    .hero-photo{order:-1;aspect-ratio:16/9;border-radius:.9rem}
+    h1{font-size:clamp(1.9rem,7.6vw,2.6rem)}
+    .hero .sub{font-size:1.02rem}
+    .hero .meta-row{font-size:.88rem}
+    a.btn{width:100%}
+  }
+  .quote footer .av{width:52px;height:52px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0;letter-spacing:.02em}
+  .quote .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);background:rgb(31 55 140 / .08);border-radius:999px;padding:.2rem .7rem;margin-bottom:.8rem}
 
   /* stats */
   .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;text-align:center}
@@ -297,37 +318,39 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     <a href="https://runfree.co"><img src="assets/runfree-logo.png" alt="RunFree.Co"></a>
     <div class="head-cta">
       <div class="head-partner">In partnership with CCL Network<br>Funded in part by a Lilly Endowment grant</div>
-      <a class="head-btn" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register</a>
+      <a class="head-btn" href="https://tidycal.com/andrew-estes/discovery-call" data-ev="Schedule">Book a call</a>
     </div>
   </div>
 </header>
 
 <div class="hero">
-  <div class="wrap">
-    <span class="kicker">Pivvot Vision Framing co::Lab · RunFree.Co × CCL Network</span>
-    <h1>Stop photocopying vision.<br>Lead the church only <span class="grad-text">your church</span> can be.</h1>
-    <p class="sub">A 10-month guided journey for your church's lead team — built on the Vision Frame that has served 40,000+ church teams — to name your unique disciple-making identity and craft a God-sized dream for 2030 and beyond.</p>
-    <div class="meta-row">
-      <span>Begins September 30, 2026</span><!-- SEATS-DATE -->
-      <span>10 monthly virtual intensives</span>
-      <span><s class="seat-was">8 seats</s>&nbsp;<b class="seat-left">only 4 remain</b></span>
-      <span>Your whole lead team</span>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker">Pivvot Vision Framing co::Lab</span>
+      <h1>Get your whole team clear on where your church is going.</h1>
+      <p class="sub">A 10-month coached cohort for churches around 200 or less. You bring four key leaders, we meet one afternoon a month, and you leave with your church's vision on one page — mission, values, strategy, measures, and where God is taking you — that your team can actually lead from.</p>
+      <div class="meta-row">
+        <span>Begins September 30, 2026</span><!-- SEATS-DATE -->
+        <span>One 4-hour session a month</span>
+        <span><s class="seat-was">8 seats</s>&nbsp;<b class="seat-left">only 4 remain</b></span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-grad" href="https://tidycal.com/andrew-estes/discovery-call" data-ev="Schedule">Book a 15-minute call with Andrew</a>
+        <a class="btn btn-outline" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA" data-ev="InitiateCheckout">Register your church</a>
+      </div>
+      <p class="hero-note">Normally $5,000 per church. $2,500 for this cohort through the CCL Network's Lilly Endowment grant — $500 to start, then $250 a month. Four of the eight seats are taken.</p><!-- SEATS-DATE -->
     </div>
-    <div class="btn-row">
-      <a class="btn btn-grad" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register your church — $250/mo</a>
-      <a class="btn btn-outline" href="#talk">Start with a conversation</a>
-    </div>
-    <p class="hero-note">Normally $5,000 per church — grant-funded to $2,500 through CCL Network's Lilly Endowment grant. Half the cohort is already filled; registration closes when the eighth church is in.</p><!-- SEATS-DATE -->
+    <div class="hero-photo"><img src="assets/hero-andrew.jpg" srcset="assets/hero-andrew-900.jpg 900w, assets/hero-andrew.jpg 1800w" sizes="(max-width:860px) 100vw, 50vw" alt="Andrew Estes coaching a church team through the Pivvot Vision Framing process at a whiteboard" fetchpriority="high"></div>
   </div>
 </div>
 
 <section class="muted-sec" style="padding:3.2rem 0">
   <div class="wrap">
     <div class="stats">
-      <div class="stat"><b data-count="40000" data-suffix="+">0+</b><span>Church teams using the Vision Frame</span></div>
-      <div class="stat"><b data-count="3000" data-suffix="+">0+</b><span>Churches guided through the process</span></div>
-      <div class="stat"><b data-count="21" data-suffix=" yrs">0 yrs</b><span>Vision Frame in the field</span></div>
-      <div class="stat"><s class="seat-was">8 seats</s><b data-count="4" data-suffix=" seats">0 seats</b><span>Still open — 4 of 8 taken</span></div><!-- SEATS-DATE -->
+      <div class="stat"><b data-count="40000" data-suffix="+">40,000+</b><span>Church teams using the Vision Frame</span></div>
+      <div class="stat"><b data-count="3000" data-suffix="+">3,000+</b><span>Churches guided through the process</span></div>
+      <div class="stat"><b data-count="21" data-suffix=" yrs">21 yrs</b><span>Vision Frame in the field</span></div>
+      <div class="stat"><s class="seat-was">8 seats</s><b data-count="4" data-suffix=" seats">4 seats</b><span>Still open — 4 of 8 taken</span></div><!-- SEATS-DATE -->
     </div>
   </div>
 </section>
@@ -336,7 +359,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
   <div class="wrap narrow center">
     <span class="kicker">Watch first</span>
     <h2>A personal invitation from Andrew</h2>
-    <p class="sub" style="margin:0 auto 2.2rem">What the co::Lab is, what your team will build, and why CCL Network is covering half the investment. (~16 min)</p>
+    <p class="sub" style="margin:0 auto 2.2rem">Andrew walks through what the co::Lab is, what your team builds month by month, and why the CCL Network is covering half the cost. About 16 minutes — worth it before you book a call.</p>
     <div class="video-box">
       <iframe src="https://www.loom.com/embed/1c55b3bc0e0647129d35673e35f855cf" title="Pivvot Vision Framing co::Lab overview" allowfullscreen></iframe>
     </div>
@@ -346,12 +369,12 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 <section class="muted-sec">
   <div class="wrap narrow">
     <span class="kicker">The real problem</span>
-    <h2>Your church doesn't lack activity. It lacks clarity for disciple-making.</h2>
+    <h2>Your church isn't short on activity. It's short on clarity.</h2>
     <p>The church rarely lacks events, programs, or content. Somewhere along the way, the Great Commission quietly got rewritten in practice into something much smaller:</p>
     <div class="bigquote">"Go into all the world and make more worship attenders, baptizing them into the name of small groups, and teaching them to volunteer a few times a month."
       <cite>— the <b>Functional</b> Great Commission, from Will Mancini's <i>Future Church</i></cite>
     </div>
-    <p>That's the problem underneath the problems: <b>over-programmed and under-discipled.</b> People connect to your building, your programs, and your personalities — the lower room — and every one of those can change overnight. The upper room is your church's purpose: a unique, disciple-making mission and vision. But in most churches, nobody has ever turned the lights on up there — not because leaders don't care, but because nobody ever gave them the tools or the guided time with their team to do the deep work.</p>
+    <p>That's the problem underneath the problems: <b>over-programmed and under-discipled.</b> Most people connect to a church through its building, its programs, and its people — and every one of those can change overnight. Underneath all of it is the question that rarely gets answered together: what is this church actually here to do, and how would we know it's working? Not because leaders don't care. Because nobody ever gave them the tools, a guide, and the protected time with their team to work it out.</p>
     <p style="margin:0"><b style="color:var(--dark)">That deep work is exactly what the co::Lab is.</b></p>
   </div>
 </section>
@@ -391,7 +414,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <h2>Built for normal-size churches doing the deep work</h2>
     </div>
     <div class="personas">
-      <div class="persona"><h3>Lead ministers ready for clarity</h3><p>You're done borrowing another church's vision. You want to lead from conviction, not photocopy — and you're willing to do the work to name what God is actually calling <i>your</i> church to.</p></div>
+      <div class="persona"><h3>Pastors who want to be able to say it</h3><p>Ask four of your leaders where the church is going and you'd get four answers. You want one — in a sentence, in your own words, not borrowed from a bigger church — and you're willing to do the work with your team to find it.</p></div>
       <div class="persona"><h3>Churches around 200 or less</h3><p>The co::Lab is designed for normal-size churches — the backbone of the Kingdom. Larger churches are welcome; talk with Andrew about fit for your context.</p></div>
       <div class="persona"><h3>Teams, not lone rangers</h3><p>Your elders and key staff journey with you. Alignment isn't bolted on at the end — it's built in from the first session, so the vision belongs to the whole team.</p></div>
     </div>
@@ -401,7 +424,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
         <li>You want a vision statement written <i>for</i> you in a weekend</li>
         <li>You're looking for another conference to attend and forget</li>
         <li>You aren't willing to bring your elders and key leaders along</li>
-        <li>You'd rather stay busy playing church every seven days than do the deep work</li>
+        <li>You'd rather stay busy than do the deep work with your team</li>
       </ul>
     </div>
   </div>
@@ -414,22 +437,22 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
         <span class="kicker">Proven thought leadership</span>
         <h2>Built on 25 years of Will Mancini's work — led by the RunFree team</h2>
         <p>The Vision Frame is 21 years old — and it is no theory. More than 3,000 churches have been guided through the full process, and over 40,000 church teams have used the Vision Frame. The co::Lab draws directly from <i>Church Unique</i>, <i>God Dreams</i>, <i>Younique</i>, and <i>Future Church</i> — and your team gets digital access to the full library for the entire year.</p>
-        <p>Your guide is <b style="color:var(--dark)">Andrew Estes</b>, RunFree Vision Coach — who co-facilitates alongside Will Mancini and has walked church teams through this exact process for years.</p>
+        <p>Your coach is <b style="color:var(--dark)">Andrew Estes</b>, RunFree Vision Coach. Andrew was trained by Will Mancini, co-facilitates alongside him, and has walked church teams — most of them under 200 — through this exact process for years.</p>
         <blockquote class="authority-quote">"Every church needs a strategic outsider — a trusted confidant, a well-equipped guide who helps them get out of the echo chamber, out of their own way, into clarity."</blockquote>
         <div class="will-cite">
-          <img src="assets/will-mancini.png" alt="Will Mancini">
+          <img src="assets/will-mancini.png" loading="lazy" alt="Will Mancini">
           <cite><b>Will Mancini</b>Founder of the Vision Frame · Author of Church Unique, God Dreams, Younique &amp; Future Church</cite>
         </div>
       </div>
       <div>
         <div class="bookshelf">
-          <a class="book" href="https://www.amazon.com/dp/0787996831" target="_blank" rel="noopener"><img src="assets/book-church-unique.jpg" alt="Church Unique by Will Mancini"><b>Church Unique</b><span>The Vision Frame</span><span class="buy">Buy on Amazon ↗</span></a>
-          <a class="book" href="https://www.amazon.com/dp/B0DHPHJ1QZ" target="_blank" rel="noopener"><img src="assets/book-god-dreams.jpg" alt="God Dreams by Will Mancini"><b>God Dreams</b><span>Horizon Storyline</span><span class="buy">Buy on Amazon ↗</span></a>
-          <a class="book" href="https://www.amazon.com/dp/1540900614" target="_blank" rel="noopener"><img src="assets/book-future-church.jpg" alt="Future Church by Will Mancini"><b>Future Church</b><span>Funnel Fusion</span><span class="buy">Buy on Amazon ↗</span></a>
-          <a class="book" href="https://www.amazon.com/dp/B0DHQMY5DQ" target="_blank" rel="noopener"><img src="assets/book-younique.jpg" alt="Younique by Will Mancini"><b>Younique</b><span>Personal calling</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/0787996831" target="_blank" rel="noopener"><img src="assets/book-church-unique.jpg" loading="lazy" alt="Church Unique by Will Mancini"><b>Church Unique</b><span>The Vision Frame</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/B0DHPHJ1QZ" target="_blank" rel="noopener"><img src="assets/book-god-dreams.jpg" loading="lazy" alt="God Dreams by Will Mancini"><b>God Dreams</b><span>Horizon Storyline</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/1540900614" target="_blank" rel="noopener"><img src="assets/book-future-church.jpg" loading="lazy" alt="Future Church by Will Mancini"><b>Future Church</b><span>Funnel Fusion</span><span class="buy">Buy on Amazon ↗</span></a>
+          <a class="book" href="https://www.amazon.com/dp/B0DHQMY5DQ" target="_blank" rel="noopener"><img src="assets/book-younique.jpg" loading="lazy" alt="Younique by Will Mancini"><b>Younique</b><span>Personal calling</span><span class="buy">Buy on Amazon ↗</span></a>
         </div>
         <p class="shelf-note">Digital access to the full library is included for your whole team, all year.</p>
-        <img class="frame-img" src="assets/vision-frame-with-symbols.png" alt="The Vision Frame — mission, values, strategy, measures, and vision">
+        <img class="frame-img" src="assets/vision-frame-with-symbols.png" loading="lazy" alt="The Vision Frame — mission, values, strategy, measures, and vision">
       </div>
     </div>
   </div>
@@ -438,25 +461,40 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 <section class="muted-sec">
   <div class="wrap">
     <div class="center">
-      <span class="kicker">Raving fans</span>
-      <h2>Churches the Vision Frame has transformed</h2>
-      <p class="sub" style="margin:0 auto">The same tools that clarify vision for some of the largest churches in the country were built for churches of every size — and this cohort is reserved for churches like yours.</p>
+      <span class="kicker">What pastors say</span>
+      <h2>Churches like yours — and a few big ones</h2>
+      <p class="sub" style="margin:0 auto">The first three are churches under 200 that recently walked this process with RunFree. The other three are among the largest churches in the country. Same tools, same questions.</p>
     </div>
     <div class="quotes">
       <div class="quote">
+        <span class="tag">Church under 200 · co::Lab graduate</span>
+        <p>"This class has catapulted our fellowship into a new season of ministry. It taught me to go from a program church to a mission-oriented, disciple-making church… We have baptisms and new believers coming into the fellowship through intentional, discipleship-focused ministry."</p>
+        <footer><span class="av">JD</span><div><b>Jose Dominguez</b><span>Pastor, Luz Del Valle Church, Keizer, OR</span></div></footer>
+      </div>
+      <div class="quote">
+        <span class="tag">Church under 200 · Pivvot process</span>
+        <p>"Our journey with RunFree has been transformative… a clear sense of direction, helping us gain clarity on what is truly important in our desire to see God's Kingdom advanced in our local area. I highly recommend RunFree to any church seeking to deepen its clarity and effectiveness."</p>
+        <footer><span class="av">SM</span><div><b>Sam McKeen</b><span>Pastor, Center Barnstead Christian Church, Center Barnstead, NH</span></div></footer>
+      </div>
+      <div class="quote">
+        <span class="tag">Church under 200 · Pivvot process</span>
+        <p>"Working with [the RunFree team] has added fuel and clarity to the direction we were already passionate about… somehow that's produced increased energy and joy in me. I think my team feels it too and we're excited for what's ahead."</p>
+        <footer><span class="av">DB</span><div><b>David Bartosik</b><span>Pastor, Hillcrest Bible Church, Oregon, WI</span></div></footer>
+      </div>
+      <div class="quote">
         <span class="qmark">“</span>
         <p>We went from 15 competing priorities to 3 clear ones. Our staff has never been more focused.</p>
-        <footer><img src="assets/pastor-andrews.webp" alt="Steve Andrews"><div><b>Steve Andrews</b><span>Senior Pastor, Kensington Church, Troy, MI</span></div></footer>
+        <footer><img src="assets/pastor-andrews.webp" alt="Steve Andrews" loading="lazy"><div><b>Steve Andrews</b><span>Senior Pastor, Kensington Church, Troy, MI</span></div></footer>
       </div>
       <div class="quote">
         <span class="qmark">“</span>
         <p>The Vision Frame gave us language our entire leadership team could rally behind. Game changer.</p>
-        <footer><img src="assets/pastor-werlein.webp" alt="Ken Werlein"><div><b>Ken Werlein</b><span>Executive Pastor, Faithbridge Church, Spring, TX</span></div></footer>
+        <footer><img src="assets/pastor-werlein.webp" alt="Ken Werlein" loading="lazy"><div><b>Ken Werlein</b><span>Executive Pastor, Faithbridge Church, Spring, TX</span></div></footer>
       </div>
       <div class="quote">
         <span class="qmark">“</span>
         <p>RunFree helped us align 30,000 members around a clear, compelling vision for the first time in decades.</p>
-        <footer><img src="assets/pastor-gaines.jpg" alt="Dr. Steve Gaines"><div><b>Dr. Steve Gaines</b><span>Senior Pastor, Bellevue Baptist Church, Memphis, TN</span></div></footer>
+        <footer><img src="assets/pastor-gaines.jpg" alt="Dr. Steve Gaines" loading="lazy"><div><b>Dr. Steve Gaines</b><span>Senior Pastor, Bellevue Baptist Church, Memphis, TN</span></div></footer>
       </div>
     </div>
   </div>
@@ -501,7 +539,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
   <div class="wrap">
     <div class="center">
       <span class="kicker">Two ways to begin</span>
-      <h2>CCL Network's Lilly grant covers half — and only four seats are left</h2><!-- SEATS-DATE -->
+      <h2>The CCL Network's grant covers half — and only four seats are left</h2><!-- SEATS-DATE -->
       <div class="seatmeter" data-taken="4" data-total="8"><!-- SEATS-DATE -->
         <span class="lbl">4 of 8 seats taken — <b class="seat-left">only 4 remain</b></span>
       </div>
@@ -510,26 +548,28 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <div class="price-card">
         <span class="badge-rec">Grant-funded price</span>
         <div class="was">$5,000 per church</div>
-        <div class="price">$2,500 <small>per church · just $250/month for 10 months</small></div>
-        <span class="grant-note">Underwritten by CCL Network through a Lilly Endowment grant</span>
+        <div class="price">$2,500 <small>per church · $500 to start, then $250/month</small></div>
+        <span class="grant-note">Half covered by the CCL Network (Christian Church Leadership Network) through a Lilly Endowment grant</span>
         <ul>
-          <li><b>Begins September 30, 2026</b> — 10 monthly intensives</li><!-- SEATS-DATE -->
+          <li><b>Begins September 30, 2026</b> — one 4-hour session a month for 10 months</li><!-- SEATS-DATE -->
           <li>Full 10-month Pivvot Vision Framing co::Lab for your lead team</li>
           <li>Facilitated by RunFree Vision Coach Andrew Estes</li>
           <li><s class="seat-was">8 seats</s> <b class="seat-left">only 4 left</b> — when it's full, it's full</li><!-- SEATS-DATE -->
+          <li>No payment at registration — CCL Network bills you after you're in</li>
           <li>Everything listed above, included</li>
         </ul>
-        <a class="btn btn-grad" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register for the co::Lab</a>
+        <a class="btn btn-grad" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA" data-ev="InitiateCheckout">Register for the co::Lab</a>
       </div>
       <div class="talk-card" id="talk">
         <h3>Talk with Andrew first</h3>
-        <p style="font-size:.95rem">Get the full details, talk through your context and your eldership, and ask anything on a real conversation — no commitment required.</p>
+        <p style="font-size:.95rem">Fifteen minutes on a call. Tell Andrew about your church and your team, ask anything, and hear honestly whether this is a fit — no commitment.</p>
         <ul>
           <li>No commitment required</li>
           <li>Get your questions answered</li>
           <li>Most churches start here</li>
         </ul>
-        <a class="btn btn-outline" href="mailto:andrew@runfree.co?subject=Vision%20Framing%20co%3A%3ALab%20%E2%80%94%20let%27s%20talk">Email Andrew — andrew@runfree.co</a>
+        <a class="btn btn-grad" href="https://tidycal.com/andrew-estes/discovery-call" data-ev="Schedule">Book a 15-minute call</a>
+        <p style="font-size:.85rem;margin:1rem 0 0">Prefer email? <a href="mailto:andrew@runfree.co" data-ev="Contact" style="color:var(--primary)">andrew@runfree.co</a></p>
       </div>
     </div>
   </div>
@@ -558,7 +598,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       </details>
       <details>
         <summary>How does the grant pricing work?</summary>
-        <div>The co::Lab is normally $5,000 per church. Through RunFree's partnership with CCL Network and their Lilly Endowment grant, every church in this cohort participates for $2,500 — billed as $250/month across the 10 months.</div>
+        <div>The co::Lab is normally $5,000 per church. Through RunFree's partnership with the CCL Network and their Lilly Endowment grant, every church in this cohort participates for $2,500 — a $500 payment to start (first and last month), then $250 a month for the remaining eight. Nothing is due when you register; the CCL Network handles billing after you're in.</div>
       </details>
       <details>
         <summary>What do we walk away with?</summary>
@@ -567,6 +607,10 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <details>
         <summary>Is this just another vision statement exercise?</summary>
         <div>No. Wordsmithing a statement is the smallest part. The Pivvot process addresses the paradigm underneath — moving the finish line from attendance to disciple-making — and then codifies vision that your team owns because they built it.</div>
+      </details>
+      <details>
+        <summary>What happens after I register?</summary>
+        <div>Andrew reaches out within a day to welcome you and talk through your team. The CCL Network sends billing details separately. If you'd rather talk before you commit, <a href="https://tidycal.com/andrew-estes/discovery-call" data-ev="Schedule" style="color:var(--primary)">book a 15-minute call</a> — most churches start there.</div>
       </details>
       <details>
         <summary>What if we miss a session or our plans change?</summary>
@@ -602,14 +646,14 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 <section>
   <div class="wrap">
     <div class="letter">
-      <img src="assets/andrew-estes.jpg" alt="Andrew Estes, Vision Coach at RunFree.Co" style="width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:1.4rem;border:3px solid #fff;box-shadow:0 6px 18px rgb(17 24 39 / .15)">
+      <img src="assets/andrew-estes.jpg" alt="Andrew Estes, Vision Coach at RunFree.Co" loading="lazy" style="width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:1.4rem;border:3px solid #fff;box-shadow:0 6px 18px rgb(17 24 39 / .15)">
       <span class="kicker">From Andrew</span>
       <h2 style="font-size:1.5rem">Rather than staying busy playing church every seven days…</h2>
       <p>…we want to help leaders run free into what Jesus actually started.</p>
       <p>For years I've sat with church teams — elders, staff, lead ministers — who love Jesus and work incredibly hard, but who couldn't answer the five irreducible questions of leadership the same way twice. Not because they don't care. Because nobody ever turned the lights on in the upper room with them.</p>
       <p>The co::Lab is the most accessible way we've ever offered this process. CCL Network's kingdom generosity through the Lilly grant cuts the investment in half, and the cohort format means your team isn't walking alone — seven other churches are doing the deep work right beside you.</p>
       <p>Eight seats. Ten months. A vision only your church can carry.</p>
-      <p>If you want to talk it through first, my inbox is open — <a href="mailto:andrew@runfree.co" style="color:var(--primary)">andrew@runfree.co</a>. I'd love to hear about your context.</p>
+      <p>If you want to talk it through first, <a href="https://tidycal.com/andrew-estes/discovery-call" data-ev="Schedule" style="color:var(--primary)">grab 15 minutes on my calendar</a> or email me at <a href="mailto:andrew@runfree.co" data-ev="Contact" style="color:var(--primary)">andrew@runfree.co</a>. I'd love to hear about your church.</p>
       <p class="sign">— Andrew Estes<br><span style="font-weight:400;font-size:.9rem;color:var(--fg)">Vision Coach, RunFree.Co</span></p>
     </div>
   </div>
@@ -619,10 +663,10 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
   <div class="wrap">
     <span class="urgency"><s class="seat-was">8 seats</s> <b class="seat-left">Only 4 remain</b> · Begins September 30</span><!-- SEATS-DATE -->
     <h2>When it's full, it's full.</h2>
-    <p style="max-width:38em;margin:0 auto">Four churches are already in. Four seats are left, the journey begins <b>September 30</b>, and half the investment is covered by the Lilly grant. Register your church — or start with a conversation.</p>
+    <p style="max-width:38em;margin:0 auto">Four churches are already in. Four seats are left, it begins <b>September 30</b>, and half the cost is covered by the grant. Book a call with Andrew, or register your church.</p>
     <div class="btn-row" style="justify-content:center">
-      <a class="btn btn-grad" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA">Register your church</a>
-      <a class="btn btn-outline" style="border-color:#fff;color:#fff" href="mailto:andrew@runfree.co?subject=Vision%20Framing%20co%3A%3ALab%20%E2%80%94%20let%27s%20talk">Talk with Andrew</a>
+      <a class="btn btn-grad" href="https://tidycal.com/andrew-estes/discovery-call" data-ev="Schedule">Book a 15-minute call</a>
+      <a class="btn btn-outline" style="border-color:#fff;color:#fff" href="https://api.leadconnectorhq.com/widget/form/ZY5JqHZ8CCKIJ0f2IzLA" data-ev="InitiateCheckout">Register your church</a>
     </div>
     <p class="fine">Vision Frame + Horizon Storyline deliverables · Online learning community all year · Digital library of Will Mancini's books included</p>
   </div>
@@ -631,7 +675,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
 <footer class="site-footer">
   <div class="wrap">
     <p>RunFree.Co · Helping churches clarify vision, strengthen teams, and activate calling.<br>
-    Offered in partnership with CCL Network, funded in part by a Lilly Endowment grant. · <a href="https://runfree.co">runfree.co</a> · <a href="mailto:andrew@runfree.co">andrew@runfree.co</a></p>
+    Offered in partnership with the CCL Network (Christian Church Leadership Network), funded in part by a Lilly Endowment grant. · <a href="https://runfree.co">runfree.co</a> · <a href="mailto:andrew@runfree.co">andrew@runfree.co</a></p>
   </div>
 </footer>
 
@@ -700,9 +744,14 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     document.querySelectorAll('[data-count]').forEach(el => el.textContent = fmt(+el.dataset.count) + (el.dataset.suffix||''));
   } else {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } }), {threshold:.6});
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } }), {threshold:.25});
     document.querySelectorAll('[data-count]').forEach(el => io.observe(el));
   }
+
+  // Pixel: name the click so the ad account can see who books, registers, or emails.
+  document.querySelectorAll('a[data-ev]').forEach(a => a.addEventListener('click', () => {
+    if (window.fbq) fbq('track', a.dataset.ev);
+  }));
 
   // Seat meter: filled dot = taken. Label is already in the HTML.
   document.querySelectorAll('.seatmeter').forEach(m => {
