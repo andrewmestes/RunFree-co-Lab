@@ -161,8 +161,8 @@
   /* roadmap — one-line icon journey */
   .journey{max-width:880px;margin:3rem auto 0}
   .journey-track{position:relative;display:flex;justify-content:space-between;align-items:flex-start}
-  .journey-track::before{content:"";position:absolute;top:44px;left:44px;right:44px;height:4px;background:var(--border);border-radius:999px}
-  .journey-track::after{content:"";position:absolute;top:44px;left:44px;height:4px;background:var(--grad);border-radius:999px;width:var(--progress,0%);max-width:calc(100% - 88px);transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .journey-track::before{content:"";position:absolute;top:42px;left:44px;right:44px;height:4px;background:var(--border);border-radius:999px}
+  .journey-track::after{content:"";position:absolute;top:42px;left:44px;height:4px;background:var(--grad);border-radius:999px;width:calc((100% - 88px) * var(--p,0));transition:width .5s cubic-bezier(.4,0,.2,1)}
   .jstop{position:relative;z-index:1;background:none;border:0;cursor:pointer;font-family:var(--font);display:flex;flex-direction:column;align-items:center;gap:.55rem;width:88px}
   .jstop .disc{width:88px;height:88px;border-radius:50%;background:#fff;border:3px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
   .jstop img{width:52px;height:52px;object-fit:contain;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
@@ -184,8 +184,8 @@
     .jstop .disc{width:52px;height:52px;border-width:2px}
     .jstop img{width:30px;height:30px}
     .jstop .jlabel{display:none}
-    .journey-track::before{top:26px;left:26px;right:26px}
-    .journey-track::after{top:26px;left:26px;max-width:calc(100% - 52px)}
+    .journey-track::before{top:24px;left:26px;right:26px}
+    .journey-track::after{top:24px;left:26px;width:calc((100% - 52px) * var(--p,0))}
     .stage-panel{padding:1.6rem}
   }
 
@@ -708,7 +708,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     if (i === current && animate) return;
     current = i;
     stops.forEach((b,j)=>b.setAttribute('aria-selected', j===i ? 'true':'false'));
-    track.style.setProperty('--progress', (i/(STAGES.length-1))*100 + '%');
+    track.style.setProperty('--p', i/(STAGES.length-1));
     if (animate && !reduced){
       panel.classList.add('switching');
       setTimeout(()=>{ render(i); panel.classList.remove('switching'); }, 280);
