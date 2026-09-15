@@ -43,9 +43,11 @@ Search the page for `[TIME]` and replace with the Sunday service time. Also:
 
 Built for readers 55 and better:
 
+- Five nav items plus one gold "Plan your first visit" button. A sticky
+  Call / Plan a visit bar on phones.
 - 19px base type, with an A / A / A text-size control in the header
   (22px and 25px), remembered per visitor.
-- Atkinson Hyperlegible for body copy, Source Serif 4 for headings.
+- Atkinson Hyperlegible for body copy, Fraunces for headings.
 - Navy / gold / silver on cream. Contrast on all text is AA or better.
 - 56px-tall buttons, 44px+ tap targets, a phone number in the header on
   every screen, and a level of animation that rounds to zero.
