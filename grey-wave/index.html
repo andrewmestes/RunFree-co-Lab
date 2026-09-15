@@ -3,269 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Grey Wave Church — The best is still ahead</title>
-<meta name="description" content="Grey Wave is a new church for people 55 and better. Familiar songs, plain teaching, communion every week, and friends who notice when you're missing. Come thrive in the fourth quarter of life.">
+<title>The best is still ahead · Grey Wave Church</title>
+<meta name="description" content="Grey Wave is a new church for people 55 and better. Familiar songs, plain teaching, communion every week, and friends who notice when you're missing. Sundays in Bourbonnais, IL.">
 <meta name="theme-color" content="#1B2A41">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Grey Wave Church — the best is still ahead">
-<meta property="og:description" content="A new church for people 55 and better. One hour, daytime, no dress code. Come as you are, bring a friend.">
-<meta property="og:image" content="assets/og-grey-wave.png">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="Grey Wave Church">
+<meta property="og:title" content="The best is still ahead · Grey Wave Church">
+<meta property="og:description" content="Grey Wave is a new church for people 55 and better. Familiar songs, plain teaching, communion every week, and friends who notice when you're missing. Sundays in Bourbonnais, IL.">
+<meta property="og:image" content="./assets/og-grey-wave.png">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet">
-<style>
-  /* ------------------------------------------------------------
-     Grey Wave — built for readers 55 and better.
-     Big type. High contrast. Five nav items. One phone number
-     everywhere. Nothing moves unless you move it.
-     ------------------------------------------------------------ */
-  :root{
-    --navy:#1B2A41; --navy-deep:#111E33;
-    --gold:#C48A2B; --gold-deep:#A4711F; --gold-soft:#F3E6C6; --gold-wash:#FBF5E6;
-    --silver:#8E9AAF; --silver-soft:#E6EAF0;
-    --cream:#FBF8F2; --white:#fff;
-    --ink:#1E2833; --ink-soft:#4B5563;
-    --border:#E3DCCF;
-    --radius:18px;
-    --serif:'Fraunces', Georgia, 'Times New Roman', serif;
-    --sans:'Atkinson Hyperlegible','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-    --base:19px;
-  }
-  html[data-size="large"]{--base:22px} html[data-size="xlarge"]{--base:25px}
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{font-size:var(--base);scroll-behavior:smooth;scroll-padding-top:6rem}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.65}
-  img,svg{display:block;max-width:100%}
-  a{color:var(--navy);text-decoration-thickness:2px;text-underline-offset:3px}
-  a:hover{color:var(--gold-deep)}
-  :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-  .skip{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:.6rem 1rem;z-index:99}
-  .skip:focus{left:1rem;top:1rem}
-  h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.12;text-wrap:balance;font-weight:600}
-  h1{font-size:clamp(2.6rem,6vw,4.2rem);letter-spacing:-.015em}
-  h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.6em;letter-spacing:-.01em}
-  h3{font-size:1.3rem;margin-bottom:.35em}
-  p{margin-bottom:1em;max-width:36em}
-  .lead{font-size:1.22rem;color:var(--ink-soft)}
-  .kicker{display:inline-block;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;color:var(--gold-deep);margin-bottom:.9rem}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 1.25rem}
-  .narrow{max-width:780px}
-  section{padding:5rem 0}
-  .white{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .gold{background:var(--gold-wash)}
-  .dark{background:var(--navy);color:#EEF1F6}
-  .dark h2,.dark h3{color:#fff}.dark p{color:#D6DCE7}.dark a{color:var(--gold-soft)}
-  .center{text-align:center}.center p{margin-left:auto;margin-right:auto}
-
-  /* buttons: 58px tall, unmistakable */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:58px;padding:.85rem 1.8rem;border-radius:999px;font-weight:700;font-size:1.06rem;text-decoration:none;border:3px solid var(--navy);cursor:pointer;font-family:inherit;transition:background .15s,color .15s,transform .15s}
-  .btn svg{width:1.25em;height:1.25em;flex:none}
-  .btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--navy-deep);color:#fff;transform:translateY(-1px)}
-  .btn-gold{background:var(--gold);border-color:var(--gold);color:var(--navy-deep)}.btn-gold:hover{background:#D69A36;border-color:#D69A36;color:var(--navy-deep)}
-  .btn-outline{background:transparent;color:var(--navy)}.btn-outline:hover{background:var(--navy);color:#fff}
-  .dark .btn-outline{color:#fff;border-color:#fff}.dark .btn-outline:hover{background:#fff;color:var(--navy)}
-  .btn-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.6rem}
-
-  /* header */
-  header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
-  .topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0;flex-wrap:wrap}
-  .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--navy);white-space:nowrap}
-  .brand svg{width:46px;height:46px;flex:none}
-  .brand b{font-family:var(--serif);font-size:1.5rem;font-weight:700;line-height:1;display:block}
-  .brand small{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--silver);margin-top:.25rem}
-  .tools{display:flex;align-items:center;gap:.7rem}
-  .phone{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;text-decoration:none;white-space:nowrap;font-size:1.05rem}
-  .phone svg{width:22px;height:22px}
-  .sizer{display:flex;border:2px solid var(--border);border-radius:999px;overflow:hidden}
-  .sizer button{background:var(--white);border:0;font:inherit;font-weight:700;padding:.3rem .7rem;cursor:pointer;color:var(--navy);min-width:44px;min-height:42px}
-  .sizer button+button{border-left:2px solid var(--border)}
-  .sizer button[aria-pressed="true"]{background:var(--navy);color:#fff}
-  .sizer .a1{font-size:.85rem}.sizer .a2{font-size:1rem}.sizer .a3{font-size:1.2rem}
-  .menu-btn{display:none;background:var(--navy);color:#fff;border:0;border-radius:12px;font:inherit;font-weight:700;padding:.55rem 1rem;cursor:pointer;min-height:46px}
-  nav{width:100%;order:3;border-top:1px solid var(--border);margin-top:.4rem}
-  nav ul{display:flex;list-style:none;justify-content:space-between;align-items:center;padding:.35rem 0;gap:1rem;flex-wrap:wrap}
-  nav a{text-decoration:none;font-weight:700;font-size:1.02rem;padding:.55rem 0;border-bottom:3px solid transparent;white-space:nowrap;display:inline-block}
-  nav a:hover{border-color:var(--gold)}
-  nav .cta a{background:var(--gold);border-radius:999px;padding:.55rem 1.3rem;color:var(--navy-deep);border:0}
-  nav .cta a:hover{background:#D69A36}
-  @media(max-width:900px){
-    nav{display:none;border-top:0}
-    nav.open{display:block}
-    nav ul{flex-direction:column;align-items:stretch;gap:0;padding:.4rem 0 1rem}
-    nav a{display:block;padding:.85rem .25rem;border-bottom:1px solid var(--border);font-size:1.15rem}
-    nav .cta a{margin-top:.8rem;text-align:center;border-bottom:0}
-    .menu-btn{display:inline-block}
-    .phone span{display:none}
-  }
-
-  /* hero */
-  .hero{background:linear-gradient(180deg,#fff 0%,var(--gold-wash) 100%);padding:4.5rem 0 0;position:relative;overflow:hidden}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
-  .hero h1{margin-bottom:.5em}
-  .hero .lead{font-size:1.32rem}
-  .eyebrow{display:inline-flex;align-items:center;gap:.6rem;background:var(--navy);color:#fff;font-weight:700;padding:.5rem 1.1rem;border-radius:999px;font-size:.9rem;margin-bottom:1.4rem}
-  .eyebrow i{width:10px;height:10px;border-radius:50%;background:var(--gold);display:inline-block}
-  .chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
-  .chips span{display:inline-flex;align-items:center;gap:.45rem;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.45rem 1rem;font-weight:700;font-size:.95rem;color:var(--navy)}
-  .chips svg{width:20px;height:20px;color:var(--gold-deep)}
-  .sunday{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 18px 50px rgb(27 42 65 / .10);overflow:hidden}
-  .sunday .head{background:var(--navy);color:#fff;padding:1.1rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-  .sunday .head b{font-family:var(--serif);font-size:1.35rem;font-weight:600}
-  .sunday .head span{font-size:.85rem;color:var(--gold-soft);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-  .sunday .body{padding:1.3rem 1.6rem 1.6rem}
-  .fact{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start;padding:.9rem 0;border-top:1px solid var(--border)}
-  .fact:first-child{border-top:0;padding-top:0}
-  .fact svg{width:30px;height:30px;color:var(--gold-deep);flex:none;margin-top:.1rem}
-  .fact b{display:block;font-size:1.1rem;color:var(--navy)}
-  .fact span{color:var(--ink-soft)}
-  .sunday .body .btn{width:100%;margin-top:1.2rem}
-  .wave{width:100%;height:auto;margin-top:3.5rem}
-  @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero{padding-top:2.75rem}}
-
-  /* purpose */
-  .statement{font-family:var(--serif);font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.3;color:var(--navy);max-width:24em;font-weight:500}
-  .statement em{font-style:italic;color:var(--gold-deep)}
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
-  .pillar{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 1.7rem;position:relative;overflow:hidden}
-  .pillar::before{content:"";position:absolute;left:0;top:0;right:0;height:8px;background:var(--gold)}
-  .pillar .num{font-family:var(--serif);font-size:3rem;color:var(--gold-soft);line-height:1;font-weight:700;margin-bottom:.4rem}
-  .pillar h3{font-size:1.5rem}
-  .pillar p:last-child{margin-bottom:0}
-  .pillar .looks{background:var(--gold-wash);border-radius:12px;padding:.9rem 1rem;font-size:.98rem;margin-top:1rem}
-  .pillar .looks b{color:var(--navy)}
-  @media(max-width:900px){.pillars{grid-template-columns:1fr}}
-  .verse{margin:3.5rem auto 0;text-align:center;max-width:40em}
-  .verse p{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.9rem);font-style:italic;color:var(--navy);line-height:1.35;margin:0 auto .6rem}
-  .verse cite{font-style:normal;font-weight:700;color:var(--gold-deep);letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
-
-  /* what to expect */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem;margin-top:2rem}
-  .card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem}
-  .card .ico{width:56px;height:56px;border-radius:14px;background:var(--gold-soft);display:grid;place-items:center;margin-bottom:1rem}
-  .card .ico svg{width:30px;height:30px;color:var(--navy)}
-  .card p:last-child{margin-bottom:0}
-  .good{margin-top:2.5rem;background:var(--navy);color:#fff;border-radius:var(--radius);padding:2rem;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center}
-  .good h3{color:#fff;font-size:1.5rem;margin:0}
-  .good ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.6rem 1.5rem}
-  .good li{display:flex;gap:.6rem;align-items:start;color:#E4E9F2}
-  .good li svg{width:24px;height:24px;color:var(--gold);flex:none;margin-top:.15rem}
-  @media(max-width:760px){.good{grid-template-columns:1fr}}
-
-  /* first visit steps */
-  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2rem}
-  .step{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem 1.6rem 1.6rem}
-  .step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--gold);color:var(--navy-deep);font-family:var(--serif);font-weight:700;font-size:1.5rem;margin-bottom:1rem}
-  .step p:last-child{margin-bottom:0}
-  @media(max-width:860px){.steps{grid-template-columns:1fr}}
-
-  /* FAQ */
-  .faq{margin-top:1.5rem;border-top:1px solid var(--border)}
-  .faq details{border-bottom:1px solid var(--border)}
-  .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-family:var(--serif);font-size:1.3rem;color:var(--navy);font-weight:600}
-  .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:"+";font-family:var(--sans);font-size:1.8rem;color:var(--gold-deep);flex:none;width:44px;height:44px;display:grid;place-items:center;border:2px solid var(--border);border-radius:50%}
-  .faq details[open] summary::after{content:"–"}
-  .faq details p{padding:0 0 1.3rem;max-width:44em}
-
-  /* story */
-  .story{display:grid;grid-template-columns:.85fr 1.15fr;gap:3rem;align-items:start}
-  .portrait{background:linear-gradient(160deg,var(--silver-soft),var(--gold-soft));border-radius:var(--radius);aspect-ratio:4/5;display:grid;place-items:center;color:var(--ink-soft);text-align:center;padding:1.5rem;border:2px dashed var(--silver)}
-  .portrait svg{width:90px;height:90px;color:var(--silver);margin:0 auto .8rem}
-  .quote{background:var(--white);border-left:6px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:1.4rem 1.6rem;margin:1.6rem 0;font-family:var(--serif);font-size:1.35rem;font-style:italic;color:var(--navy);line-height:1.35}
-  .quote small{display:block;font-family:var(--sans);font-style:normal;font-size:.9rem;color:var(--ink-soft);margin-top:.6rem}
-  .timeline{list-style:none;margin-top:1.4rem;border-left:3px solid var(--gold-soft);padding-left:1.4rem}
-  .timeline li{position:relative;padding-bottom:.9rem}
-  .timeline li::before{content:"";position:absolute;left:calc(-1.4rem - 9px);top:.45rem;width:15px;height:15px;border-radius:50%;background:var(--gold);border:3px solid var(--white)}
-  .timeline b{color:var(--navy)}
-  @media(max-width:860px){.story{grid-template-columns:1fr}.portrait{max-width:340px}}
-
-  /* believe */
-  .believe{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:.6rem 2rem;margin-top:1.5rem}
-  .believe li{display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;padding:.9rem 0;border-top:1px solid rgb(255 255 255 / .15)}
-  .believe li svg{width:26px;height:26px;color:var(--gold);flex:none;margin-top:.15rem}
-  .believe b{display:block;color:#fff;font-size:1.1rem}
-  .believe span{color:#D6DCE7}
-
-  /* coming up */
-  .upnext{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem;margin-top:2rem}
-  .up{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.5rem}
-  .up .d{font-weight:700;color:var(--gold-deep);letter-spacing:.06em;text-transform:uppercase;font-size:.85rem}
-  .up h3{font-size:1.35rem;margin:.3rem 0 .4rem}
-  .up p{margin:0;color:var(--ink-soft);font-size:.98rem}
-  .more{margin-top:1.6rem}
-  .more summary{cursor:pointer;font-weight:700;color:var(--navy);font-size:1.05rem;padding:.6rem 0;list-style:none;display:inline-flex;align-items:center;gap:.5rem}
-  .more summary::-webkit-details-marker{display:none}
-  .more summary::before{content:"+";width:32px;height:32px;border:2px solid var(--border);border-radius:50%;display:grid;place-items:center;color:var(--gold-deep)}
-  .more[open] summary::before{content:"–"}
-  table{width:100%;border-collapse:collapse;margin-top:1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-  th,td{padding:.85rem 1rem;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
-  th{background:var(--gold-wash);color:var(--navy);font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase}
-  tr:last-child td{border-bottom:0}
-  td.d{white-space:nowrap;font-weight:700;color:var(--navy)}
-  td.t{font-family:var(--serif);font-size:1.08rem;color:var(--navy)}
-  @media(max-width:640px){th.o,td.o{display:none}}
-
-  /* connect */
-  .ways{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;margin-top:2rem}
-  @media(max-width:1000px){.ways{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:520px){.ways{grid-template-columns:1fr}}
-  .way{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center}
-  .way .ico{width:60px;height:60px;border-radius:50%;background:var(--gold-soft);display:grid;place-items:center;margin:0 auto 1rem}
-  .way .ico svg{width:30px;height:30px;color:var(--navy)}
-  .way h3{font-size:1.3rem}
-  .way p{margin:0;font-size:.98rem;color:var(--ink-soft)}
-
-  /* contact */
-  .contact{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-  .big-phone{font-family:var(--serif);font-size:clamp(2rem,4.5vw,2.8rem);color:var(--navy);text-decoration:none;display:inline-block;margin:.2rem 0 .8rem;font-weight:600}
-  .addr{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;margin-top:1.4rem}
-  .addr b{color:var(--navy);display:block;font-size:1.15rem}
-  form{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem}
-  label{display:block;font-weight:700;color:var(--navy);margin:1rem 0 .35rem}
-  label:first-of-type{margin-top:0}
-  input,select,textarea{width:100%;font:inherit;font-size:1.05rem;padding:.8rem 1rem;border:2px solid var(--silver);border-radius:12px;background:#fff;color:var(--ink);min-height:54px}
-  textarea{min-height:110px;resize:vertical}
-  input:focus,select:focus,textarea:focus{border-color:var(--navy);outline:3px solid var(--gold-soft)}
-  .hint{font-size:.92rem;color:var(--ink-soft);margin-top:.5rem}
-  @media(max-width:860px){.contact{grid-template-columns:1fr}}
-
-  /* footer */
-  footer{background:var(--navy-deep);color:#C9D1DE;padding:3rem 0 6rem;font-size:.95rem}
-  footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
-  footer h3{color:#fff;font-family:var(--sans);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
-  footer a{color:#EEF1F6}footer ul{list-style:none}footer li{margin:.45rem 0}
-  footer .legal{border-top:1px solid rgb(255 255 255 / .15);margin-top:2rem;padding-top:1.2rem;font-size:.85rem;color:#8E9AAF}
-  @media(max-width:900px){footer .cols{grid-template-columns:1fr}}
-
-  /* mobile call bar */
-  .callbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--white);border-top:1px solid var(--border);padding:.6rem .8rem;gap:.6rem;box-shadow:0 -8px 24px rgb(27 42 65 / .12)}
-  .callbar a{flex:1;min-height:54px;font-size:1rem;padding:.6rem 1rem}
-  @media(max-width:900px){.callbar{display:flex}}
-
-  @media print{
-    header,.sizer,.menu-btn,.btn-row,form,.wave,.callbar{display:none!important}
-    body{background:#fff;color:#000}section{padding:1.2rem 0;break-inside:avoid}
-    .dark{background:#fff;color:#000}.dark h2,.dark p,.dark b,.dark span{color:#000}
-    details{display:block}details>*{display:block}
-  }
-</style>
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
-
 <header>
   <div class="wrap topbar">
-    <a class="brand" href="#top" aria-label="Grey Wave Church home">
-      <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#1B2A41"/><path d="M6 27c5-6 9-6 14 0s9 6 14 0 9-6 14 0" fill="none" stroke="#C48A2B" stroke-width="3.2" stroke-linecap="round"/><path d="M6 34c5-6 9-6 14 0s9 6 14 0 9-6 14 0" fill="none" stroke="#8E9AAF" stroke-width="3.2" stroke-linecap="round"/><circle cx="34" cy="15" r="4.5" fill="#F3E6C6"/></svg>
-      <span><b>Grey Wave</b><small>A church for people 55 and better</small></span>
-    </a>
+    <a class="brand" href="./" aria-label="Grey Wave Church home"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#1B2A41"/><path d="M6 27c5-6 9-6 14 0s9 6 14 0 9-6 14 0" fill="none" stroke="#C48A2B" stroke-width="3.2" stroke-linecap="round"/><path d="M6 34c5-6 9-6 14 0s9 6 14 0 9-6 14 0" fill="none" stroke="#8E9AAF" stroke-width="3.2" stroke-linecap="round"/><circle cx="34" cy="15" r="4.5" fill="#F3E6C6"/></svg><span><b>Grey Wave</b><small>A church for people 55 and better</small></span></a>
     <div class="tools">
-      <a class="phone" href="tel:+18156851939" aria-label="Call Lance at 815-685-1939">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-        <span>(815) 685-1939</span>
-      </a>
+      <a class="btn btn-gold btn-sm" href="./messages/" style="min-height:44px"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch</a>
       <div class="sizer" role="group" aria-label="Text size">
         <button class="a1" data-size="normal" aria-pressed="true" title="Normal text">A</button>
         <button class="a2" data-size="large" aria-pressed="false" title="Larger text">A</button>
@@ -273,397 +31,163 @@
       </div>
       <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
     </div>
-    <nav id="nav" aria-label="Main">
-      <ul>
-        <li><a href="#sundays">Sundays</a></li>
-        <li><a href="#purpose">Our Purpose</a></li>
-        <li><a href="#questions">Questions</a></li>
-        <li><a href="#story">Our Story</a></li>
-        <li><a href="#connect">Get Connected</a></li>
-        <li class="cta"><a href="#visit">Plan your first visit</a></li>
-      </ul>
-    </nav>
+    <nav id="nav" aria-label="Main"><ul><li><a href="./im-new/">I'm New</a></li><li><a href="./about/">About</a></li><li><a href="./messages/">Messages</a></li><li><a href="./events/">Events</a></li><li><a href="./connect/">Connect</a></li><li class="give"><a href="./give/">Give</a></li><li><a href="./contact/">Contact</a></li><li class="cta"><a href="./im-new/#plan">Plan a Visit</a></li></ul></nav>
   </div>
 </header>
 
 <main id="main">
 
-<!-- ================= HERO ================= -->
-<div class="hero" id="top">
+<div class="hero">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow"><i></i> A new church for people 55 and better</span>
       <h1>The best is still ahead.</h1>
       <p class="lead">Grey Wave is a church built for the fourth quarter of life. Songs you know by heart, teaching you can follow, communion every week, and friends who notice when you're missing.</p>
       <div class="btn-row">
-        <a class="btn btn-primary" href="#visit">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          Plan your first visit
-        </a>
-        <a class="btn btn-outline" href="tel:+18156851939">Call Lance</a>
-      </div>
-      <div class="chips" aria-label="Quick facts">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>One hour</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>Daytime</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>No dress code</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/></svg>Good coffee</span>
+        <a class="btn btn-primary" href="./im-new/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>I'm New</a>
+        <a class="btn btn-outline" href="./messages/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch a message</a>
       </div>
     </div>
-    <aside class="sunday" aria-label="This Sunday">
-      <div class="head"><b>This Sunday</b><span>Everyone welcome</span></div>
-      <div class="body">
-        <div class="fact">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          <div><b>Sundays at [TIME]</b><span>Coffee before. Conversation after. Home by lunch.</span></div>
-        </div>
-        <div class="fact">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-          <div><b>Adventure Christian Church</b><span>70 Ken Hayes Dr, Bourbonnais, IL · Level entrance, close parking, comfortable seats.</span></div>
-        </div>
-        <div class="fact">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
-          <div><b>Someone will meet you at the door</b><span>You will not have to figure anything out on your own.</span></div>
-        </div>
-        <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=70+Ken+Hayes+Dr+Bourbonnais+IL+60914" target="_blank" rel="noopener">Get directions</a>
-      </div>
-    </aside>
+    <div class="photo"><img src="./assets/ph-hero.svg" alt="Friends around a table at Grey Wave" width="1200" height="900"></div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50c120-40 240-40 360 0s240 40 360 0 240-40 360 0 240 40 360 0v40H0z" fill="#fff"/><path d="M0 60c120-40 240-40 360 0s240 40 360 0 240-40 360 0 240 40 360 0" fill="none" stroke="#C48A2B" stroke-width="3"/></svg>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50c120-40 240-40 360 0s240 40 360 0 240-40 360 0 240 40 360 0v40H0z" fill="#1B2A41"/><path d="M0 60c120-40 240-40 360 0s240 40 360 0 240-40 360 0 240 40 360 0" fill="none" stroke="#C48A2B" stroke-width="3"/></svg>
 </div>
+<div class="strip"><div class="wrap">
+  <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Sundays at [TIME]</b><span>About one hour. Coffee before, conversation after.</span></div></div>
+  <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><b>Adventure Christian Church</b><span>70 Ken Hayes Dr, Bourbonnais, IL 60914 · <a href="https://www.google.com/maps/search/?api=1&query=70+Ken+Hayes+Dr+Bourbonnais+IL+60914" target="_blank" rel="noopener">Directions</a></span></div></div>
+  <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="10" r="2.5"/><path d="M2 20a7 7 0 0 1 14 0"/><path d="M15 16a5 5 0 0 1 7 4"/></svg><div><b>New here?</b><span><a href="./im-new/">Everything you need to know</a> before your first Sunday.</span></div></div>
+</div></div>
 
-<!-- ================= PURPOSE ================= -->
-<section id="purpose" class="white">
+<section class="white">
   <div class="wrap">
     <span class="kicker">Our purpose</span>
     <p class="statement">Grey Wave exists to help people over 55 <em>thrive</em> in the fourth quarter of life: with Jesus, with each other, and with something worth getting up for.</p>
-    <p class="lead" style="margin-top:1.4rem">Games are won in the fourth quarter. Nobody sits it out. That's how we think about these years, and it's why this church exists.</p>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="num">1</div>
-        <h3>Faith that still grows</h3>
-        <p>Whether you've followed Jesus for sixty years or never opened a Bible, there is more for you here. Plain teaching, honest questions, and a God who is not finished with you.</p>
-        <div class="looks"><b>What that looks like:</b> a message you can follow every Sunday, and a small group on a weekday morning if you want to go deeper.</div>
-      </div>
-      <div class="pillar">
-        <div class="num">2</div>
-        <h3>Friends who show up</h3>
-        <p>Loneliness is the quiet epidemic of later life. Here, people know your name, notice when you're missing, and come to the hospital when the news is bad.</p>
-        <div class="looks"><b>What that looks like:</b> coffee before and after, a table you're expected at, and a phone call when you miss a week.</div>
-      </div>
-      <div class="pillar">
-        <div class="num">3</div>
-        <h3>Purpose that outlasts you</h3>
-        <p>You carry decades of skill, stories, and faith. Retirement doesn't retire any of it. We'll help you put it to work in the lives of grandchildren, neighbors, and people who need what you have.</p>
-        <div class="looks"><b>What that looks like:</b> real jobs to do, people to mentor, and a church that leaves something behind.</div>
-      </div>
+    <div class="grid-3">
+      <div class="card pillar"><div class="num">1</div><h3>Faith that still grows</h3><p>Whether you've followed Jesus for sixty years or never opened a Bible, there is more for you here. Plain teaching, honest questions, and a God who is not finished with you.</p></div>
+      <div class="card pillar"><div class="num">2</div><h3>Friends who show up</h3><p>Loneliness is the quiet epidemic of later life. Here, people know your name, notice when you're missing, and come to the hospital when the news is bad.</p></div>
+      <div class="card pillar"><div class="num">3</div><h3>Purpose that outlasts you</h3><p>You carry decades of skill, stories, and faith. Retirement doesn't retire any of it. We'll help you put it to work in the lives of grandchildren, neighbors, and people who need what you have.</p></div>
     </div>
-    <div class="verse">
-      <p>"They will still bear fruit in old age; they will stay fresh and green."</p>
-      <cite>Psalm 92:14</cite>
-    </div>
+    <div class="verse"><p>"They will still bear fruit in old age; they will stay fresh and green."</p><cite>Psalm 92:14</cite></div>
   </div>
 </section>
 
-<!-- ================= SUNDAYS ================= -->
-<section id="sundays">
-  <div class="wrap">
-    <span class="kicker">Sundays</span>
-    <h2>Church the way it should feel at this stage of life.</h2>
-    <p class="lead">Warm, simple, and unhurried. Here's what an hour with us looks like.</p>
-    <div class="grid">
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
-        <h3>Songs you know by heart</h3>
-        <p>Hymns and the songs of the last fifty years, sung at a pitch and volume you can actually join. Words in large print, every time.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <h3>A message you can follow</h3>
-        <p>One passage of the Bible, explained plainly, applied to real life: grief, grandkids, health, money, regret, and what comes next. About 25 minutes.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 21h8M12 15v6"/><path d="M5 3h14v4a7 7 0 0 1-14 0z"/></svg></div>
-        <h3>Communion every week</h3>
-        <p>We gather around the Lord's table every Sunday, the way the first Christians did. Everyone who belongs to Jesus is welcome at it.</p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v3M10 2v3M14 2v3"/></svg></div>
-        <h3>Coffee and a real conversation</h3>
-        <p>We start with coffee and we stay after. Nobody sits alone, and nobody gets hurried out the door to make room for the next crowd.</p>
-      </div>
-    </div>
-    <div class="good">
-      <h3>Good to know</h3>
-      <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>About one hour, start to finish</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Daytime. No driving after dark</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Level entrance, walkers and wheelchairs welcome</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Large print and clear sound</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Rides available if you ask</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nobody will single you out or ask for money</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FIRST VISIT ================= -->
-<section id="visit" class="gold">
-  <div class="wrap">
-    <span class="kicker">Your first visit</span>
-    <h2>Three easy steps. Or skip them all and just show up.</h2>
-    <div class="steps">
-      <div class="step">
-        <h3>Say hello ahead of time</h3>
-        <p>Call Lance or fill out the short form below. He'll tell you what to expect, and if you'd like, he'll have someone save you a seat. Totally optional.</p>
-      </div>
-      <div class="step">
-        <h3>Park close, walk in</h3>
-        <p>Parking is right by the door and the entrance is level. Someone will meet you inside, get you a coffee, and show you where everything is.</p>
-      </div>
-      <div class="step">
-        <h3>Sit with people who are glad you came</h3>
-        <p>You'll be introduced to a couple of folks and you'll have a seat wherever you like. Stay for the conversation after, or slip out. No pressure either way.</p>
-      </div>
-    </div>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="tel:+18156851939">Call Lance: (815) 685-1939</a>
-      <a class="btn btn-outline" href="#contact">Send a note instead</a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= QUESTIONS ================= -->
-<section id="questions" class="white">
-  <div class="wrap narrow">
-    <span class="kicker">Questions people ask</span>
-    <h2>The honest answers.</h2>
-    <div class="faq">
-      <details>
-        <summary>Do I have to dress up?</summary>
-        <p>No. Sunday clothes, gardening clothes, whatever you'd wear to the diner. Lance usually wears a sport shirt. You will not be underdressed.</p>
-      </details>
-      <details>
-        <summary>I don't hear well. Will I be able to follow?</summary>
-        <p>Yes. We keep the music at a reasonable volume, the speaking clear, and the words on screen in large print. Sit anywhere you like; the front rows are not reserved for anyone. If you use hearing aids with a telecoil, tell us and we'll help.</p>
-      </details>
-      <details>
-        <summary>I use a walker or wheelchair.</summary>
-        <p>The entrance is level, the parking is close, the aisles are wide, and there is space at the end of every row. You will not be a bother. You'll be a regular.</p>
-      </details>
-      <details>
-        <summary>I'm not religious. Or I was raised something else.</summary>
-        <p>You're welcome. Catholic, Lutheran, Baptist, Methodist, lapsed, or "never went." Nobody will quiz you, ask you to stand up, or expect you to know when to sit. We are Christians only, but we are not the only Christians.</p>
-      </details>
-      <details>
-        <summary>My spouse passed away. I don't want to walk in alone.</summary>
-        <p>Then don't. Call Lance and someone will meet you in the parking lot and sit with you. A good number of us are walking the same road, and we're honest about it. Grief has a seat here.</p>
-      </details>
-      <details>
-        <summary>Will you ask me for money?</summary>
-        <p>No. There is no offering plate passed and nobody will call about giving. If you decide later that you want to help, we'll gladly show you how. That's your move, not ours.</p>
-      </details>
-      <details>
-        <summary>Is it only for older people? Can I bring my grandkids?</summary>
-        <p>Grey Wave is built for people 55 and better, but the door is open to anyone. Grandkids, adult children, a neighbor who's 40. Bring whoever you want to bring.</p>
-      </details>
-      <details>
-        <summary>Is this a real church or a program at another church?</summary>
-        <p>A real church. We are getting started, so for now we gather in a building that belongs to a sister church. Same Bible, same Jesus, our own people.</p>
-      </details>
-    </div>
-    <p style="margin-top:2rem">Have a different question? <a href="tel:+18156851939">Call Lance</a>. He answers his own phone.</p>
-  </div>
-</section>
-
-<!-- ================= STORY ================= -->
-<section id="story">
-  <div class="wrap story">
+<section>
+  <div class="wrap two">
     <div>
-      <div class="portrait" role="img" aria-label="Photo of Lance and Darla Hurley coming soon">
-        <div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg>
-          <b>Lance &amp; Darla Hurley</b><br><small>Photo to come</small>
-        </div>
-      </div>
+      <span class="kicker">New here?</span>
+      <h2>Your first Sunday, without the guesswork.</h2>
+      <p class="lead">One hour. Daytime. No dress code. Level entrance and close parking. Someone will meet you at the door, get you a coffee, and show you where everything is.</p>
+      <ul class="checks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Songs you know, sung at a volume you can join</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>A message you can follow, about 25 minutes</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Communion every week, open to all who follow Jesus</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Large print, clear sound, walkers and wheelchairs welcome</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Nobody singled out, nobody asked for money</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Rides available if you ask</li>
+      </ul>
+      <div class="btn-row"><a class="btn btn-primary" href="./im-new/">What to expect</a><a class="btn btn-outline" href="./im-new/#plan">Let us know you're coming</a></div>
     </div>
+    <div class="photo"><img src="./assets/ph-coffee.svg" alt="Coffee and conversation after the service" width="1200" height="900"></div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap two">
+    <div>
+      <span class="kicker">This week's message</span>
+      <h2>Can Jesus accept me?</h2>
+      <p class="lead">For anyone who thinks they've been away too long. Part of our fall series, <em>The Fourth Quarter</em>.</p>
+      <p>Miss a Sunday, or want to hear it again? Every message is online by Monday. Share it with someone who won't walk into a church yet but might press play.</p>
+      <div class="btn-row"><a class="btn btn-gold" href="./messages/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch or listen</a><a class="btn btn-outline" href="./messages/#series">See the series</a></div>
+    </div>
+    <a class="video" href="./messages/" aria-label="Watch the latest message"><div><div class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div><b>Watch the latest message</b><span>Sundays online by Monday</span></div></a>
+  </div>
+</section>
+
+<section class="white">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap">
+      <div><span class="kicker">Coming up</span><h2 style="margin-bottom:0">Get it on the calendar.</h2></div>
+      <a class="btn btn-outline btn-sm" href="./events/">All events</a>
+    </div>
+    <div class="events" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      <div class="event"><div class="date"><span>Oct</span><b>4</b></div><div><h3>Bring-a-Friend Sunday</h3><div class="meta">Sundays at [TIME]</div><p>Think of one person who used to go to church and stopped. Ask them. Coffee cake included.</p></div></div>
+      <div class="event"><div class="date"><span>Oct</span><b>18</b></div><div><h3>Baptism Sunday</h3><div class="meta">Sundays at [TIME]</div><p>It is never too late. Talk to any elder or fill out the form and we'll walk you through it.</p></div></div>
+      <div class="event"><div class="date"><span>Nov</span><b>22</b></div><div><h3>Thanksgiving Meal</h3><div class="meta">After the service</div><p>A full table, no cooking required. Bring your family, bring a neighbor who'd otherwise eat alone.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Get connected</span>
+    <h2>Sunday is the front door. Here's the rest of the house.</h2>
+    <div class="grid-4">
+      <a class="card link" href="./connect/#groups"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><h3>Groups</h3><p>Weekday Bible studies, men's breakfast, women's coffee, and a grief group that meets you where you are.</p><span class="more">Find a group →</span></a>
+      <a class="card link" href="./connect/#serve"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4l-8 8 2 2 8-8zM8 12l-4 4 4 4 4-4M12 20h9"/></svg></div><h3>Serve</h3><p>Greet, make coffee, drive a neighbor, visit a shut-in, run the sound. Sixty years of skills don't retire.</p><span class="more">Join a team →</span></a>
+      <a class="card link" href="./connect/#prayer"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21C7 17 4 13.5 4 9.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8 3.5c0 4-3 7.5-8 11.5z"/></svg></div><h3>Prayer &amp; care</h3><p>Send a prayer request, ask for a hospital visit, or a meal. Someone reads every one.</p><span class="more">Ask for prayer →</span></a>
+      <a class="card link" href="./give/"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M17 7H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H7"/></svg></div><h3>Give</h3><p>New churches are built by the people who believe in them. Give online in under a minute, or by mail.</p><span class="more">Give →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="gold">
+  <div class="wrap two">
+    <div class="photo tall" style="max-width:420px"><img src="./assets/ph-lance-darla.svg" alt="Lance and Darla Hurley" width="900" height="1125"></div>
     <div>
       <span class="kicker">Our story</span>
       <h2>Lance has spent 45 years starting churches. This one is for his own generation.</h2>
-      <p>Lance Hurley planted his first church in Manteno, Illinois, in 1981, fresh out of Lincoln Christian College, with a core group of 20 people. Nineteen years later that church was 250 strong and more than 400 people had been baptized. He went on to pastor in Florida, plant Cornerstone Christian Church in Glen Ellyn in 2005, and lead Ignite Church Planting, the hundred-year-old network behind dozens of new churches across Chicagoland.</p>
-      <p>Along the way, he and Darla watched something happen to their friends. As people retired, they drifted from church. Not from God, necessarily. From church. Everything new was built for young families, and nobody was building anything for them.</p>
-      <p>So Lance decided to plant one more. Grey Wave started this fall with twelve people in the room.</p>
-      <div class="quote">"If you ever start a church, I'll come."<small>A longtime friend of Lance's who had said no to church for years. He was there the first Sunday.</small></div>
-      <p>Lance and Darla have been married 42 years. They are in the fourth quarter too, and they intend to play it.</p>
-      <ul class="timeline">
-        <li><b>1981</b> · Plants Christian Church of Manteno at age 22</li>
-        <li><b>2005</b> · Plants Cornerstone Christian Church, Glen Ellyn</li>
-        <li><b>2022</b> · Executive Director, Ignite Church Planting</li>
-        <li><b>2026</b> · Grey Wave's first Sunday</li>
-      </ul>
+      <p>Lance Hurley planted his first church in 1981 with twenty people. Since then he has planted two more, led Ignite Church Planting, and watched too many friends drift from church in retirement because nothing new was built for them. So he and Darla decided to build one.</p>
+      <div class="quote">"If you ever start a church, I'll come."<small>A longtime friend who had said no to church for years. He was there the first Sunday.</small></div>
+      <div class="btn-row"><a class="btn btn-primary" href="./about/">Read our story</a><a class="btn btn-outline" href="./about/#believe">What we believe</a></div>
     </div>
   </div>
 </section>
 
-<!-- ================= BELIEVE ================= -->
-<section id="believe" class="dark">
-  <div class="wrap">
-    <span class="kicker" style="color:var(--gold-soft)">What we believe</span>
-    <h2>Simple faith. Nothing hidden.</h2>
-    <p class="lead" style="color:#D6DCE7">Grey Wave is an independent Christian church in the same family as Ignite Church Planting and hundreds of Christian churches across Illinois and Indiana. The idea has been the same for two hundred years: get back to the simple church of the New Testament.</p>
-    <ul class="believe">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Jesus alone is Savior and Lord.</b><span>Not a denomination, not a preacher, not a program.</span></div></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>The Bible is our only rulebook.</b><span>Where it speaks, we speak. Where it's silent, we leave room.</span></div></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>No creed but Christ.</b><span>We ask people to trust and follow Jesus, not to sign a statement.</span></div></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Baptism is for anyone old enough to choose it.</b><span>By immersion, as the New Testament describes. It is never too late.</span></div></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Communion every Sunday.</b><span>The Lord's table is the center of our gathering, not an add-on.</span></div></li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Led by our own people.</b><span>Elders from among us, answerable to no headquarters.</span></div></li>
-    </ul>
-    <p style="margin-top:2rem;font-family:var(--serif);font-size:1.3rem;font-style:italic;color:#fff">"In essentials, unity. In non-essentials, liberty. In all things, love."</p>
-  </div>
-</section>
-
-<!-- ================= COMING UP ================= -->
-<section id="coming" class="white">
-  <div class="wrap">
-    <span class="kicker">Coming up</span>
-    <h2>The next few Sundays.</h2>
-    <p class="lead">This fall we're meeting twelve Sundays in a row, September 13 through November 29. Come once or come every week.</p>
-    <div class="upnext">
-      <div class="up"><div class="d">Sunday · Sept 20</div><h3>Can Jesus accept me?</h3><p>For anyone who thinks they've been away too long.</p></div>
-      <div class="up"><div class="d">Sunday · Sept 27</div><h3>We all face it</h3><p>On fear, aging, and the God who goes ahead. Prayer for the sick after.</p></div>
-      <div class="up"><div class="d">Sunday · Oct 4</div><h3>The friend who never leaves</h3><p>Bring-a-friend Sunday. Coffee cake included.</p></div>
-      <div class="up"><div class="d">Sunday · Oct 11</div><h3>Starting over at 70</h3><p>It's been done. Here's how.</p></div>
-    </div>
-    <details class="more">
-      <summary>See all twelve Sundays</summary>
-      <table>
-        <thead><tr><th scope="col">Date</th><th scope="col">Message</th><th scope="col" class="o">Also that day</th></tr></thead>
-        <tbody>
-          <tr><td class="d">Sept 13</td><td class="t">Is God finished with me?</td><td class="o">Opening Sunday</td></tr>
-          <tr><td class="d">Sept 20</td><td class="t">Can Jesus accept me?</td><td class="o">&nbsp;</td></tr>
-          <tr><td class="d">Sept 27</td><td class="t">We all face it</td><td class="o">Prayer for the sick after service</td></tr>
-          <tr><td class="d">Oct 4</td><td class="t">The friend who never leaves</td><td class="o">Bring-a-friend Sunday</td></tr>
-          <tr><td class="d">Oct 11</td><td class="t">Starting over at 70</td><td class="o">&nbsp;</td></tr>
-          <tr><td class="d">Oct 18</td><td class="t">Regret, forgiveness, and a clean slate</td><td class="o">Baptism available</td></tr>
-          <tr><td class="d">Oct 25</td><td class="t">Face to face</td><td class="o">Lunch together after</td></tr>
-          <tr><td class="d">Nov 1</td><td class="t">Grief that doesn't get the last word</td><td class="o">Remembering those we've lost</td></tr>
-          <tr><td class="d">Nov 8</td><td class="t">What am I still here for?</td><td class="o">&nbsp;</td></tr>
-          <tr><td class="d">Nov 15</td><td class="t">Called to go</td><td class="o">Serve day sign-ups</td></tr>
-          <tr><td class="d">Nov 22</td><td class="t">Thankful anyway</td><td class="o">Thanksgiving meal</td></tr>
-          <tr><td class="d">Nov 29</td><td class="t">What comes next</td><td class="o">What's ahead for Grey Wave</td></tr>
-        </tbody>
-      </table>
-      <p class="hint">Titles may shift a little. Every week: coffee, familiar songs, one clear message, communion, and time to talk.</p>
-    </details>
-  </div>
-</section>
-
-<!-- ================= CONNECT ================= -->
-<section id="connect">
-  <div class="wrap">
-    <span class="kicker">Get connected</span>
-    <h2>Five ways in. Start with the easiest one.</h2>
-    <div class="ways">
-      <div class="way"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div><h3>Come</h3><p>Sunday is the front door. Just show up. We'll save you a seat and a cup of coffee.</p></div>
-      <div class="way"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M19 8h4M21 6v4"/></svg></div><h3>Bring someone</h3><p>Think of one person who used to go to church and stopped. Ask them. That's how most of us got here.</p></div>
-      <div class="way"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21C7 17 4 13.5 4 9.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8 3.5c0 4-3 7.5-8 11.5z"/></svg></div><h3>Pray</h3><p>Join the prayer list: one email or printed sheet a week with names and needs.</p></div>
-      <div class="way"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4l-8 8 2 2 8-8zM8 12l-4 4 4 4 4-4M12 20h9"/></svg></div><h3>Serve</h3><p>Greet, make coffee, drive a neighbor, visit a shut-in, fix the sound. Sixty years of skills don't retire.</p></div>
-      <div class="way"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M17 7H9.5a2.5 2.5 0 0 0 0 5h5a2.5 2.5 0 0 1 0 5H7"/></svg></div><h3>Give</h3><p>New churches are funded by the people who believe in them. When you're ready, ask Lance how.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="white">
-  <div class="wrap contact">
-    <div>
-      <span class="kicker">Say hello</span>
-      <h2>Call Lance. He answers.</h2>
-      <p class="lead">A question about Sunday, a ride, a visit to someone in the hospital, or whether you'd fit in. Just call.</p>
-      <a class="big-phone" href="tel:+18156851939">(815) 685-1939</a>
-      <p><a href="mailto:lance@ignitechurchplanting.com">lance@ignitechurchplanting.com</a></p>
-      <div class="addr">
-        <b>Sundays at [TIME]</b>
-        Adventure Christian Church<br>70 Ken Hayes Dr<br>Bourbonnais, IL 60914<br>
-        <a href="https://www.google.com/maps/search/?api=1&query=70+Ken+Hayes+Dr+Bourbonnais+IL+60914" target="_blank" rel="noopener">Directions</a>
-      </div>
-    </div>
-    <form action="mailto:lance@ignitechurchplanting.com" method="post" enctype="text/plain">
-      <label for="name">Your name</label>
-      <input id="name" name="name" type="text" autocomplete="name" required>
-      <label for="phone">Best phone number</label>
-      <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(815) 555-0100">
-      <label for="about">How can we help?</label>
-      <select id="about" name="about">
-        <option>I'd like to come this Sunday</option>
-        <option>I need a ride</option>
-        <option>Please pray for someone</option>
-        <option>Please visit someone</option>
-        <option>I'd like to help out</option>
-        <option>Just a question</option>
-      </select>
-      <label for="msg">Anything else? (optional)</label>
-      <textarea id="msg" name="message"></textarea>
-      <div class="btn-row" style="margin-top:1.2rem"><button class="btn btn-primary" type="submit">Send to Lance</button></div>
-      <p class="hint">Lance or Darla will call you back within a day or two. We never share your information.</p>
-    </form>
-  </div>
-</section>
+<div class="band"><div class="wrap">
+  <div><h2>Come see for yourself this Sunday.</h2><p>No pressure, no dress code, no one will single you out. Just an hour with people who are glad you came.</p></div>
+  <div class="btn-row"><a class="btn btn-primary" href="./im-new/#plan">Plan a Visit</a><a class="btn btn-outline" href="./messages/">Watch a message</a></div>
+</div></div>
 
 </main>
-
 <footer>
   <div class="wrap">
     <div class="cols">
       <div>
-        <a class="brand" href="#top" style="color:#fff;white-space:normal">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#fff"/><path d="M6 27c5-6 9-6 14 0s9 6 14 0 9-6 14 0" fill="none" stroke="#C48A2B" stroke-width="3.2" stroke-linecap="round"/><path d="M6 34c5-6 9-6 14 0s9 6 14 0 9-6 14 0" fill="none" stroke="#8E9AAF" stroke-width="3.2" stroke-linecap="round"/><circle cx="34" cy="15" r="4.5" fill="#1B2A41"/></svg>
-          <span><b style="color:#fff">Grey Wave</b><small style="color:#8E9AAF">A church for people 55 and better</small></span>
-        </a>
+        <a class="brand" href="./" style="color:#fff;white-space:normal"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#fff"/><path d="M6 27c5-6 9-6 14 0s9 6 14 0 9-6 14 0" fill="none" stroke="#C48A2B" stroke-width="3.2" stroke-linecap="round"/><path d="M6 34c5-6 9-6 14 0s9 6 14 0 9-6 14 0" fill="none" stroke="#8E9AAF" stroke-width="3.2" stroke-linecap="round"/><circle cx="34" cy="15" r="4.5" fill="#1B2A41"/></svg><span><b style="color:#fff">Grey Wave</b><small style="color:#8E9AAF">A church for people 55 and better</small></span></a>
         <p style="margin-top:1rem;color:#C9D1DE">Helping people thrive in the fourth quarter of life: with Jesus, with each other, and with something worth getting up for.</p>
-        <p style="color:#8E9AAF;font-size:.9rem">A new church started with <a href="https://www.ignitechurchplanting.com/" target="_blank" rel="noopener">Ignite Church Planting</a>, planting churches in Chicagoland for over 100 years.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.4H7.4V14h2.8v8z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 8.2a2.6 2.6 0 0 0-1.8-1.8C18.6 6 12 6 12 6s-6.6 0-8.2.4A2.6 2.6 0 0 0 2 8.2 27 27 0 0 0 1.6 12 27 27 0 0 0 2 15.8a2.6 2.6 0 0 0 1.8 1.8C5.4 18 12 18 12 18s6.6 0 8.2-.4a2.6 2.6 0 0 0 1.8-1.8 27 27 0 0 0 .4-3.8 27 27 0 0 0-.4-3.8zM10 15V9l5.2 3z"/></svg></a>
+        </div>
       </div>
       <div>
         <h3>Sundays</h3>
-        <ul>
-          <li>Sundays at [TIME]</li>
-          <li>Adventure Christian Church</li>
-          <li>70 Ken Hayes Dr, Bourbonnais, IL</li>
-          <li><a href="https://www.google.com/maps/search/?api=1&query=70+Ken+Hayes+Dr+Bourbonnais+IL+60914" target="_blank" rel="noopener">Directions</a></li>
-        </ul>
+        <ul><li>Sundays at [TIME]</li><li>Adventure Christian Church</li><li>70 Ken Hayes Dr, Bourbonnais, IL 60914</li><li><a href="https://www.google.com/maps/search/?api=1&query=70+Ken+Hayes+Dr+Bourbonnais+IL+60914" target="_blank" rel="noopener">Directions</a></li></ul>
       </div>
       <div>
-        <h3>Reach us</h3>
-        <ul>
-          <li><a href="tel:+18156851939">(815) 685-1939</a></li>
-          <li><a href="mailto:lance@ignitechurchplanting.com">lance@ignitechurchplanting.com</a></li>
-          <li><a href="#connect">Serve or give</a></li>
-          <li><a href="#questions">Questions</a></li>
-        </ul>
+        <h3>Quick links</h3>
+        <ul><li><a href="./im-new/">I'm New</a></li><li><a href="./messages/">Watch a message</a></li><li><a href="./events/">Events</a></li><li><a href="./connect/#prayer">Prayer request</a></li><li><a href="./give/">Give</a></li></ul>
+      </div>
+      <div>
+        <h3>Stay in the loop</h3>
+        <p style="color:#C9D1DE;font-size:.95rem">One email a week: this Sunday's message, upcoming events, and people to pray for.</p>
+        <form class="inline-form" action="mailto:hello@greywavechurch.org?subject=Newsletter%20signup" method="post" enctype="text/plain">
+          <label for="nl-1" class="sr-only" style="position:absolute;left:-9999px">Email address</label>
+          <input id="nl-1" type="email" name="email" placeholder="Your email" required>
+          <button class="btn btn-gold btn-sm" type="submit">Sign up</button>
+        </form>
+        <ul style="margin-top:1rem"><li><a href="mailto:hello@greywavechurch.org">hello@greywavechurch.org</a></li><li>[CHURCH PHONE]</li></ul>
       </div>
     </div>
-    <div class="legal">© 2026 Grey Wave Church · Draft site</div>
+    <div class="legal"><span>© 2026 Grey Wave Church</span><span>Started with <a href="https://www.ignitechurchplanting.com/" target="_blank" rel="noopener">Ignite Church Planting</a></span></div>
   </div>
 </footer>
-
 <div class="callbar" aria-label="Quick actions">
-  <a class="btn btn-outline" href="tel:+18156851939">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call
-  </a>
-  <a class="btn btn-primary" href="#visit">Plan a visit</a>
+  <a class="btn btn-outline" href="./messages/"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Watch</a>
+  <a class="btn btn-primary" href="./im-new/#plan">Plan a Visit</a>
 </div>
+<script src="./site.js"></script>
 
-<script>
-  (function(){
-    var root=document.documentElement, btns=document.querySelectorAll('.sizer button');
-    function apply(s){ if(s==='normal'){root.removeAttribute('data-size')}else{root.setAttribute('data-size',s)}
-      btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.size===s))}); }
-    try{ var saved=localStorage.getItem('gw-size'); if(saved) apply(saved); }catch(e){}
-    btns.forEach(function(b){ b.addEventListener('click',function(){ apply(b.dataset.size); try{localStorage.setItem('gw-size',b.dataset.size)}catch(e){} }); });
-    var mb=document.querySelector('.menu-btn'), nav=document.getElementById('nav');
-    mb.addEventListener('click',function(){ var open=nav.classList.toggle('open'); mb.setAttribute('aria-expanded',String(open)); mb.textContent=open?'Close':'Menu'; });
-    nav.addEventListener('click',function(e){ if(e.target.tagName==='A'){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menu';} });
-  })();
-</script>
 </body>
 </html>

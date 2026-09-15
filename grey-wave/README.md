@@ -1,54 +1,64 @@
-# Grey Wave Church — draft website
+# Grey Wave Church — website
 
-A single static page (`index.html`, inline CSS/JS, no build) for Lance Hurley's
-new church plant for people 55+ south of Chicago.
-Andrew's note: Lance lives about 20 minutes south of Chicago and is planting
-there. Published sources put him in Bourbonnais, and the preview season venue
-(Adventure Christian Church, 70 Ken Hayes Dr, Bourbonnais) comes from Andrew's
-meeting notes. Confirm the venue and town with Lance before launch.
-Working name: **Grey Wave**. Domain is still unconfirmed (see RESEARCH.md).
+Static, multi-page site (plain HTML + one shared `styles.css` + one tiny
+`site.js`, no build step) for Lance Hurley's new church for people 55 and
+better. Working name: **Grey Wave**. Domain still unconfirmed (see RESEARCH.md).
+
+## Pages
+
+| Path | What it does |
+|---|---|
+| `/` | Home: who we are, when and where, next step. Purpose, "New here?", latest message, three upcoming events, connect grid, story, CTA band. |
+| `/im-new/` | What to expect, "Good to know", **Plan a Visit form** (`#plan`), directions, FAQ. The primary call to action everywhere points here. |
+| `/about/` | Story, purpose, beliefs (`#believe`), leadership (`#leadership`), Ignite partnership. |
+| `/messages/` | Latest message (video slot), current series with the 12-week list, archive, Lance's earlier sermons, subscribe. |
+| `/events/` | Weekly regulars, fall calendar, printable PDF slot. |
+| `/connect/` | Groups (`#groups`), serve teams (`#serve`), care (`#care`), **prayer request form** (`#prayer`), interest form. |
+| `/give/` | Online giving button, checks, IRA/QCD and estate note, where it goes, giving FAQ. |
+| `/contact/` | General email + church phone, form, address, embedded map. |
+
+Every page shares the same header (logo, Watch button, text-size control,
+seven nav links, "Plan a Visit" button), footer (times, quick links,
+newsletter signup, contact), and a Watch / Plan a Visit bar pinned to the
+bottom on phones.
+
+## Church-website practices this follows
+
+- The homepage answers **who, when/where, and what's my next step** above the fold and in the navy strip right under the hero.
+- **Plan a Visit** is the one primary call to action, repeated in the nav, hero, bands, and mobile bar. It lands on a form, not a person's cell phone.
+- Standard doors people look for: I'm New, About, Messages, Events, Connect, Give, Contact.
+- **Give** is in the nav and has its own page, with online, check, and IRA options and a "where it goes" panel.
+- **Messages** are watchable online with a subscribe path (YouTube, podcast, Monday email).
+- **Prayer request** and **care** have their own forms, so the church, not one pastor, receives them.
+- General church email and office phone in the footer and contact page. Lance's email appears only on his leadership card.
+- Newsletter signup in every footer.
+- Service time and address in the header strip, footer, I'm New, and Contact. Google Maps link everywhere the address appears.
+- Built for 55+ readers: 19px base type with an A/A/A control, Atkinson Hyperlegible body, Fraunces headings, 58px buttons, AA contrast, no motion, printable.
 
 ## Deploy on Vercel
 
-This folder is self-contained. Two options:
+The folder is self-contained. Either copy it into its own repo and import it
+(framework preset "Other", no build command, output directory `.`), or import
+`RunFree-co-Lab` and set *Root Directory* to `grey-wave`. Folder-style URLs
+(`/im-new/`) work without any config. Add the domain under Project → Domains.
 
-1. **Own repo (recommended once the name/domain is settled).** Copy this folder
-   into a new GitHub repo, import it in Vercel, framework preset "Other". No
-   build command, output directory `.`.
-2. **From this repo.** Import `RunFree-co-Lab` in Vercel and set
-   *Root Directory* to `grey-wave`. Everything else default.
+## Placeholders to fill before launch
 
-Then add the domain (greywavechurchplanting.org or whatever Lance registered)
-under Project → Domains.
+Search for these strings:
 
-## Before it goes live
+- `[TIME]` — Sunday service time (appears in every header strip, footer, and form page).
+- `[CHURCH PHONE]` — an office or Google Voice number that goes to voicemail, not a personal cell.
+- `hello@greywavechurch.org` — swap for the real address once the domain is settled.
+- `[MAILING ADDRESS]` on the Give page.
+- `href="#"` on: the **Give online** buttons (point at Tithe.ly, Pushpay, Planning Center Giving, etc.), the **Watch / Listen / Notes** buttons on Messages, the **YouTube / Podcast** buttons, the **fall calendar PDF**, and the Facebook / YouTube icons in the footer.
+- `assets/ph-*.svg` — placeholder photo slots, each labeled with the photo that belongs there. Replace with real photos of real people; that is the single biggest upgrade this site can get.
+- The video block on Messages has an HTML comment showing where the YouTube embed goes.
+- All forms post via `mailto:`. Before launch, point them at a form service (Formspree, Basin, Netlify/Vercel forms, or your church management system's connect card) so submissions land in an inbox reliably.
 
-Search the page for `[TIME]` and replace with the Sunday service time. Also:
+## Content that is proposed, not confirmed
 
-- Confirm the meeting location. The page names Adventure Christian Church in
-  Bourbonnais in the hero card, schedule, contact block and footer. If the
-  plant meets somewhere in the south suburbs instead, replace all four.
-
-- Replace the photo placeholder in the "Our pastor" section with a real photo
-  of Lance and Darla (`assets/lance-darla.jpg`, ~1200px wide).
-- Confirm the phone number. (815) 685-1939 is Lance's number on Ignite's
-  published materials; swap if Grey Wave gets its own line.
-- The contact form posts via `mailto:`. Swap the `action` for a Formspree,
-  GoHighLevel, or Vercel Forms endpoint before launch.
-- The 12-week sermon list is a draft. Titles marked in RESEARCH.md as Lance's
-  real sermon titles are the anchors; the rest are proposals.
-- Generate a share image at `assets/og-grey-wave.png` (1200×630).
-
-## Design notes
-
-Built for readers 55 and better:
-
-- Five nav items plus one gold "Plan your first visit" button. A sticky
-  Call / Plan a visit bar on phones.
-- 19px base type, with an A / A / A text-size control in the header
-  (22px and 25px), remembered per visitor.
-- Atkinson Hyperlegible for body copy, Fraunces for headings.
-- Navy / gold / silver on cream. Contrast on all text is AA or better.
-- 56px-tall buttons, 44px+ tap targets, a phone number in the header on
-  every screen, and a level of animation that rounds to zero.
-- The page prints cleanly as a hand-out (nav, form and buttons drop out).
+Weekday groups (Tuesday coffee, Wednesday Bible study, grief group), the
+special Sundays on the events page, sermon titles other than Lance's real
+ones, the finance-team description on Give, and the "Elders coming 2027"
+card are all proposals for Lance to keep, edit, or cut. RESEARCH.md separates
+what is sourced from what is drafted.

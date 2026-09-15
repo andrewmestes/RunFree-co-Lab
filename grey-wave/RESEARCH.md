@@ -52,9 +52,17 @@ From Andrew's Granola meeting notes (Sept 2026):
 - **Service time** — placeholder `[TIME]`.
 - **Sermon titles** other than the five real ones above are proposals.
 - **"Also that day" column** (breakfast, baptism, meals) — proposals.
-- **Values** (Prayer first / Nobody sits alone / Still growing / Finish well)
-  — written to echo Ignite's four values (Prayer, Planters, Partners,
-  Possibilities) and the Restoration Movement, not taken from Lance.
+- **Purpose statement and three pillars** (faith that still grows, friends who
+  show up, purpose that outlasts you) — drafted to echo Ignite's values and
+  Andrew's "thriving in the fourth quarter" language, not taken from Lance.
+- **Weekday groups and events** (Tuesday coffee, Wednesday Bible study, grief
+  group, Bring-a-Friend Sunday, Baptism Sunday, Remembrance Sunday,
+  Thanksgiving meal) — proposals.
+- **Give page details** (finance team, outside review, share to the next
+  plant, IRA/QCD note) — standard practice, not confirmed with Lance.
+- **Darla's "Care & Hospitality" role** — inferred from her Ignite admin role;
+  confirm the title.
+- **Church email / phone** — placeholders.
 - **"Baptized people in their 80s"** — plausible given 400+ baptisms but not
   sourced. Ask Lance for a real story and swap it in.
 - **Ignite founded 1919** — Ignite says "over 100 years"; exact year unconfirmed.
