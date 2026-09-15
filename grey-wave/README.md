@@ -1,7 +1,11 @@
 # Grey Wave Church — draft website
 
 A single static page (`index.html`, inline CSS/JS, no build) for Lance Hurley's
-new church plant for people 55+ in Bourbonnais / Kankakee County, IL.
+new church plant for people 55+ south of Chicago.
+Andrew's note: Lance lives about 20 minutes south of Chicago and is planting
+there. Published sources put him in Bourbonnais, and the preview season venue
+(Adventure Christian Church, 70 Ken Hayes Dr, Bourbonnais) comes from Andrew's
+meeting notes. Confirm the venue and town with Lance before launch.
 Working name: **Grey Wave**. Domain is still unconfirmed (see RESEARCH.md).
 
 ## Deploy on Vercel
@@ -20,6 +24,10 @@ under Project → Domains.
 ## Before it goes live
 
 Search the page for `[TIME]` and replace with the Sunday service time. Also:
+
+- Confirm the meeting location. The page names Adventure Christian Church in
+  Bourbonnais in the hero card, schedule, contact block and footer. If the
+  plant meets somewhere in the south suburbs instead, replace all four.
 
 - Replace the photo placeholder in the "Our pastor" section with a real photo
   of Lance and Darla (`assets/lance-darla.jpg`, ~1200px wide).

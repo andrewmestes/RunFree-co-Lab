@@ -39,6 +39,13 @@ From Andrew's Granola meeting notes (Sept 2026):
 
 ## Not verified / proposals (flagged on the page or in README)
 
+- **Where the church meets.** Andrew says Lance lives ~20 minutes south of
+  Chicago and is planting there. Public sources (ignitethriving.org, FACC bio)
+  say Bourbonnais, which is closer to an hour south. The only Adventure
+  Christian Church is in Bourbonnais. The page now says "south of Chicago" /
+  "south suburbs" and keeps the Bourbonnais address as the preview venue.
+  Confirm with Lance.
+
 - **Name "Grey Wave" and the domain.** greywavechurchplanting.org/.com,
   graywave…, greywavechurch.org/.com all fail DNS from this sandbox. Nothing
   indexed under that name. Confirm spelling (grey vs gray) with Lance.
