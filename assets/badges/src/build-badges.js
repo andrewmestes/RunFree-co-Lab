@@ -5,6 +5,8 @@ const path = require('path');
 const C = {
   navy: '#1F378C', magenta: '#E43D96', orange: '#F15A25',
   pink: '#F1A2C7', lavender: '#9596C6', white: '#FFFFFF',
+  // Process-overview Vision Frame (tool-5-vision-frame.png)
+  deep: '#252E67', periwinkle: '#7987BB',
 };
 const FONT = "PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif";
 // Poppins (SIL OFL) subset to the badge's characters and embedded, so the SVG renders
@@ -29,6 +31,25 @@ function frame(x, y, s, { inset = 0.2, sw = s * 0.018, window = C.white } = {}) 
     <polygon fill="${C.orange}" points="${p([[a, b], [a + i, b + i], [a + i, d - i], [a, d]])}"/>
     <rect x="${a + i}" y="${b + i}" width="${s - 2 * i}" height="${s - 2 * i}" fill="${window}" stroke-linejoin="miter"/>
     <rect x="${a}" y="${b}" width="${s}" height="${s}" fill="none" stroke-linejoin="miter"/>
+  </g>`;
+}
+
+// The Vision Frame icon from the process overview, rebuilt as vectors: a deep navy
+// bevelled frame inside a ring of periwinkle tiles, with see-through gaps between
+// pieces. Proportions measured from the 301px source.
+function frameBlue(x, y, s, id) {
+  const u = s / 301, band = 33 * u, nav = 42 * u, win = 75 * u, gap = 9 * u, mid = s / 2;
+  const sq = (o) => `M${x + o},${y + o}H${x + s - o}V${y + s - o}H${x + o}Z`;
+  const ln = (x1, y1, x2, y2) => `<line x1="${x + x1}" y1="${y + y1}" x2="${x + x2}" y2="${y + y2}"/>`;
+  return `<mask id="${id}" maskUnits="userSpaceOnUse" x="${x}" y="${y}" width="${s}" height="${s}">
+    <rect x="${x}" y="${y}" width="${s}" height="${s}" fill="#fff"/>
+    <g stroke="#000" stroke-width="${gap.toFixed(2)}">
+      ${ln(0, 0, s, s)}${ln(s, 0, 0, s)}
+      ${ln(mid, 0, mid, band)}${ln(mid, s - band, mid, s)}${ln(0, mid, band, mid)}${ln(s - band, mid, s, mid)}
+    </g></mask>
+  <g mask="url(#${id})" fill-rule="evenodd">
+    <path fill="${C.periwinkle}" d="${sq(0)}${sq(band)}"/>
+    <path fill="${C.deep}" d="${sq(nav)}${sq(win)}"/>
   </g>`;
 }
 
@@ -124,6 +145,22 @@ function wordmark(p = 'e') {
   ${line('FRAMING', 700, 76, 406)}`);
 }
 
+// F · The Process Frame — Option E's layout on the process-overview Vision Frame.
+function processFrame(p = 'f') {
+  const x = 10, s = 580, u = s / 301, w = 230, lx = 300 - w / 2;
+  const top = x + (42 + 75) / 2 * u, bot = x + s - (42 + 75) / 2 * u;
+  const line = (t, wt, size, by) =>
+    `<text x="${lx}" y="${by}" font-family="${WM}" font-weight="${wt}" font-size="${size}" fill="${C.deep}" textLength="${w}" lengthAdjust="spacing">${t}</text>`;
+  return svg(600, 600, TITLE, `
+  <rect x="${x + 75 * u}" y="${x + 75 * u}" width="${151 * u}" height="${151 * u}" fill="${C.white}"/>
+  ${frameBlue(x, x, s, p + 'm')}
+  <text x="300" y="${(top + 9).toFixed(1)}" font-family="${FONT}" font-weight="800" font-size="24" letter-spacing="9" fill="${C.white}" text-anchor="middle">CERTIFIED</text>
+  <text x="300" y="${(bot + 9).toFixed(1)}" font-family="${FONT}" font-weight="800" font-size="23" letter-spacing="5" fill="${C.white}" text-anchor="middle">VISION FRAMER</text>
+  ${line('PIVVOT', 500, 67, 262)}
+  ${line('VISION', 800, 67, 324)}
+  ${line('FRAMING', 700, 58, 380)}`);
+}
+
 const out = process.argv[2] || path.join(__dirname, '..');
 fs.mkdirSync(out, { recursive: true });
 const files = {
@@ -132,7 +169,8 @@ const files = {
   'option-c-open-frame.svg': openFrame(),
   'option-d-signature-lockup.svg': lockup(),
   'option-e-cert-wordmark.svg': wordmark(),
+  'option-f-process-frame.svg': processFrame(),
 };
 for (const [n, s] of Object.entries(files)) fs.writeFileSync(path.join(out, n), s);
-module.exports = { seal, hexagon, openFrame, lockup, wordmark };
+module.exports = { seal, hexagon, openFrame, lockup, wordmark, processFrame };
 console.log('wrote', Object.keys(files).join(', '));

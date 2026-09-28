@@ -1,11 +1,13 @@
 # Certified Vision Framer badge — draft options
 
-Five directions for the badge that Pivvot Vision Framing certified framers
+Six directions for the badge that Pivvot Vision Framing certified framers
 ("Certified Vision Framers") can use on their website, in an email
 signature, or on LinkedIn. The issuer on every badge is Pivvot Vision
 Framing. All are built from the Vision Frame icon on the certification
-handouts (`../icon-vision-frame.png`); Option E also uses the stacked
-wordmark from the "Pivvot Vision Framing Cert Badge" design in Canva.
+handouts (`../icon-vision-frame.png`) except Option F, which uses the
+blue Vision Frame from the process overview (`../tool-5-vision-frame.png`).
+Options E and F use the stacked wordmark from the "Pivvot Vision Framing
+Cert Badge" design in Canva.
 
 | File | Direction | Inspired by |
 |---|---|---|
@@ -14,6 +16,7 @@ wordmark from the "Pivvot Vision Framing Cert Badge" design in Canva.
 | `option-c-open-frame` | The badge *is* the Vision Frame | Google Cloud, Apple |
 | `option-d-signature-lockup` | Horizontal pill for signatures and footers | HubSpot Academy, Google Cloud |
 | `option-e-cert-wordmark` | The Canva cert-badge wordmark inside the frame (recommended) | The existing Pivvot cert badge |
+| `option-f-process-frame` | Option E's layout on the blue process-overview frame | The process overview icon |
 
 Each comes as an SVG (fonts subset and embedded, so it renders correctly as an
 `<img>` anywhere) and a transparent PNG at 2×. These are drafts; once a
