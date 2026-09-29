@@ -16,10 +16,19 @@ The same two layouts, built with each of the three marks:
 | Vision Frame from the certification handouts (`../icon-vision-frame.png`) | `hex-1-frame` | `lockup-1-frame` |
 | PIVVOT / VISION / FRAMING wordmark from the "Pivvot Vision Framing Cert Badge" design in Canva | `hex-2-wordmark` | `lockup-2-wordmark` |
 | Vision Frame from the process overview (`../tool-5-vision-frame.png`) | `hex-3-blue-frame` | `lockup-3-blue-frame` |
+| Stacked wordmark above the handout frame | `hex-4-stacked-frame` | — |
+| Stacked wordmark above the process-overview frame | `hex-5-stacked-blue-frame` | — |
 
 The hexagon has a swallow-tail ribbon with folds, a bottom line measured to
 fit the narrowing lower half, and a short gradient rule anchoring the
-point. The lockup's pill is sized to its text.
+point. The lockup's text block is justified to one width and its pill is
+sized to that block.
+
+"CERTIFIED" is meant to be set in **Industry Medium** (the face the Canva
+cert badge appears to use). Industry is commercial and not available here,
+so Saira Semi Condensed 500 stands in for it, as it does for the wordmark.
+To use the real face, add the Industry font files to `src/fonts/` and point
+the `PivvotWordmark` @font-face rules in `src/build-badges.js` at them.
 
 ## Round 1 — earlier directions
 

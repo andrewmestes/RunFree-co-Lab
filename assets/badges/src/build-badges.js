@@ -41,6 +41,8 @@ function measure(text, key, size, ls = 0) {
   return (u / m.upm) * size + ls * (text.length - 1);
 }
 const capHeight = (key, size) => (METRICS[key].cap / METRICS[key].upm) * size;
+// Letter-spacing that stretches `text` at `size` to exactly `W`.
+const justify = (text, key, size, W) => +((W - measure(text, key, size, 0)) / (text.length - 1)).toFixed(2);
 // Largest size ≤ max at which `text` fits in `maxW` (tracking scales with size).
 function fit(text, key, max, ls, maxW) {
   let size = max;
@@ -121,7 +123,7 @@ const text = (x, y, t, { font = FONT, wt = 700, size, ls = 0, fill, anchor = 'mi
 // =============================================================== ROUND 2
 // H · Hexagon badge (digital-credential silhouette: AWS, Microsoft, Credly).
 //   mark: 'frame' | 'wordmark' | 'blue'
-function hexBadge(mark, p) {
+function hexBadge(mark, p, { stacked = false } = {}) {
   const W = 600, H = 660, cx = 300, cy = 325, R = 290;
   const blue = mark === 'blue';
   const ink = blue ? C.deep : C.navy;            // band, labels
@@ -148,7 +150,7 @@ function hexBadge(mark, p) {
   <polygon fill="${C.magentaDkr}" points="${rb.x1},${rbBot} ${rb.x1 + tail.over},${rbBot} ${rb.x1 + tail.over},${tBot}"/>
   <polygon fill="${C.orangeDkr}" points="${rb.x2},${rbBot} ${rb.x2 - tail.over},${rbBot} ${rb.x2 - tail.over},${tBot}"/>
   <rect x="${rb.x1}" y="${rb.top}" width="${rb.x2 - rb.x1}" height="${rb.h}" fill="url(#${p}g)"/>
-  ${text(cx, (rb.top + rb.h / 2 + capHeight('pb-800', 38) / 2).toFixed(1), 'CERTIFIED', { wt: 800, size: 38, ls: 10, fill: C.white })}`;
+  ${text(cx, (rb.top + rb.h / 2 + capHeight('ss-500', 46) / 2).toFixed(1), 'CERTIFIED', { font: WM, wt: 500, size: 46, ls: justify('CERTIFIED', 'ss-500', 46, 272), fill: C.white })}`;
 
   // Bottom line, sized to fit the narrowing lower half with ≥14px clearance,
   // then a short gradient rule to anchor the point of the hexagon.
@@ -161,7 +163,14 @@ function hexBadge(mark, p) {
 
   // Centre zone: issuer label + mark, or the wordmark under a small frame emblem.
   let centre;
-  if (mark === 'wordmark') {
+  if (stacked) {
+    // Stacked PIVVOT / VISION / FRAMING over the frame. The wordmark's top corners
+    // are the tight spot: fit its width to the hairline there with clearance.
+    const top = 122, scale = 0.6, w = Math.min(140, 2 * (halfAt(top) - clear));
+    const s = 126, y = top + wordmarkHeight(scale) + 16;
+    centre = `${wordmark(cx, top, w, { fill: ink, scale })}
+    ${blue ? frameBlue(cx - s / 2, y, s, p + 'm') : frame(cx - s / 2, y, s)}`;
+  } else if (mark === 'wordmark') {
     const w = 212, scale = 1.06, top = 186;
     centre = `${frame(cx - 26, 104, 52)}${wordmark(cx, top, w, { fill: ink, scale })}`;
   } else {
@@ -196,25 +205,34 @@ function lockupBadge(mark, p) {
     const w = 210, top = cy - wordmarkHeight() / 2;
     left = wordmark(50 + w / 2, top, w, { fill: ink });
     ruleX = 50 + w + 44; textX = ruleX + 40;
-    // Right side: small CERTIFIED eyebrow, then Vision Framer on one line.
-    const eb = { size: 24, ls: 8 }, big = { size: 66 };
-    const blockH = capHeight('pb-700', eb.size) + 22 + capHeight('pb-800', big.size);
+    // Right side, justified to one width: CERTIFIED (Industry Medium stand-in,
+    // tracked out) over Vision Framer (Poppins 800), which sets the width.
+    const big = 56, Wt = measure('Vision Framer', 'pb-800', big) - 3;
+    const cert = 62, certLs = justify('CERTIFIED', 'ss-500', cert, Wt);
+    const blockH = capHeight('ss-500', cert) + 18 + capHeight('pb-800', big);
     const t0 = cy - blockH / 2;
-    lines = `${text(textX, (t0 + capHeight('pb-700', eb.size)).toFixed(1), 'CERTIFIED', { wt: 700, size: eb.size, ls: eb.ls, fill: accent, anchor: 'start' })}
-    ${text(textX - 3, (t0 + blockH).toFixed(1), 'Vision Framer', { wt: 800, size: big.size, fill: ink, anchor: 'start' })}`;
-    textEnd = textX + Math.max(measure('CERTIFIED', 'pb-700', eb.size, eb.ls), measure('Vision Framer', 'pb-800', big.size) - 3);
+    lines = `${text(textX, (t0 + capHeight('ss-500', cert)).toFixed(1), 'CERTIFIED', { font: WM, wt: 500, size: cert, ls: certLs, fill: accent, anchor: 'start' })}
+    ${text(textX - 3, (t0 + blockH).toFixed(1), 'Vision Framer', { wt: 800, size: big, fill: ink, anchor: 'start' })}`;
+    textEnd = textX + Wt;
   } else {
     const s = 160, y = cy - s / 2;
     left = blue ? frameBlue(50, y, s, p + 'm') : frame(50, y, s);
     ruleX = 50 + s + 40; textX = ruleX + 40;
-    const eb = { size: 21, ls: 3.5 }, big = { size: 52 }, bigCap = capHeight('pb-800', big.size);
-    const blockH = capHeight('pb-600', eb.size) + 20 + bigCap + 14 + bigCap;
+    // Three lines justified to one width, like the stacked wordmark:
+    //   PIVVOT VISION FRAMING  Poppins 600, tracked out to the width
+    //   CERTIFIED              Industry Medium stand-in, tracked out to the width
+    //   Vision Framer          Poppins 800, sets the width
+    const big = 48, Wt = measure('Vision Framer', 'pb-800', big) - 3;
+    const eb = 19, ebLs = justify('PIVVOT VISION FRAMING', 'pb-600', eb, Wt);
+    const cert = 58, certLs = justify('CERTIFIED', 'ss-500', cert, Wt);
+    const caps = [capHeight('pb-600', eb), capHeight('ss-500', cert), capHeight('pb-800', big)], gaps = [18, 16];
+    const blockH = caps[0] + gaps[0] + caps[1] + gaps[1] + caps[2];
     const t0 = cy - blockH / 2;
-    const y1 = t0 + capHeight('pb-600', eb.size), y2 = y1 + 20 + bigCap, y3 = y2 + 14 + bigCap;
-    lines = `${text(textX, y1.toFixed(1), 'PIVVOT VISION FRAMING', { wt: 600, size: eb.size, ls: eb.ls, fill: accent, anchor: 'start' })}
-    ${text(textX - 3, y2.toFixed(1), 'Certified', { wt: 800, size: big.size, fill: ink, anchor: 'start' })}
-    ${text(textX - 3, y3.toFixed(1), 'Vision Framer', { wt: 800, size: big.size, fill: ink, anchor: 'start' })}`;
-    textEnd = textX + Math.max(measure('PIVVOT VISION FRAMING', 'pb-600', eb.size, eb.ls), measure('Vision Framer', 'pb-800', big.size) - 3);
+    const y1 = t0 + caps[0], y2 = y1 + gaps[0] + caps[1], y3 = y2 + gaps[1] + caps[2];
+    lines = `${text(textX, y1.toFixed(1), 'PIVVOT VISION FRAMING', { wt: 600, size: eb, ls: ebLs, fill: accent, anchor: 'start' })}
+    ${text(textX, y2.toFixed(1), 'CERTIFIED', { font: WM, wt: 500, size: cert, ls: certLs, fill: ink, anchor: 'start' })}
+    ${text(textX - 3, y3.toFixed(1), 'Vision Framer', { wt: 800, size: big, fill: ink, anchor: 'start' })}`;
+    textEnd = textX + Wt;
   }
   const W = Math.round(textEnd + 64);
   return svg(W, H, TITLE, `<defs>${ruleGrad}</defs>
@@ -326,6 +344,8 @@ const files = {
   'hex-1-frame.svg': hexBadge('frame', 'h1'),
   'hex-2-wordmark.svg': hexBadge('wordmark', 'h2'),
   'hex-3-blue-frame.svg': hexBadge('blue', 'h3'),
+  'hex-4-stacked-frame.svg': hexBadge('frame', 'h4', { stacked: true }),
+  'hex-5-stacked-blue-frame.svg': hexBadge('blue', 'h5', { stacked: true }),
   'lockup-1-frame.svg': lockupBadge('frame', 'l1'),
   'lockup-2-wordmark.svg': lockupBadge('wordmark', 'l2'),
   'lockup-3-blue-frame.svg': lockupBadge('blue', 'l3'),

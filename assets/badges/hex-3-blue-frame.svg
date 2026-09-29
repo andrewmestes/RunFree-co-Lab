@@ -24,7 +24,7 @@
   <polygon fill="#8C1E58" points="40,452 56,452 56,468"/>
   <polygon fill="#963211" points="560,452 544,452 544,468"/>
   <rect x="40" y="372" width="520" height="80" fill="url(#h3g)"/>
-  <text x="300" y="425.5" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" font-size="38" letter-spacing="10" fill="#FFFFFF" text-anchor="middle">CERTIFIED</text>
+  <text x="300" y="427.8" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="500" font-size="46" letter-spacing="9.66" fill="#FFFFFF" text-anchor="middle">CERTIFIED</text>
   
   <text x="300" y="502" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="26" letter-spacing="3.71" fill="#252E67" text-anchor="middle">VISION FRAMER</text>
   <rect x="276" y="533" width="48" height="6" rx="3" fill="url(#h3g)"/>
