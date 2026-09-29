@@ -13,7 +13,7 @@ correctly as an `<img>` anywhere) and a transparent PNG at 2×.
 |---|---|---|
 | Issuer line over the frame | `hex-1-issuer-line` | `lockup-3-issuer-line` |
 | Frame beside the stacked wordmark (same height) | `hex-2-side-by-side` | `lockup-2-side-by-side` |
-| Frame only | — | `lockup-1-frame-only` |
+| Frame only | `hex-3-frame-only` | `lockup-1-frame-only` |
 
 The hexagon has a swallow-tail ribbon with folds, a bottom line measured to
 fit the narrowing lower half, and a short gradient rule anchoring the

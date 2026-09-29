@@ -378,6 +378,7 @@ fs.mkdirSync(out, { recursive: true });
 const files = {
   'hex-1-issuer-line.svg': hexBadge('frame', 'h1', { layout: 'label' }),
   'hex-2-side-by-side.svg': hexBadge('frame', 'h2', { layout: 'side' }),
+  'hex-3-frame-only.svg': hexBadge('frame', 'h3', { layout: 'plain' }),
   'lockup-1-frame-only.svg': lockupBadge('frame', 'l1', { layout: 'plain' }),
   'lockup-2-side-by-side.svg': lockupBadge('frame', 'l2', { layout: 'side' }),
   'lockup-3-issuer-line.svg': lockupBadge('frame', 'l3', { layout: 'issuer' }),
