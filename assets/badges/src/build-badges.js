@@ -123,7 +123,9 @@ const text = (x, y, t, { font = FONT, wt = 700, size, ls = 0, fill, anchor = 'mi
 // =============================================================== ROUND 2
 // H · Hexagon badge (digital-credential silhouette: AWS, Microsoft, Credly).
 //   mark: 'frame' | 'wordmark' | 'blue'
-function hexBadge(mark, p, { stacked = false } = {}) {
+//   layout: 'label' (issuer line over the mark) | 'plain' (mark only, larger)
+//         | 'stacked' (wordmark over the mark) | 'side' (wordmark beside the mark)
+function hexBadge(mark, p, { layout = 'label' } = {}) {
   const W = 600, H = 660, cx = 300, cy = 325, R = 290;
   const blue = mark === 'blue';
   const ink = blue ? C.deep : C.navy;            // band, labels
@@ -163,7 +165,17 @@ function hexBadge(mark, p, { stacked = false } = {}) {
 
   // Centre zone: issuer label + mark, or the wordmark under a small frame emblem.
   let centre;
-  if (stacked) {
+  if (layout === 'plain') {
+    // Mark only, as large as the top point allows with clearance to the hairline.
+    const s = 204, y = 152;
+    centre = blue ? frameBlue(cx - s / 2, y, s, p + 'm') : frame(cx - s / 2, y, s);
+  } else if (layout === 'side') {
+    // Wordmark and mark side by side in the straight zone, centred as one group.
+    const s = 138, gap = 26, scale = 0.62, w = 136, top = 208;
+    const total = s + gap + w, x0 = cx - total / 2, y = top - 6;
+    centre = `${blue ? frameBlue(x0, y, s, p + 'm') : frame(x0, y, s)}
+    ${wordmark(x0 + s + gap + w / 2, y + (s - wordmarkHeight(scale)) / 2, w, { fill: ink, scale })}`;
+  } else if (layout === 'stacked') {
     // Stacked PIVVOT / VISION / FRAMING over the frame. The wordmark's top corners
     // are the tight spot: fit its width to the hairline there with clearance.
     const top = 122, scale = 0.6, w = Math.min(140, 2 * (halfAt(top) - clear));
@@ -193,7 +205,10 @@ function hexBadge(mark, p, { stacked = false } = {}) {
 
 // L · Signature lockup (horizontal credential: HubSpot Academy, Google Cloud).
 //   mark: 'frame' | 'wordmark' | 'blue'. The pill is sized to its text.
-function lockupBadge(mark, p) {
+//   layout: 'issuer' (issuer line / CERTIFIED / Vision Framer)
+//         | 'plain'  (CERTIFIED / Vision Framer)
+//         | 'side'   (frame and wordmark together, then CERTIFIED / Vision Framer)
+function lockupBadge(mark, p, { layout = 'issuer' } = {}) {
   const H = 260, cy = H / 2, stroke = 5;
   const blue = mark === 'blue';
   const ink = blue ? C.deep : C.navy;
@@ -201,7 +216,27 @@ function lockupBadge(mark, p) {
   const ruleGrad = blue ? grad(p + 'g', C.periwinkle, C.deep, true) : grad(p + 'g', C.magenta, C.orange, true);
 
   let left, ruleX, textX, lines, textEnd;
-  if (mark === 'wordmark') {
+  // Two justified lines: CERTIFIED (Industry Medium stand-in) tracked out to the
+  // width Vision Framer (Poppins 800) sets.
+  const twoLines = (x, big, cert) => {
+    const Wt = measure('Vision Framer', 'pb-800', big) - 3, certLs = justify('CERTIFIED', 'ss-500', cert, Wt);
+    const blockH = capHeight('ss-500', cert) + 18 + capHeight('pb-800', big), t0 = cy - blockH / 2;
+    return { end: x + Wt, svg: `${text(x, (t0 + capHeight('ss-500', cert)).toFixed(1), 'CERTIFIED', { font: WM, wt: 500, size: cert, ls: certLs, fill: ink, anchor: 'start' })}
+    ${text(x - 3, (t0 + blockH).toFixed(1), 'Vision Framer', { wt: 800, size: big, fill: ink, anchor: 'start' })}` };
+  };
+  if (layout === 'plain' || layout === 'side') {
+    const s = 160, y = cy - s / 2;
+    left = blue ? frameBlue(50, y, s, p + 'm') : frame(50, y, s);
+    let x = 50 + s;
+    if (layout === 'side') {
+      const w = 150, scale = 0.7;
+      left += wordmark(x + 30 + w / 2, cy - wordmarkHeight(scale) / 2, w, { fill: ink, scale });
+      x += 30 + w;
+    }
+    ruleX = x + 40; textX = ruleX + 40;
+    const two = twoLines(textX, 56, 62);
+    lines = two.svg; textEnd = two.end;
+  } else if (mark === 'wordmark') {
     const w = 210, top = cy - wordmarkHeight() / 2;
     left = wordmark(50 + w / 2, top, w, { fill: ink });
     ruleX = 50 + w + 44; textX = ruleX + 40;
@@ -340,22 +375,12 @@ function processFrame(p = 'f') {
 const out = process.argv[2] || path.join(__dirname, '..');
 fs.mkdirSync(out, { recursive: true });
 const files = {
-  // Round 2
-  'hex-1-frame.svg': hexBadge('frame', 'h1'),
-  'hex-2-wordmark.svg': hexBadge('wordmark', 'h2'),
-  'hex-3-blue-frame.svg': hexBadge('blue', 'h3'),
-  'hex-4-stacked-frame.svg': hexBadge('frame', 'h4', { stacked: true }),
-  'hex-5-stacked-blue-frame.svg': hexBadge('blue', 'h5', { stacked: true }),
-  'lockup-1-frame.svg': lockupBadge('frame', 'l1'),
-  'lockup-2-wordmark.svg': lockupBadge('wordmark', 'l2'),
-  'lockup-3-blue-frame.svg': lockupBadge('blue', 'l3'),
-  // Round 1
-  'option-a-frame-seal.svg': seal(),
-  'option-b-credential-hexagon.svg': hexagon(),
-  'option-c-open-frame.svg': openFrame(),
-  'option-d-signature-lockup.svg': lockup(),
-  'option-e-cert-wordmark.svg': certWordmark(),
-  'option-f-process-frame.svg': processFrame(),
+  'hex-1-frame-only.svg': hexBadge('frame', 'h1', { layout: 'plain' }),
+  'hex-2-side-by-side.svg': hexBadge('frame', 'h2', { layout: 'side' }),
+  'hex-3-stacked.svg': hexBadge('frame', 'h3', { layout: 'stacked' }),
+  'lockup-1-frame-only.svg': lockupBadge('frame', 'l1', { layout: 'plain' }),
+  'lockup-2-side-by-side.svg': lockupBadge('frame', 'l2', { layout: 'side' }),
+  'lockup-3-issuer-line.svg': lockupBadge('frame', 'l3', { layout: 'issuer' }),
 };
 for (const [n, s] of Object.entries(files)) fs.writeFileSync(path.join(out, n), s);
 module.exports = { hexBadge, lockupBadge, seal, hexagon, openFrame, lockup, certWordmark, processFrame };
