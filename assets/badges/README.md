@@ -19,8 +19,11 @@ correctly as an `<img>` anywhere) and a transparent PNG at 2×.
 The hexagon has a swallow-tail ribbon with folds, a bottom line measured to
 fit the narrowing lower half, and a short gradient rule anchoring the
 point. Every line is sized against the hexagon's width at its own height
-with 24px clearance to the inner hairline. The lockup's text is justified
-to one width ("Vision Framer" sets it) and its pill is sized to that block.
+with 24px clearance to the inner hairline. The lockup is open (no pill
+outline): in a signature an outline reads as a button and fights the mail
+client's own rules. Its text is justified to one width ("Vision Framer"
+sets it). Each lockup has a `-reverse` version with white text for dark
+backgrounds.
 
 "CERTIFIED" and the wordmark are meant to be set in **Industry** (the face
 the Canva cert badge appears to use). Industry is commercial and not
