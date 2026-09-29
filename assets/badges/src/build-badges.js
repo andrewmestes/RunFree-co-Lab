@@ -165,7 +165,17 @@ function hexBadge(mark, p, { layout = 'label' } = {}) {
 
   // Centre zone: issuer label + mark, or the wordmark under a small frame emblem.
   let centre;
-  if (layout === 'plain') {
+  if (layout === 'label2') {
+    // Issuer on two lines, PIVVOT over VISION FRAMING, each fitted to the
+    // hairline at its own cap top; the shorter lines leave room for a larger frame.
+    const y1 = 150, y2 = 181;
+    const l1 = fit('PIVVOT', 'pb-600', 25, 8, 2 * (halfAt(y1 - capHeight('pb-600', 25)) - clear));
+    const l2 = fit('VISION FRAMING', 'pb-600', 21, 3.5, 2 * (halfAt(y2 - capHeight('pb-600', 21)) - clear));
+    const s = 156, y = 200;
+    centre = `${text(cx, y1, 'PIVVOT', { wt: 600, size: l1.size, ls: l1.ls, fill: ink })}
+    ${text(cx, y2, 'VISION FRAMING', { wt: 600, size: l2.size, ls: l2.ls, fill: ink })}
+    ${blue ? frameBlue(cx - s / 2, y, s, p + 'm') : frame(cx - s / 2, y, s)}`;
+  } else if (layout === 'plain') {
     // Mark only, as large as the top point allows with clearance to the hairline.
     const s = 204, y = 152;
     centre = blue ? frameBlue(cx - s / 2, y, s, p + 'm') : frame(cx - s / 2, y, s);
@@ -379,6 +389,7 @@ const files = {
   'hex-1-issuer-line.svg': hexBadge('frame', 'h1', { layout: 'label' }),
   'hex-2-side-by-side.svg': hexBadge('frame', 'h2', { layout: 'side' }),
   'hex-3-frame-only.svg': hexBadge('frame', 'h3', { layout: 'plain' }),
+  'hex-4-two-line-issuer.svg': hexBadge('frame', 'h4', { layout: 'label2' }),
   'lockup-1-frame-only.svg': lockupBadge('frame', 'l1', { layout: 'plain' }),
   'lockup-2-side-by-side.svg': lockupBadge('frame', 'l2', { layout: 'side' }),
   'lockup-3-issuer-line.svg': lockupBadge('frame', 'l3', { layout: 'issuer' }),

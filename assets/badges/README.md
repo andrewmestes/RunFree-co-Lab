@@ -12,6 +12,7 @@ correctly as an `<img>` anywhere) and a transparent PNG at 2×.
 | | Hexagon | Lockup |
 |---|---|---|
 | Issuer line over the frame | `hex-1-issuer-line` | `lockup-3-issuer-line` |
+| Issuer on two lines over the frame | `hex-4-two-line-issuer` | — |
 | Frame beside the stacked wordmark (same height) | `hex-2-side-by-side` | `lockup-2-side-by-side` |
 | Frame only | `hex-3-frame-only` | `lockup-1-frame-only` |
 
