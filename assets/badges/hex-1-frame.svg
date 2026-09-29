@@ -6,14 +6,14 @@
   <polygon points="300.0,35.0 551.1,180.0 551.1,470.0 300.0,615.0 48.9,470.0 48.9,180.0" fill="#1F378C"/>
   <polygon points="300.0,51.0 537.3,188.0 537.3,462.0 300.0,599.0 62.7,462.0 62.7,188.0" fill="#FFFFFF"/>
   <polygon points="300.0,63.0 526.9,194.0 526.9,456.0 300.0,587.0 73.1,456.0 73.1,194.0" fill="none" stroke="#9596C6" stroke-width="2"/>
-  <text x="300" y="158" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="700" font-size="22" letter-spacing="3" fill="#1F378C" text-anchor="middle">PIVVOT VISION FRAMING</text>
-    <g stroke="#1F378C" stroke-width="3.06" stroke-linejoin="round">
-    <polygon fill="#F1A2C7" points="215,176 385,176 351,210 249,210"/>
-    <polygon fill="#9596C6" points="385,176 385,346 351,312 351,210"/>
-    <polygon fill="#E43D96" points="215,346 385,346 351,312 249,312"/>
-    <polygon fill="#F15A25" points="215,176 249,210 249,312 215,346"/>
-    <rect x="249" y="210" width="102" height="102" fill="#FFFFFF" stroke-linejoin="miter"/>
-    <rect x="215" y="176" width="170" height="170" fill="none" stroke-linejoin="miter"/>
+  <text x="300" y="180" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="600" font-size="19.5" letter-spacing="3.41" fill="#1F378C" text-anchor="middle">PIVVOT VISION FRAMING</text>
+    <g stroke="#1F378C" stroke-width="2.74" stroke-linejoin="round">
+    <polygon fill="#F1A2C7" points="224,196 376,196 345.6,226.4 254.4,226.4"/>
+    <polygon fill="#9596C6" points="376,196 376,348 345.6,317.6 345.6,226.4"/>
+    <polygon fill="#E43D96" points="224,348 376,348 345.6,317.6 254.4,317.6"/>
+    <polygon fill="#F15A25" points="224,196 254.4,226.4 254.4,317.6 224,348"/>
+    <rect x="254.4" y="226.4" width="91.19999999999999" height="91.19999999999999" fill="#FFFFFF" stroke-linejoin="miter"/>
+    <rect x="224" y="196" width="152" height="152" fill="none" stroke-linejoin="miter"/>
   </g>
   
   <polygon fill="#B42A72" points="10,388 56,388 56,468 10,468 26,428"/>
@@ -23,6 +23,6 @@
   <rect x="40" y="372" width="520" height="80" fill="url(#h1g)"/>
   <text x="300" y="425.5" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" font-size="38" letter-spacing="10" fill="#FFFFFF" text-anchor="middle">CERTIFIED</text>
   
-  <text x="300" y="514" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" font-size="29" letter-spacing="2.75" fill="#1F378C" text-anchor="middle">VISION FRAMER</text>
-  <rect x="276" y="545" width="48" height="6" rx="3" fill="url(#h1g)"/>
+  <text x="300" y="502" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="26" letter-spacing="3.71" fill="#1F378C" text-anchor="middle">VISION FRAMER</text>
+  <rect x="276" y="533" width="48" height="6" rx="3" fill="url(#h1g)"/>
 </svg>

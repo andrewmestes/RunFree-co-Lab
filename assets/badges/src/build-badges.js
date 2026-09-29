@@ -41,6 +41,12 @@ function measure(text, key, size, ls = 0) {
   return (u / m.upm) * size + ls * (text.length - 1);
 }
 const capHeight = (key, size) => (METRICS[key].cap / METRICS[key].upm) * size;
+// Largest size ≤ max at which `text` fits in `maxW` (tracking scales with size).
+function fit(text, key, max, ls, maxW) {
+  let size = max;
+  while (size > 8 && measure(text, key, size, ls * size / max) > maxW) size -= 0.5;
+  return { size, ls: +(ls * size / max).toFixed(2) };
+}
 
 // ------------------------------------------------------------------ marks
 // The Vision Frame icon from the certification handouts (icon-vision-frame.png):
@@ -123,11 +129,13 @@ function hexBadge(mark, p) {
   const hex = (r) => [-90, -30, 30, 90, 150, 210]
     .map((deg) => { const t = (deg * Math.PI) / 180; return `${(cx + r * Math.cos(t)).toFixed(1)},${(cy + r * Math.sin(t)).toFixed(1)}`; })
     .join(' ');
-  // Usable half-width of the white interior at height y (inside the 16px band).
-  const ri = R - 16, halfAt = (y) => {
+  // Half-width of a hexagon of radius r at height y. Text is fitted against the
+  // inner hairline hexagon (R - 28) so nothing touches that line.
+  const halfAt = (y, r = R - 28) => {
     const d = Math.abs(y - cy);
-    return d <= ri / 2 ? ri * Math.cos(Math.PI / 6) : Math.max(0, 2 * Math.cos(Math.PI / 6) * (ri - d));
+    return d <= r / 2 ? r * Math.cos(Math.PI / 6) : Math.max(0, 2 * Math.cos(Math.PI / 6) * (r - d));
   };
+  const clear = 24; // minimum gap between any text and the hairline
 
   // Ribbon: body in front; swallow-tailed tails sit behind it and 16px lower,
   // with a darker fold triangle where the body wraps back to each tail.
@@ -144,12 +152,12 @@ function hexBadge(mark, p) {
 
   // Bottom line, sized to fit the narrowing lower half with ≥14px clearance,
   // then a short gradient rule to anchor the point of the hexagon.
-  const vfY = 514;
-  let vfSize = 30, vfLs = 3;
-  while (measure('VISION FRAMER', 'pb-800', vfSize, vfLs) > 2 * (halfAt(vfY) - 14) && vfSize > 20) { vfSize -= 1; vfLs = Math.max(1.5, vfLs - 0.25); }
+  // In the narrowing lower half the line's baseline corners are the tight spot.
+  const vfY = 502;
+  const vf = fit('VISION FRAMER', 'pb-700', 28, 4, 2 * (halfAt(vfY) - clear));
   const bottom = `
-  ${text(cx, vfY, 'VISION FRAMER', { wt: 800, size: vfSize, ls: vfLs, fill: ink })}
-  <rect x="${cx - 24}" y="545" width="48" height="6" rx="3" fill="url(#${p}g)"/>`;
+  ${text(cx, vfY, 'VISION FRAMER', { wt: 700, size: vf.size, ls: vf.ls, fill: ink })}
+  <rect x="${cx - 24}" y="533" width="48" height="6" rx="3" fill="url(#${p}g)"/>`;
 
   // Centre zone: issuer label + mark, or the wordmark under a small frame emblem.
   let centre;
@@ -157,8 +165,11 @@ function hexBadge(mark, p) {
     const w = 212, scale = 1.06, top = 186;
     centre = `${frame(cx - 26, 104, 52)}${wordmark(cx, top, w, { fill: ink, scale })}`;
   } else {
-    const s = 170, y = 176;
-    centre = `${text(cx, 158, 'PIVVOT VISION FRAMING', { font: WM, wt: 700, size: 22, ls: 3, fill: ink })}
+    // Issuer line in Poppins (brand face), fitted to the hairline at its cap top.
+    const ly = 180, lCap = capHeight('pb-600', 20);
+    const lb = fit('PIVVOT VISION FRAMING', 'pb-600', 20, 3.5, 2 * (halfAt(ly - lCap) - clear));
+    const s = 152, y = 196;
+    centre = `${text(cx, ly, 'PIVVOT VISION FRAMING', { wt: 600, size: lb.size, ls: lb.ls, fill: ink })}
     ${blue ? frameBlue(cx - s / 2, y, s, p + 'm') : frame(cx - s / 2, y, s)}`;
   }
 
@@ -186,24 +197,24 @@ function lockupBadge(mark, p) {
     left = wordmark(50 + w / 2, top, w, { fill: ink });
     ruleX = 50 + w + 44; textX = ruleX + 40;
     // Right side: small CERTIFIED eyebrow, then Vision Framer on one line.
-    const eb = { size: 30, ls: 7 }, big = { size: 66 };
-    const blockH = capHeight('ss-700', eb.size) + 22 + capHeight('pb-800', big.size);
+    const eb = { size: 24, ls: 8 }, big = { size: 66 };
+    const blockH = capHeight('pb-700', eb.size) + 22 + capHeight('pb-800', big.size);
     const t0 = cy - blockH / 2;
-    lines = `${text(textX, (t0 + capHeight('ss-700', eb.size)).toFixed(1), 'CERTIFIED', { font: WM, wt: 700, size: eb.size, ls: eb.ls, fill: accent, anchor: 'start' })}
+    lines = `${text(textX, (t0 + capHeight('pb-700', eb.size)).toFixed(1), 'CERTIFIED', { wt: 700, size: eb.size, ls: eb.ls, fill: accent, anchor: 'start' })}
     ${text(textX - 3, (t0 + blockH).toFixed(1), 'Vision Framer', { wt: 800, size: big.size, fill: ink, anchor: 'start' })}`;
-    textEnd = textX + Math.max(measure('CERTIFIED', 'ss-700', eb.size, eb.ls), measure('Vision Framer', 'pb-800', big.size) - 3);
+    textEnd = textX + Math.max(measure('CERTIFIED', 'pb-700', eb.size, eb.ls), measure('Vision Framer', 'pb-800', big.size) - 3);
   } else {
     const s = 160, y = cy - s / 2;
     left = blue ? frameBlue(50, y, s, p + 'm') : frame(50, y, s);
     ruleX = 50 + s + 40; textX = ruleX + 40;
-    const eb = { size: 26, ls: 3 }, big = { size: 52 }, bigCap = capHeight('pb-800', big.size);
-    const blockH = capHeight('ss-700', eb.size) + 20 + bigCap + 14 + bigCap;
+    const eb = { size: 21, ls: 3.5 }, big = { size: 52 }, bigCap = capHeight('pb-800', big.size);
+    const blockH = capHeight('pb-600', eb.size) + 20 + bigCap + 14 + bigCap;
     const t0 = cy - blockH / 2;
-    const y1 = t0 + capHeight('ss-700', eb.size), y2 = y1 + 20 + bigCap, y3 = y2 + 14 + bigCap;
-    lines = `${text(textX, y1.toFixed(1), 'PIVVOT VISION FRAMING', { font: WM, wt: 700, size: eb.size, ls: eb.ls, fill: accent, anchor: 'start' })}
+    const y1 = t0 + capHeight('pb-600', eb.size), y2 = y1 + 20 + bigCap, y3 = y2 + 14 + bigCap;
+    lines = `${text(textX, y1.toFixed(1), 'PIVVOT VISION FRAMING', { wt: 600, size: eb.size, ls: eb.ls, fill: accent, anchor: 'start' })}
     ${text(textX - 3, y2.toFixed(1), 'Certified', { wt: 800, size: big.size, fill: ink, anchor: 'start' })}
     ${text(textX - 3, y3.toFixed(1), 'Vision Framer', { wt: 800, size: big.size, fill: ink, anchor: 'start' })}`;
-    textEnd = textX + Math.max(measure('PIVVOT VISION FRAMING', 'ss-700', eb.size, eb.ls), measure('Vision Framer', 'pb-800', big.size) - 3);
+    textEnd = textX + Math.max(measure('PIVVOT VISION FRAMING', 'pb-600', eb.size, eb.ls), measure('Vision Framer', 'pb-800', big.size) - 3);
   }
   const W = Math.round(textEnd + 64);
   return svg(W, H, TITLE, `<defs>${ruleGrad}</defs>

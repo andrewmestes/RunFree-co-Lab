@@ -6,17 +6,17 @@
   <polygon points="300.0,35.0 551.1,180.0 551.1,470.0 300.0,615.0 48.9,470.0 48.9,180.0" fill="#252E67"/>
   <polygon points="300.0,51.0 537.3,188.0 537.3,462.0 300.0,599.0 62.7,462.0 62.7,188.0" fill="#FFFFFF"/>
   <polygon points="300.0,63.0 526.9,194.0 526.9,456.0 300.0,587.0 73.1,456.0 73.1,194.0" fill="none" stroke="#7987BB" stroke-width="2"/>
-  <text x="300" y="158" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="700" font-size="22" letter-spacing="3" fill="#252E67" text-anchor="middle">PIVVOT VISION FRAMING</text>
-    <mask id="h3m" maskUnits="userSpaceOnUse" x="215" y="176" width="170" height="170">
-    <rect x="215" y="176" width="170" height="170" fill="#fff"/>
-    <g stroke="#000" stroke-width="5.08">
-      <line x1="215" y1="176" x2="385" y2="346"/><line x1="385" y1="176" x2="215" y2="346"/>
-      <line x1="300" y1="176" x2="300" y2="194.63787375415282"/><line x1="300" y1="327.3621262458472" x2="300" y2="346"/><line x1="215" y1="261" x2="233.63787375415282" y2="261"/><line x1="366.3621262458472" y1="261" x2="385" y2="261"/>
+  <text x="300" y="180" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="600" font-size="19.5" letter-spacing="3.41" fill="#252E67" text-anchor="middle">PIVVOT VISION FRAMING</text>
+    <mask id="h3m" maskUnits="userSpaceOnUse" x="224" y="196" width="152" height="152">
+    <rect x="224" y="196" width="152" height="152" fill="#fff"/>
+    <g stroke="#000" stroke-width="4.54">
+      <line x1="224" y1="196" x2="376" y2="348"/><line x1="376" y1="196" x2="224" y2="348"/>
+      <line x1="300" y1="196" x2="300" y2="212.66445182724252"/><line x1="300" y1="331.3355481727575" x2="300" y2="348"/><line x1="224" y1="272" x2="240.66445182724252" y2="272"/><line x1="359.3355481727575" y1="272" x2="376" y2="272"/>
     </g></mask>
-  <rect x="257.358803986711" y="218.35880398671097" width="85.28239202657807" height="85.28239202657807" fill="#FFFFFF"/>
+  <rect x="261.87375415282395" y="233.87375415282392" width="76.25249169435216" height="76.25249169435216" fill="#FFFFFF"/>
   <g mask="url(#h3m)" fill-rule="evenodd">
-    <path fill="#7987BB" d="M215,176H385V346H215ZM233.63787375415282,194.63787375415282H366.36212624584715V327.36212624584715H233.63787375415282Z"/>
-    <path fill="#252E67" d="M238.72093023255815,199.72093023255815H361.27906976744185V322.27906976744185H238.72093023255815ZM257.358803986711,218.35880398671097H342.641196013289V303.641196013289H257.358803986711Z"/>
+    <path fill="#7987BB" d="M224,196H376V348H224ZM240.66445182724252,212.66445182724252H359.33554817275746V331.33554817275746H240.66445182724252Z"/>
+    <path fill="#252E67" d="M245.2093023255814,217.2093023255814H354.7906976744186V326.7906976744186H245.2093023255814ZM261.87375415282395,233.87375415282392H338.12624584717605V310.12624584717605H261.87375415282395Z"/>
   </g>
   
   <polygon fill="#B42A72" points="10,388 56,388 56,468 10,468 26,428"/>
@@ -26,6 +26,6 @@
   <rect x="40" y="372" width="520" height="80" fill="url(#h3g)"/>
   <text x="300" y="425.5" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" font-size="38" letter-spacing="10" fill="#FFFFFF" text-anchor="middle">CERTIFIED</text>
   
-  <text x="300" y="514" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="800" font-size="29" letter-spacing="2.75" fill="#252E67" text-anchor="middle">VISION FRAMER</text>
-  <rect x="276" y="545" width="48" height="6" rx="3" fill="url(#h3g)"/>
+  <text x="300" y="502" font-family="PoppinsBadge, Poppins, 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700" font-size="26" letter-spacing="3.71" fill="#252E67" text-anchor="middle">VISION FRAMER</text>
+  <rect x="276" y="533" width="48" height="6" rx="3" fill="url(#h3g)"/>
 </svg>
