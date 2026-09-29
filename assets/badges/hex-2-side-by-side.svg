@@ -7,14 +7,14 @@
   <polygon points="300.0,51.0 537.3,188.0 537.3,462.0 300.0,599.0 62.7,462.0 62.7,188.0" fill="#FFFFFF"/>
   <polygon points="300.0,63.0 526.9,194.0 526.9,456.0 300.0,587.0 73.1,456.0 73.1,194.0" fill="none" stroke="#9596C6" stroke-width="2"/>
   <g stroke="#1F378C" stroke-width="2.48" stroke-linejoin="round">
-    <polygon fill="#F1A2C7" points="150,202 288,202 260.4,229.6 177.6,229.6"/>
-    <polygon fill="#9596C6" points="288,202 288,340 260.4,312.4 260.4,229.6"/>
-    <polygon fill="#E43D96" points="150,340 288,340 260.4,312.4 177.6,312.4"/>
-    <polygon fill="#F15A25" points="150,202 177.6,229.6 177.6,312.4 150,340"/>
-    <rect x="177.6" y="229.6" width="82.8" height="82.8" fill="#FFFFFF" stroke-linejoin="miter"/>
-    <rect x="150" y="202" width="138" height="138" fill="none" stroke-linejoin="miter"/>
+    <polygon fill="#F1A2C7" points="118,202 256,202 228.4,229.6 145.6,229.6"/>
+    <polygon fill="#9596C6" points="256,202 256,340 228.4,312.4 228.4,229.6"/>
+    <polygon fill="#E43D96" points="118,340 256,340 228.4,312.4 145.6,312.4"/>
+    <polygon fill="#F15A25" points="118,202 145.6,229.6 145.6,312.4 118,340"/>
+    <rect x="145.6" y="229.6" width="82.8" height="82.8" fill="#FFFFFF" stroke-linejoin="miter"/>
+    <rect x="118" y="202" width="138" height="138" fill="none" stroke-linejoin="miter"/>
   </g>
-    <text x="314.0" y="248.4" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="500" font-size="34.7" fill="#1F378C" textLength="136" lengthAdjust="spacing">PIVVOT</text><text x="314.0" y="284.6" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="800" font-size="34.7" fill="#1F378C" textLength="136" lengthAdjust="spacing">VISION</text><text x="314.0" y="317.5" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="700" font-size="29.8" fill="#1F378C" textLength="136" lengthAdjust="spacing">FRAMING</text>
+    <text x="280.0" y="237.4" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="500" font-size="51.5" fill="#1F378C" textLength="202" lengthAdjust="spacing">PIVVOT</text><text x="280.0" y="291.2" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="800" font-size="51.5" fill="#1F378C" textLength="202" lengthAdjust="spacing">VISION</text><text x="280.0" y="340.0" font-family="PivvotWordmark, 'Saira Semi Condensed', 'Arial Narrow', sans-serif" font-weight="700" font-size="44.1" fill="#1F378C" textLength="202" lengthAdjust="spacing">FRAMING</text>
   
   <polygon fill="#B42A72" points="10,388 56,388 56,468 10,468 26,428"/>
   <polygon fill="#C4441A" points="590,388 544,388 544,468 590,468 574,428"/>

@@ -11,9 +11,9 @@ correctly as an `<img>` anywhere) and a transparent PNG at 2×.
 
 | | Hexagon | Lockup |
 |---|---|---|
-| Frame only | `hex-1-frame-only` | `lockup-1-frame-only` |
-| Frame beside the stacked wordmark | `hex-2-side-by-side` | `lockup-2-side-by-side` |
-| Wordmark over the frame / issuer line | `hex-3-stacked` | `lockup-3-issuer-line` |
+| Issuer line over the frame | `hex-1-issuer-line` | `lockup-3-issuer-line` |
+| Frame beside the stacked wordmark (same height) | `hex-2-side-by-side` | `lockup-2-side-by-side` |
+| Frame only | — | `lockup-1-frame-only` |
 
 The hexagon has a swallow-tail ribbon with folds, a bottom line measured to
 fit the narrowing lower half, and a short gradient rule anchoring the

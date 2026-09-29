@@ -171,8 +171,9 @@ function hexBadge(mark, p, { layout = 'label' } = {}) {
     centre = blue ? frameBlue(cx - s / 2, y, s, p + 'm') : frame(cx - s / 2, y, s);
   } else if (layout === 'side') {
     // Wordmark and mark side by side in the straight zone, centred as one group.
-    const s = 138, gap = 26, scale = 0.62, w = 136, top = 208;
-    const total = s + gap + w, x0 = cx - total / 2, y = top - 6;
+    // The wordmark is scaled so its block is exactly the frame's height.
+    const s = 138, gap = 24, scale = s / wordmarkHeight(1), w = Math.round(136 * scale / 0.62);
+    const total = s + gap + w, x0 = cx - total / 2, y = 202;
     centre = `${blue ? frameBlue(x0, y, s, p + 'm') : frame(x0, y, s)}
     ${wordmark(x0 + s + gap + w / 2, y + (s - wordmarkHeight(scale)) / 2, w, { fill: ink, scale })}`;
   } else if (layout === 'stacked') {
@@ -375,9 +376,8 @@ function processFrame(p = 'f') {
 const out = process.argv[2] || path.join(__dirname, '..');
 fs.mkdirSync(out, { recursive: true });
 const files = {
-  'hex-1-frame-only.svg': hexBadge('frame', 'h1', { layout: 'plain' }),
+  'hex-1-issuer-line.svg': hexBadge('frame', 'h1', { layout: 'label' }),
   'hex-2-side-by-side.svg': hexBadge('frame', 'h2', { layout: 'side' }),
-  'hex-3-stacked.svg': hexBadge('frame', 'h3', { layout: 'stacked' }),
   'lockup-1-frame-only.svg': lockupBadge('frame', 'l1', { layout: 'plain' }),
   'lockup-2-side-by-side.svg': lockupBadge('frame', 'l2', { layout: 'side' }),
   'lockup-3-issuer-line.svg': lockupBadge('frame', 'l3', { layout: 'issuer' }),
