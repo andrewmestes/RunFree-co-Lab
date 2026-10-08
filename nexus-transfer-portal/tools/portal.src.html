@@ -1,0 +1,409 @@
+<title>Nexus Staff Transfer Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: phone-first single column. Dark Nexus masthead, blue "breaking" ticker, then a white board of recruiting cards. */
+:root{
+  --ink:#262122; --ink-2:#524e4f; --ink-3:#787879;
+  --paper:#ffffff; --mist:#f4f4f4; --mist-2:#e8e8e8; --line:#d2d2d2;
+  --blue:#276898; --blue-deep:#004d7d; --blue-light:#3380b0; --blue-wash:#e7eff6;
+  --alert:#e4482e; --gold:#d9a21b;
+  --display:'Oswald','Arial Narrow','Helvetica Neue',Arial,sans-serif;
+  --body:'Merriweather',Georgia,'Times New Roman',serif;
+  --radius:12px; --shadow:0 10px 30px -15px rgba(0,0,0,.45);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blue-deep)}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin:0;text-transform:uppercase}
+p{margin:0;text-wrap:pretty}
+.wrap{width:100%;max-width:980px;margin-inline:auto;padding-inline:16px}
+.eyebrow{font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-deep)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--blue-light);outline-offset:3px}
+
+/* Masthead */
+.top{background:var(--ink);color:#fff;padding-block:12px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand img{height:40px;width:auto}
+.brand .bar{width:1px;height:34px;background:rgba(255,255,255,.28)}
+.brand .name{font-family:var(--display);font-weight:500;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;line-height:1.2;color:#fff}
+.brand .name b{display:block;font-weight:700;font-size:1.05rem;letter-spacing:.1em}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:500;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 12px;white-space:nowrap}
+.status .dot{width:9px;height:9px;border-radius:50%;background:#43d17a;box-shadow:0 0 0 4px rgba(67,209,122,.22)}
+
+/* Ticker */
+.ticker{background:var(--blue);color:#fff;display:flex;align-items:stretch;overflow:hidden}
+.ticker .label{flex:0 0 auto;background:var(--alert);font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;padding:9px 12px;display:flex;align-items:center;z-index:1}
+.ticker .viewport{flex:1 1 auto;min-width:0;overflow:hidden;display:flex;align-items:center}
+.ticker .track{display:flex;gap:0;white-space:nowrap;animation:tick 75s linear infinite;will-change:transform}
+.ticker .track:hover{animation-play-state:paused}
+.ticker ul{list-style:none;margin:0;padding:0;display:flex;gap:0}
+.ticker li{font-family:var(--display);font-weight:500;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;padding:9px 0}
+.ticker li::after{content:"◆";margin-inline:22px;opacity:.55;font-size:.65em;vertical-align:middle}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .ticker .track{animation:none}
+  .ticker .viewport{overflow-x:auto}
+  .ticker .track ul:last-child{display:none}
+}
+
+/* Hero */
+.hero{background:linear-gradient(180deg,var(--blue-wash) 0%,var(--paper) 70%);padding-block:40px 30px}
+.hero .wrap{display:grid;gap:18px}
+.hero h1{font-size:clamp(3rem,13vw,6.6rem);color:var(--blue-deep)}
+.hero h1 span{color:var(--ink)}
+.hero .note{font-size:.8rem;color:var(--ink-3);font-style:italic}
+.lede{font-size:1.08rem;max-width:40rem;color:var(--ink-2)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.chips li{font-family:var(--display);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 13px;color:var(--ink-2)}
+.chips li b{color:var(--blue-deep);font-weight:700;font-size:1rem;margin-right:4px}
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--display);font-weight:700;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--blue);border:2px solid var(--blue);border-radius:10px;padding:11px 18px;cursor:pointer;line-height:1.1;transition:background .2s,border-color .2s,transform .1s}
+.btn:hover{background:var(--blue-deep);border-color:var(--blue-deep)}
+.btn:active{transform:translateY(1px)}
+.btn--ghost{background:transparent;color:var(--blue-deep)}
+.btn--ghost:hover{background:var(--blue-wash);border-color:var(--blue-deep)}
+.btn--alert{background:var(--alert);border-color:var(--alert)}
+.btn--alert:hover{background:#c83a24;border-color:#c83a24}
+
+/* Portal panel (the gag) */
+.panel{display:grid;gap:12px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:20px 18px;box-shadow:var(--shadow)}
+.panel h2{font-size:1.4rem;color:#fff;letter-spacing:.06em}
+.panel ol{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-family:var(--display);font-weight:500;letter-spacing:.04em;text-transform:uppercase;font-size:.95rem}
+.panel li{display:flex;gap:10px;align-items:flex-start;opacity:.35;transition:opacity .4s}
+.panel li.on{opacity:1}
+.panel li .mark{flex:0 0 auto;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.5);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.panel li.on .mark{background:#43d17a;border-color:#43d17a;color:var(--ink)}
+.panel .verdict{font-family:var(--body);font-size:1rem;line-height:1.6;color:#fff;opacity:0;transition:opacity .4s}
+.panel .verdict.on{opacity:1}
+.panel .actions{margin-top:4px}
+
+/* Board */
+.board{padding-block:34px}
+.board .wrap{display:grid;gap:22px}
+.board-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 18px;border-bottom:3px solid var(--ink);padding-bottom:10px}
+.board-head h2{font-size:clamp(1.9rem,6vw,2.6rem)}
+.board-head .live{font-family:var(--display);font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:inline-flex;align-items:center;gap:8px}
+.board-head .live .dot{width:8px;height:8px;border-radius:50%;background:var(--alert);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.board-head .live .dot{animation:none}}
+
+.listing{display:grid;gap:18px;border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px;background:var(--paper)}
+.listing.featured{border:2px solid var(--blue);box-shadow:var(--shadow)}
+.band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border-radius:6px;padding:5px 10px;background:var(--blue-wash);color:var(--blue-deep)}
+.tag--hot{background:var(--alert);color:#fff}
+.rank{font-family:var(--display);font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.listing h3{font-size:clamp(1.9rem,7vw,2.8rem);color:var(--ink)}
+.stars{font-family:var(--display);font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem;color:var(--ink-2);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.stars .s{color:var(--gold);font-size:1.25rem;letter-spacing:.05em;line-height:1}
+.head{display:grid;gap:8px}
+.facts{display:grid;gap:12px;margin:0;padding:16px;background:var(--mist);border-radius:10px}
+.facts > div{display:grid;gap:3px}
+.facts dt{font-family:var(--display);font-weight:500;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.facts dd{margin:0;font-size:.97rem}
+.facts dd b{color:var(--blue-deep)}
+.scout{display:grid;gap:10px}
+.scout h4{font-size:1.05rem;letter-spacing:.1em;color:var(--blue-deep)}
+.grades{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.grades li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;font-size:.95rem}
+.grades .g{font-family:var(--display);font-weight:700;font-size:1.05rem;color:#fff;background:var(--blue);border-radius:8px;height:34px;display:inline-flex;align-items:center;justify-content:center;letter-spacing:.02em}
+.grades .g.inc{background:var(--ink-3)}
+.grades b{font-family:var(--display);font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);font-size:.95rem}
+.risk{font-size:.95rem;padding:12px 14px;border-left:4px solid var(--gold);background:#fbf5e4;border-radius:0 8px 8px 0;color:var(--ink-2)}
+.risk b{color:var(--ink)}
+
+/* Head to head */
+.h2h{padding-block:10px 34px}
+.h2h .wrap{display:grid;gap:14px}
+.h2h h2{font-size:clamp(1.6rem,5vw,2.2rem)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--mist-2)}
+tr:last-child td{border-bottom:0}
+thead th{font-family:var(--display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;background:var(--ink);color:#fff}
+tbody th{font-family:var(--display);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;color:var(--ink-3);white-space:nowrap}
+
+/* Activity + how */
+.activity{background:var(--mist);padding-block:34px}
+.activity .wrap{display:grid;gap:16px}
+.activity h2,.how h2{font-size:clamp(1.6rem,5vw,2.2rem)}
+.feed{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.feed li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:.93rem}
+.feed .role{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep);background:var(--blue-wash);border-radius:6px;padding:4px 8px;white-space:nowrap;margin-top:1px}
+.feed .what{display:grid;gap:2px}
+.feed .what small{color:var(--ink-3);font-size:.78rem;font-family:var(--display);letter-spacing:.1em;text-transform:uppercase}
+.how{padding-block:34px}
+.how .wrap{display:grid;gap:16px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:step}
+.steps li{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start}
+.steps li::before{counter-increment:step;content:counter(step);font-family:var(--display);font-weight:700;font-size:1.3rem;color:#fff;background:var(--blue-deep);border-radius:10px;height:46px;display:inline-flex;align-items:center;justify-content:center}
+.steps b{font-family:var(--display);font-weight:700;letter-spacing:.06em;text-transform:uppercase;display:block;font-size:1.05rem;margin-bottom:2px}
+.steps li:last-child::before{background:#2a8a55}
+
+/* Footer */
+.foot{background:var(--ink);color:#d8d8d8;padding-block:30px 40px;font-size:.88rem}
+.foot .wrap{display:grid;gap:16px}
+.foot img{height:36px;width:auto}
+.foot p{max-width:62ch}
+.foot a{color:#fff}
+.foot .fine{color:#a9a9a9;font-size:.8rem}
+.foot .planted{font-family:var(--display);font-weight:700;font-size:1.6rem;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+
+@media (min-width:700px){
+  .brand img{height:46px}
+  .hero{padding-block:56px 40px}
+  .listing{padding:28px 26px;gap:22px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 22px}
+  .facts > .wide{grid-column:1/-1}
+  .board .wrap{gap:28px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  .foot .wrap{grid-template-columns:auto 1fr;gap:20px 40px;align-items:start}
+  .foot .cols{grid-column:2}
+}
+</style>
+<!-- /head -->
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <img src="{{LOGO_WHITE}}" alt="Nexus: Church Planting &amp; Leader Care">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="name">Staff <b>Transfer Portal</b></span>
+    </div>
+    <span class="status"><span class="dot" aria-hidden="true"></span> Portal open</span>
+  </div>
+</header>
+
+<div class="ticker" aria-label="Portal news ticker">
+  <span class="label">Breaking</span>
+  <div class="viewport">
+    <div class="track">
+      <ul>
+        <li>Worship leader enters portal four seconds after hearing the words “Flathead Lake”</li>
+        <li>Hawaiʻi listing now accepting anyone who has ever scraped a windshield</li>
+        <li>Sources describe the view in Kalispell as “honestly unfair”</li>
+        <li>Leader Care would like to remind everyone the word is CARE, not CAREER</li>
+        <li>Bass player commits, decommits and re-commits during one bridge of “Goodness of God”</li>
+        <li>Portal tip: your current church also has a great view. Of you. Right now.</li>
+        <li>Tampering complaints may be filed with Leader Care, who will care at you</li>
+      </ul>
+      <ul aria-hidden="true">
+        <li>Worship leader enters portal four seconds after hearing the words “Flathead Lake”</li>
+        <li>Hawaiʻi listing now accepting anyone who has ever scraped a windshield</li>
+        <li>Sources describe the view in Kalispell as “honestly unfair”</li>
+        <li>Leader Care would like to remind everyone the word is CARE, not CAREER</li>
+        <li>Bass player commits, decommits and re-commits during one bridge of “Goodness of God”</li>
+        <li>Portal tip: your current church also has a great view. Of you. Right now.</li>
+        <li>Tampering complaints may be filed with Leader Care, who will care at you</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">A Leader Care initiative*</p>
+      <h1>Enter the <span>portal.</span></h1>
+      <p class="lede">You’ve been assessed, trained, coached and cared for. Now get moved somewhere with a better view. Two openings on the board this week at ThinkNEXT. Zero winters in common.</p>
+      <ul class="chips" aria-label="Portal at a glance">
+        <li><b>2</b> openings</li>
+        <li><b>0</b> winters in common</li>
+        <li><b>1</b> lead pastor refreshing this page</li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="#board">See the board</a>
+        <button class="btn btn--ghost" type="button" data-enter>Enter the portal</button>
+      </div>
+      <p class="note">*Not an initiative. Not approved. Not discussed. Leader Care found out when you did.</p>
+      <section class="panel" id="portal-panel" hidden aria-live="polite">
+        <h2>Processing your portal entry</h2>
+        <ol>
+          <li><span class="mark" aria-hidden="true">✓</span> Checking eligibility… everyone is eligible. The portal does not believe in waiting periods.</li>
+          <li><span class="mark" aria-hidden="true">✓</span> Notifying your lead pastor…</li>
+          <li><span class="mark" aria-hidden="true">✓</span> Notifying your lead pastor’s spouse…</li>
+          <li><span class="mark" aria-hidden="true">✓</span> Dispatching Leader Care…</li>
+        </ol>
+        <p class="verdict">Entry denied. Leader Care is on the way, and they are going to care at you so hard. Go hug your team.</p>
+        <div class="actions"><button class="btn btn--alert" type="button" data-withdraw>Withdraw from the portal</button></div>
+      </section>
+    </div>
+  </section>
+
+  <section class="board" id="board">
+    <div class="wrap">
+      <div class="board-head">
+        <h2>The board</h2>
+        <span class="live"><span class="dot" aria-hidden="true"></span> Live from ThinkNEXT 2026</span>
+      </div>
+
+      <article class="listing featured" id="mountain-view">
+        <div class="band">
+          <span class="tag">★ Featured destination</span>
+          <span class="rank">No. 1 overall</span>
+        </div>
+        <div class="head">
+          <p class="eyebrow">Creston · Kalispell · Flathead Valley, Montana</p>
+          <h3>Mountain View Christian Church</h3>
+          <p class="stars"><span class="s" aria-hidden="true">★★★★★</span> Five-star destination</p>
+        </div>
+        <dl class="facts">
+          <div class="wide"><dt>Position</dt><dd><b>Worship Leader.</b> Also accepting associates, kids directors, and anyone who already owns a Subaru.</dd></div>
+          <div><dt>Lead pastor</dt><dd>Brad Hooley</dd></div>
+          <div><dt>Gathers</dt><dd>Sundays, 10:00 AM · Eastside Grange, Creston</dd></div>
+          <div><dt>Pedigree</dt><dd>Planted out of Family Life in Kalispell. Big Sky, bigger sermon series.</dd></div>
+          <div><dt>NIL package</dt><dd>Nature, Ice fishing, Lakes</dd></div>
+        </dl>
+        <div class="scout">
+          <h4>Scouting report</h4>
+          <ul class="grades">
+            <li><span class="g">A+</span><span><b>Scenery.</b> Glacier National Park is under an hour away. Nothing you do on a Sunday will top it, and that is fine.</span></li>
+            <li><span class="g">A</span><span><b>Lake access.</b> Flathead Lake, twenty minutes. Largest natural freshwater lake in the West. Baptisms optional, extremely scenic.</span></li>
+            <li><span class="g">A</span><span><b>Snow.</b> Whitefish Mountain Resort, thirty-five minutes. Rehearsal moves to Tuesday whenever Monday is a powder day.</span></li>
+            <li><span class="g">A−</span><span><b>Commute.</b> Eleven minutes, six of them behind a tractor.</span></li>
+            <li><span class="g inc">INC</span><span><b>Huckleberries.</b> Grade incomplete. Subject keeps eating the evidence.</span></li>
+          </ul>
+        </div>
+        <p class="risk">Decommit risk: <b>low.</b> Nobody leaves after seeing the mountains. Nobody.</p>
+        <div class="actions">
+          <a class="btn" href="https://mvcc.life/" target="_blank" rel="noopener">Scout mvcc.life ↗</a>
+          <button class="btn btn--ghost" type="button" data-enter>Enter the portal</button>
+        </div>
+      </article>
+
+      <article class="listing" id="hope-chapel">
+        <div class="band">
+          <span class="tag tag--hot">Now recruiting: Worship Leader</span>
+          <span class="rank">No. 1 overall (ties allowed)</span>
+        </div>
+        <div class="head">
+          <p class="eyebrow">Pearl City · Oʻahu, Hawaiʻi</p>
+          <h3>Hope Chapel Kealapono</h3>
+          <p class="stars"><span class="s" aria-hidden="true">★★★★★</span> Five-star destination</p>
+        </div>
+        <dl class="facts">
+          <div class="wide"><dt>Position</dt><dd><b>Worship Leader.</b> Saturday services. Sundays off. You read that right. Read it again.</dd></div>
+          <div><dt>Senior pastor</dt><dd>John Honold</dd></div>
+          <div><dt>Gathers</dt><dd>Saturdays, 9:30 AM · Pearl City</dd></div>
+          <div><dt>Coach’s résumé</dt><dd>Full-time ministry since 1984. Planted Hope Chapel Kapolei. Mentors leaders across Hawaiʻi and Asia.</dd></div>
+          <div><dt>Playbook</dt><dd>MiniChurch small groups and the Antioch 2035 vision.</dd></div>
+          <div><dt>NIL package</dt><dd>Nice Island Lifestyle</dd></div>
+        </dl>
+        <div class="scout">
+          <h4>Scouting report</h4>
+          <ul class="grades">
+            <li><span class="g">A+</span><span><b>Climate.</b> Highs in the 80s all year, trade winds included. Windshield scrapers not included, not needed, not sold here.</span></li>
+            <li><span class="g">A+</span><span><b>Dress code.</b> Slippahs. For rehearsal. For Easter. For the staff meeting.</span></li>
+            <li><span class="g">A</span><span><b>Set list.</b> “Oceans” is not a metaphor here.</span></li>
+            <li><span class="g">A</span><span><b>Commute.</b> Pearl City. Pack sunscreen, not a scraper.</span></li>
+            <li><span class="g inc">INC</span><span><b>Shave ice.</b> Allowance still under negotiation.</span></li>
+          </ul>
+        </div>
+        <p class="risk">Decommit risk: <b>none.</b> Decommitting requires getting on a plane.</p>
+        <div class="actions">
+          <a class="btn" href="https://hck.life/" target="_blank" rel="noopener">Scout hck.life ↗</a>
+          <button class="btn btn--ghost" type="button" data-enter>Enter the portal</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="h2h">
+    <div class="wrap">
+      <h2>Head to head</h2>
+      <div class="tbl">
+        <table>
+          <thead><tr><th scope="col">Category</th><th scope="col">Mountain View, Montana</th><th scope="col">Hope Chapel, Hawaiʻi</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Winters</th><td>One. It is long. It is gorgeous.</td><td>Zero. Ever.</td></tr>
+            <tr><th scope="row">Nearest ocean</th><td>About 500 miles</td><td>About 10 minutes</td></tr>
+            <tr><th scope="row">Nearest glacier</th><td>Under an hour</td><td>Not applicable</td></tr>
+            <tr><th scope="row">Sunday morning</th><td>Worship at 10:00 AM</td><td>Beach. Worship was Saturday.</td></tr>
+            <tr><th scope="row">Lead pastor’s reaction to this page</th><td colspan="2">Patient. Both of them. Legends.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="activity">
+    <div class="wrap">
+      <h2>Portal activity</h2>
+      <ul class="feed">
+        <li><span class="role">Associate Pastor</span><span class="what">Entered the portal. <small>Reason given: “Their green room has a couch.”</small></span></li>
+        <li><span class="role">Kids Director</span><span class="what">Withdrew from the portal. <small>Discovered the new church also does VBS.</small></span></li>
+        <li><span class="role">Executive Pastor</span><span class="what">Entered the portal, asked to see the budget, left. <small>Elapsed time: 4 minutes.</small></span></li>
+        <li><span class="role">Youth Pastor</span><span class="what">Committed to a church near a Costco. <small>Flipped to a church near a Buc-ee’s.</small></span></li>
+        <li><span class="role">Worship Leader</span><span class="what">Still in the portal. <small>Will commit to whoever buys the Kemper.</small></span></li>
+        <li><span class="role">Lead Pastor</span><span class="what">Not in the portal. <small>Just checking to see who is.</small></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <h2>How the portal works</h2>
+      <ol class="steps">
+        <li><span><b>Enter</b>Tap the button. Feel the rush. Realize the button does nothing.</span></li>
+        <li><span><b>Get recruited</b>Decline the free airfare. Reconsider the free airfare. Ask if the airfare includes a spouse.</span></li>
+        <li><span><b>Commit, decommit, re-commit</b>Ideally on a podcast. Ideally the Nexus Church Planting Podcast.</span></li>
+        <li><span><b>Go home and stay planted</b>Back to the church God actually planted you in, where your team is waiting on Sunday’s set list. This is the only step Leader Care endorses.</span></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="{{LOGO_WHITE}}" alt="Nexus: Church Planting &amp; Leader Care">
+    <div class="cols">
+      <p class="planted">Stay planted.</p>
+      <p>This is a joke made for ThinkNEXT 2026. Nexus: Church Planting &amp; Leader Care does not run a transfer portal, does not recruit staff away from churches, and is in fact the exact opposite of that. See: Leader Care.</p>
+      <p class="fine">Mountain View Christian Church and Hope Chapel Kealapono are real churches led by real, patient people. No pastors were tampered with in the making of this site. Nobody is actually hiring here, as far as we know. If you are, that is between you and the Lord. Real Nexus lives at <a href="https://www.nexus.us/" target="_blank" rel="noopener">nexus.us</a>.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var panel=document.getElementById('portal-panel');
+  if(!panel){return;}
+  var steps=panel.querySelectorAll('ol li');
+  var verdict=panel.querySelector('.verdict');
+  var timers=[];
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function clear(){timers.forEach(function(t){clearTimeout(t);});timers=[];}
+  function reset(){
+    clear();
+    for(var i=0;i<steps.length;i++){steps[i].classList.remove('on');}
+    verdict.classList.remove('on');
+    verdict.textContent='Entry denied. Leader Care is on the way, and they are going to care at you so hard. Go hug your team.';
+  }
+  function enter(){
+    reset();
+    panel.hidden=false;
+    panel.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+    var delay=reduce?0:700;
+    for(var i=0;i<steps.length;i++){
+      (function(n){timers.push(setTimeout(function(){steps[n].classList.add('on');},delay*(n+1)));})(i);
+    }
+    timers.push(setTimeout(function(){verdict.classList.add('on');},delay*(steps.length+1)));
+  }
+  var enterBtns=document.querySelectorAll('[data-enter]');
+  for(var j=0;j<enterBtns.length;j++){enterBtns[j].addEventListener('click',enter);}
+  var withdraw=panel.querySelector('[data-withdraw]');
+  withdraw.addEventListener('click',function(){
+    clear();
+    verdict.textContent='Withdrawn. Good call. Your worship team has been notified that you still love them.';
+    verdict.classList.add('on');
+    timers.push(setTimeout(function(){panel.hidden=true;reset();},reduce?0:2600));
+  });
+})();
+</script>

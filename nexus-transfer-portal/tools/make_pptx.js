@@ -1,0 +1,11 @@
+const pptxgen = require('pptxgenjs');
+const [,, png, out, url] = process.argv;
+const pres = new pptxgen();
+pres.layout = 'LAYOUT_16x9';
+pres.title = 'Nexus Staff Transfer Portal';
+pres.author = 'Nexus: Church Planting and Leader Care';
+const slide = pres.addSlide();
+slide.background = { color: '262122' };
+slide.addImage({ path: png, x: 0, y: 0, w: 10, h: 5.625 });
+slide.addNotes('Nexus Staff Transfer Portal (ThinkNEXT 2026 gag). QR links to: ' + url);
+pres.writeFile({ fileName: out }).then(f => console.log('wrote', f));
