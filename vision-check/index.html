@@ -118,7 +118,7 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     <img src="../assets/runfree-logo.png" alt="RunFree.Co">
     <span class="kicker">Free · 5-minute assessment</span>
     <h1>Can your team answer the <span class="g">five questions</span> the same way?</h1>
-    <p class="lead">Most leadership teams can't. Score your church on the five irreducible questions of leadership — and get the free 40-page Vision Frame Field Guide with your results.</p>
+    <p class="lead">Score your church on the five irreducible questions of leadership, then download the free Vision Frame Field Guide.</p>
   </header>
 
   <div class="card">
@@ -149,34 +149,20 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
       <div class="gap-note" id="gapNote"></div>
 
       <div class="capture">
-        <h3>Get your full breakdown + the Field Guide</h3>
-        <p>We'll email your results and the complete guide — free.</p>
+        <h3>Your free Vision Frame Field Guide</h3>
+        <p>A short guide to the five questions from RunFree.Co. Download it now. There's nothing to fill in.</p>
         <div class="guide-row">
           <div class="gi">FIELD GUIDE</div>
-          <div class="gt"><b>The Vision Frame Field Guide</b><span>40 pages · the five questions, fully explained · normally for our cohort teams</span></div>
+          <div class="gt"><b>The Vision Frame Field Guide</b><span>7 pages · the five questions of the Vision Frame · PDF</span></div>
         </div>
-        <form id="leadForm" novalidate>
-          <div class="field"><input type="text" id="fName" name="name" placeholder="Your name" autocomplete="name" required></div>
-          <div class="field"><input type="text" id="fChurch" name="church" placeholder="Church name" autocomplete="organization"></div>
-          <div class="field"><input type="email" id="fEmail" name="email" placeholder="Email address" autocomplete="email" required></div>
-          <label class="consent"><input type="checkbox" id="fConsent" checked> Send me the free weekly RunFree email — practical vision &amp; disciple-making help for church leaders. (Unsubscribe anytime.)</label>
-          <button type="submit" class="btn">Email me my results + the Field Guide</button>
-          <p class="fineprint">No spam. Your info stays with RunFree.Co.</p>
-        </form>
+        <a class="btn" id="dlBtn" href="../assets/vision-frame-field-guide.pdf" download>Download the Field Guide (PDF)</a>
+        <div class="colab-cta">
+          <p style="margin:0">Want to talk through your results? Andrew Estes offers a free 30-minute call. <a class="textlink" href="https://tidycal.com/andrew-estes/discovery-call" data-ev="Schedule">Book a free call &rarr;</a></p>
+          <p style="margin:.6rem 0 0">Church teams work through these five questions together in the <a class="textlink" href="/">Pivvot Vision Framing co::Lab &rarr;</a></p>
+        </div>
       </div>
     </div>
 
-    <!-- SUCCESS -->
-    <div id="done">
-      <div class="check">&#10003;</div>
-      <h3>Check your inbox!</h3>
-      <p>Your results and the Vision Frame Field Guide are on the way. While you wait, grab the guide right here:</p>
-      <p style="margin-top:1rem"><a class="btn" id="dlBtn" href="../assets/vision-frame-field-guide.pdf" download>Download the Field Guide (PDF)</a></p>
-      <div class="colab-cta">
-        <p style="margin:0">Scored lower than you'd like? That's exactly what the <b>Pivvot Vision Framing co::Lab</b> fixes — a 10-month guided journey for your team, grant-funded to $250/month.<br>
-        <a class="textlink" href="/">See the co::Lab &rarr;</a></p>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -255,27 +241,9 @@ src="https://www.facebook.com/tr?id=1908535012822744&ev=PageView&noscript=1"/></
     document.getElementById('gapNote').innerHTML = 'Your biggest opportunity: <b>'+SHORT[mi]+'</b>. '+(min<=3?'This is where clarity is leaking most — and where a little focused work pays off fastest.':'Even your strongest churches sharpen here.');
   }
 
-  // Lead form — TODO: wire endpoint to GoHighLevel form / Mailchimp.
-  document.getElementById('leadForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var email = document.getElementById('fEmail').value.trim();
-    var name = document.getElementById('fName').value.trim();
-    if(!name || !/.+@.+\..+/.test(email)){ alert('Please add your name and a valid email.'); return; }
-    var payload = {
-      name: name,
-      church: document.getElementById('fChurch').value.trim(),
-      email: email,
-      weeklyEmail: document.getElementById('fConsent').checked,
-      score: answers.reduce(function(a,b){return a+b;},0),
-      answers: SHORT.map(function(s,i){return s+':'+answers[i];}).join(', '),
-      source: 'vision-check'
-    };
-    // Placeholder: POST payload to GHL/Mailchimp here. For now, advance to success.
-    if(window.ENDPOINT){ try{ fetch(window.ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); }catch(err){} }
-    document.getElementById('result').classList.remove('show');
-    document.getElementById('result').style.display='none';
-    document.getElementById('done').classList.add('show');
-    window.scrollTo({top:0,behavior:'smooth'});
+  // Pixel: name the call click, as the landing page does (DESIGN.md section 5).
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-ev]'), function(a){
+    a.addEventListener('click', function(){ if(window.fbq) fbq('track', a.getAttribute('data-ev')); });
   });
 
   renderQ();

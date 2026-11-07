@@ -33,7 +33,12 @@ Assets in `assets/`. Companion pages: `roadmap.html`, `overview/`,
 ```
 vercel --prod --yes
 vercel alias set <deployment-url> runfree-colab.vercel.app
+vercel alias set <deployment-url> pivvot-colab.vercel.app
 ```
+
+`run-free-co-lab.vercel.app` follows the production deploy by itself;
+the other two are aliases and stay on the old deployment until re-set
+(`pivvot-colab` was still serving the 30 Sept page until 7 Nov 2026).
 
 The Vercel project is `pivvot-colab`; the URL Andrew says out loud is
 **https://runfree-colab.vercel.app**. Deploying changes a page that ads are
@@ -87,11 +92,21 @@ quote marks only — never on body copy.
 - **Primary CTA everywhere = the free 30-minute TidyCal call**
   `https://tidycal.com/andrew-estes/discovery-call`. Say "free" and
   "30 minutes"; never "15".
-- **Register (GHL form `ZY5JqH…`) is secondary** — it's a commitment form
-  with $2,500 fine print. It should never out-rank the call.
-- Urgency is data-driven: the seat counter, the "4 of 8" copy, and the
-  start date are marked with `<!-- SEATS-DATE -->` / `<!-- SEAT` comments.
-  Update all of them together when a seat sells.
+- **No cohort is open (Andrew, 7 Nov 2026), so there is no Register
+  button.** The page says the fall 2026 cohort is under way and shows its
+  $2,500 grant price as that cohort's. GHL form `ZY5JqH…` ("CCL co::Lab
+  Registration #2 - October 2026 Launch") was the fall cohort's commitment
+  form. When a new cohort opens, a register button comes back as the
+  *secondary* CTA; it should never out-rank the call.
+- Every spot that states the offer status (cohort, dates, price, partner)
+  is marked `<!-- SEATS-DATE -->`. Change them together, and only from
+  Andrew's word plus `colab-offer-facts.md`. The seat-meter and days-to-go
+  CSS/JS stay in place for the next cohort.
+- No scarcity copy ("when it's full, it's full", "only N left"): the
+  Content Studio brand guide rules it out (§6, rung 5).
+- Quotes are word for word from their source: the big-church testimonials
+  from RunFree's case studies (`runfree-site/src/lib/results.ts`), Will
+  only from the brain's `voice/will-voice.md`, book quotes from the book.
 - Meta pixel fires on clicks via `data-ev="Schedule|InitiateCheckout|Contact"`.
   Keep those attributes on any CTA you add or move.
 - A sticky mobile call bar appears after the hero and hides at `.final`.
@@ -134,7 +149,14 @@ the page to work.
   `andrew-laptop`) are the approved photos. Andrew's rule for this page:
   ad photos, not personal ones.
 - `og-colab.png` (1200×630) is the share image; regenerate it whenever the
-  headline changes.
+  headline changes, and bump its `?v=` in both pages. Keep dates, seat
+  counts and prices out of it: link previews are cached hard. Source
+  (7 Nov 2026): `og.html` in the side-session notes folder
+  `colab-brand-fixes-2026-11-07/tools/`, rendered with the creative batch's
+  `_source-templates/render.sh` (photo `v_166.00.jpg`, `logo-white.png`).
+- `assets/colab-overview.pdf` is printed from `overview/` (headless Chrome,
+  `--print-to-pdf --no-pdf-header-footer`; the page has print styles).
+  Reprint it whenever the overview changes.
 
 ---
 
