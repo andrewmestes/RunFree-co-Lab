@@ -28,17 +28,27 @@ Static `index.html` with inline `<style>` and inline scripts; no build.
 Assets in `assets/`. Companion pages: `roadmap.html`, `overview/`,
 `vision-check/`.
 
-**GitHub push does NOT deploy this project.** Deploy is manual:
+**A push to `main` deploys production.** The Vercel project is linked to
+this GitHub repo, so every push to `main` goes live (GitHub shows
+`vercel[bot]` production deploys for pushes on 30 Sept and 7 Nov 2026).
+Push only what Andrew has approved. `vercel --prod --yes` from this
+folder deploys the same way by hand.
+
+After **every** production deploy, git or CLI, point the two aliases at it:
 
 ```
-vercel --prod --yes
 vercel alias set <deployment-url> runfree-colab.vercel.app
 vercel alias set <deployment-url> pivvot-colab.vercel.app
 ```
 
-`run-free-co-lab.vercel.app` follows the production deploy by itself;
-the other two are aliases and stay on the old deployment until re-set
+Only `run-free-co-lab.vercel.app` follows each production deploy by
+itself. The other two stay on the old deployment until re-set
 (`pivvot-colab` was still serving the 30 Sept page until 7 Nov 2026).
+Once a git deploy is Ready, `vercel inspect run-free-co-lab.vercel.app`
+prints its URL.
+
+The repo is public on GitHub, and Vercel serves every file in it (this
+one too, at `/DESIGN.md`). Keep anything private out of the repo.
 
 The Vercel project is `pivvot-colab`; the URL Andrew says out loud is
 **https://runfree-colab.vercel.app**. Deploying changes a page that ads are
